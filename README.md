@@ -73,7 +73,7 @@ public/
 
 ## Credits
 
-- Original author: [zewm](https://github.com/zewm)
+- Original author: [tzm13](https://github.com/tzm13)
 - Source repository: https://github.com/tzm13/HnG-Armory
 - Refactor + i18n: DoubleBird
 
