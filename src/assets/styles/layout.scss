@@ -15,6 +15,9 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  /* 固定高度避免字体 display=swap 加载前后跳动 */
+  height: 56px;
+  box-sizing: border-box;
   padding: 12px 20px;
   background: linear-gradient(180deg, #20241a, #181b12);
   border-bottom: 2px solid var(--brass-dim);
