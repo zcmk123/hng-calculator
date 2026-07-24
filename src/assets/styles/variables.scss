@@ -1,0 +1,18 @@
+// CSS 变量 — 从原 <style> :root 块抽出，颜色/字体/半径与原站一致
+:root {
+  --bg: #15170f;
+  --panel: #1e2117;
+  --panel-2: #262a1d;
+  --line: #3a3f2c;
+  --ink: #dcd8c4;
+  --ink-dim: #9a977f;
+  --ink-faint: #6c6a56;
+  --brass: #c9a24b;
+  --brass-dim: #8f7332;
+  --danger: #c85a3f;
+  --good: #8aa34b;
+  --f-us: #a8b061;
+  --f-ger: #7f95a3;
+  --f-sov: #c05a45;
+  --radius: 3px;
+}

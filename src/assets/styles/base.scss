@@ -1,0 +1,19 @@
+// 全局基础样式 — 原第 48-55 行
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Barlow Semi Condensed", system-ui, sans-serif;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, .disp {
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+button { font-family: inherit; color: inherit; cursor: pointer; }
+a { color: var(--brass); }
+:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }

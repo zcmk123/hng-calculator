@@ -1,0 +1,235 @@
+{
+  "app": {
+    "title": "H&G Armory",
+    "tagline": "by DoubleBird"
+  },
+  "tabs": {
+    "detail": "数据面板",
+    "table": "武器列表",
+    "compare": "对比"
+  },
+  "build": {
+    "loaded": "项已加载"
+  },
+  "search": {
+    "placeholder": "搜索武器…"
+  },
+  "faction": {
+    "us": "美军",
+    "ger": "德军",
+    "sov": "苏军",
+    "misc": "杂项"
+  },
+  "cat": {
+    "semiRifles": "半自动步枪",
+    "boltRifles": "栓动步枪",
+    "assaultRifles": "突击步枪",
+    "rifles": "步枪",
+    "smg": "冲锋枪",
+    "lmg": "轻机枪",
+    "handguns": "手枪",
+    "at": "反坦克",
+    "mines": "地雷",
+    "grenades": "手榴弹",
+    "equipment": "装备",
+    "apMines": "反步兵地雷",
+    "atMines": "反坦克地雷",
+    "atWeapons": "反坦克武器",
+    "rocketLaunchers": "火箭筒",
+    "misc": "杂项",
+    "unknown": "类别"
+  },
+  "hitbox": {
+    "torso": "躯干",
+    "head": "头部",
+    "legs": "腿部",
+    "arms": "手臂"
+  },
+  "badge": {
+    "none": "无",
+    "bronze": "铜",
+    "silver": "银",
+    "gold": "金",
+    "hsShort": "HS"
+  },
+  "stance": {
+    "stand": "站立",
+    "crouch": "蹲下",
+    "prone": "趴下"
+  },
+  "fireMode": {
+    "semi": "半自动",
+    "auto": "全自动",
+    "select": "选择射击"
+  },
+  "cfg": {
+    "ammo": "弹药",
+    "sight": "瞄具",
+    "trigger": "扳机",
+    "bolt": "枪栓 / 弹簧",
+    "barrel": "枪管",
+    "hitbox": "命中部位",
+    "heavyset": "敌方 Heavy Set 徽章",
+    "fastReload": "Fast Reload 徽章",
+    "ironFist": "Inf / Iron Fist 徽章",
+    "grenadier": "Grenadier 徽章",
+    "stance": "姿势（仅影响摇摆）",
+    "reset": "重置",
+    "compare": "⇄ 对比",
+    "stock": "原厂",
+    "default": "（默认）",
+    "unknown": "配件",
+    "modsN": "{n} 个配件"
+  },
+  "explosiveType": {
+    "placed": "放置",
+    "launched": "发射",
+    "thrown": "投掷"
+  },
+  "group": {
+    "damage": "伤害",
+    "armor": "护甲",
+    "handling": "操控",
+    "economy": "花费",
+    "accuracy": "精度与后坐力",
+    "weapon": "武器"
+  },
+  "stat": {
+    "rateOfFire": "射速",
+    "magazine": "弹匣",
+    "reload": "装填",
+    "damage": "伤害",
+    "dps": "每秒伤害",
+    "htk": "击杀所需命中数",
+    "ttk": "击杀时间",
+    "velocity": "初速",
+    "range": "射程",
+    "maxRange": "最大射程",
+    "mags": "携带弹匣数",
+    "armorDmg": "护甲伤害",
+    "armorDps": "护甲 DPS",
+    "armorPen": "护甲穿透",
+    "armorPenFar": "远距离护甲穿透",
+    "penRange": "穿透射程",
+    "cone": "散布角",
+    "recoilUp": "后坐力 ↑",
+    "recoilRight": "后坐力 ↔",
+    "recoilSpread": "后坐力散布",
+    "bloom": "每发射击散布扩散",
+    "sway": "摇摆（{stance}）",
+    "swaySpeed": "摇摆速度",
+    "swayFatigue": "摇摆疲劳",
+    "turnPenalty": "转向惩罚",
+    "equipTime": "切枪时间",
+    "costPerShot": "每发花费",
+    "costPerMag": "每弹匣花费",
+    "costToBuy": "购买成本",
+    "ep": "装备点数",
+    "explosionDmg": "爆炸伤害",
+    "directHit": "直接命中",
+    "killRadius": "击杀半径",
+    "blastRadius": "爆炸半径",
+    "fuseTime": "引信时间",
+    "projectileVelocity": "抛射物速度",
+    "maxDistance": "最大距离",
+    "type": "类型",
+    "costPerUse": "每次使用花费",
+    "free": "免费",
+    "meleeDamage": "近战伤害",
+    "rangeReach": "射程 / 触及"
+  },
+  "unit": {
+    "rpm": "发/分",
+    "rds": "发",
+    "s": "秒",
+    "hp": "血",
+    "hpPerS": "血/秒",
+    "ms": "毫秒",
+    "mPerS": "米/秒",
+    "m": "米",
+    "deg": "°",
+    "mm": "毫米",
+    "cr": "金币",
+    "g": "金"
+  },
+  "spread": {
+    "vsSoldier": "对士兵的散布",
+    "vsTank": "对 M5A1 Stuart 的散布",
+    "recoilPattern": "后坐力轨迹（一整弹匣）",
+    "soldierScale": "0.5 米",
+    "tankScale": "1 米",
+    "soldierPct": "躯干宽度",
+    "tankPct": "Stuart 车高",
+    "recoilNote": "{n} 发 · ↑{up} ↔{right} ±{var}",
+    "recoilFoot": "第 1 发 = 瞄准点 · 弹道向上爬升",
+    "stock": "原厂",
+    "thisBuild": "当前配置",
+    "stuartLabel": "M5A1 Stuart · 4.34 × 2.26 米",
+    "at": "在",
+    "cmAcross": "厘米跨度"
+  },
+  "curves": {
+    "title": "战斗曲线",
+    "legendVs": "随距离变化 · 命中 {hitbox}{heavyset}",
+    "legend100": "虚线 = 100 血",
+    "damage": "伤害",
+    "dps": "每秒伤害",
+    "htk": "击杀所需命中数",
+    "ttk": "击杀时间（毫秒）",
+    "blast": "爆炸衰减",
+    "blastLegend": "距中心米数 · 虚线 100 血 · 击杀半径 {r} 米"
+  },
+  "chart": {
+    "damageFromCentre": "距中心伤害",
+    "metresFromCentre": "距中心米数",
+    "dashedHp": "虚线 = 100 血",
+    "killRadius": "击杀半径"
+  },
+  "table": {
+    "notice": "对比全部。",
+    "noticeBody": "所有武器均原厂、躯干命中、无 Heavy Set。点击列头排序；点击行打开其数据面板。",
+    "cols": {
+      "weapon": "武器",
+      "rpm": "射速",
+      "dmg": "伤害",
+      "dps": "DPS",
+      "htk": "命中数",
+      "ttk": "击杀时间",
+      "velocity": "米/秒",
+      "far": "远射程",
+      "recoilUp": "后坐力↑",
+      "cone": "散布°",
+      "mag": "弹匣",
+      "ep": "装备点数"
+    }
+  },
+  "versus": {
+    "hitLocation": "命中部位",
+    "heavySet": "敌方 Heavy Set",
+    "fastReload": "Fast Reload",
+    "ironFist": "Inf / Iron Fist",
+    "grenadier": "Grenadier",
+    "stance": "姿势",
+    "selectTwo": "至少选择两件武器进行对比。",
+    "none": "— 无 —",
+    "combatCurves": "战斗曲线",
+    "colWeapon": "武器",
+    "colClass": "类别",
+    "colFaction": "阵营",
+    "colFireMode": "射击模式"
+  },
+  "contact": {
+    "btn": "联系与支持",
+    "bugs": "Bug / 建议",
+    "support": "支持本站",
+    "discord": "Discord",
+    "copy": "复制",
+    "copied": "已复制",
+    "kofi": "ko-fi.com/tzm13",
+    "refurbish": "重构 + 汉化",
+    "originalAuthor": "原作者"
+  },
+  "lang": {
+    "switch": "中/EN"
+  }
+}

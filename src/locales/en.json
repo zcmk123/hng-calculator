@@ -1,0 +1,235 @@
+{
+  "app": {
+    "title": "H&G Armory",
+    "tagline": "by DoubleBird"
+  },
+  "tabs": {
+    "detail": "Data Sheet",
+    "table": "Weapon List",
+    "compare": "Compare"
+  },
+  "build": {
+    "loaded": "items loaded"
+  },
+  "search": {
+    "placeholder": "search weapon…"
+  },
+  "faction": {
+    "us": "United States",
+    "ger": "Germany",
+    "sov": "Soviet Union",
+    "misc": "Misc"
+  },
+  "cat": {
+    "semiRifles": "Semi-auto Rifles",
+    "boltRifles": "Bolt-action Rifles",
+    "assaultRifles": "Assault Rifles",
+    "rifles": "Rifles",
+    "smg": "Sub Machine Guns",
+    "lmg": "Light Machine Guns",
+    "handguns": "Handguns",
+    "at": "AT",
+    "mines": "Mines",
+    "grenades": "Grenades",
+    "equipment": "Equipment",
+    "apMines": "AP Mines",
+    "atMines": "AT Mines",
+    "atWeapons": "AT Weapons",
+    "rocketLaunchers": "Rocket Launchers",
+    "misc": "Misc",
+    "unknown": "Category"
+  },
+  "hitbox": {
+    "torso": "Torso",
+    "head": "Head",
+    "legs": "Legs",
+    "arms": "Arms"
+  },
+  "badge": {
+    "none": "None",
+    "bronze": "Bronze",
+    "silver": "Silver",
+    "gold": "Gold",
+    "hsShort": "HS"
+  },
+  "stance": {
+    "stand": "Stand",
+    "crouch": "Crouch",
+    "prone": "Prone"
+  },
+  "fireMode": {
+    "semi": "Semi-auto",
+    "auto": "Automatic",
+    "select": "Select fire"
+  },
+  "cfg": {
+    "ammo": "Ammunition",
+    "sight": "Sight",
+    "trigger": "Trigger",
+    "bolt": "Bolt / Spring",
+    "barrel": "Barrel",
+    "hitbox": "Hit location",
+    "heavyset": "Enemy Heavy Set",
+    "fastReload": "Fast Reload badge",
+    "ironFist": "Inf / Iron Fist badge",
+    "grenadier": "Grenadier badge",
+    "stance": "Stance (sway only)",
+    "reset": "Reset",
+    "compare": "⇄ Compare",
+    "stock": "Stock",
+    "default": "(default)",
+    "unknown": "modifier",
+    "modsN": "{n} mod"
+  },
+  "explosiveType": {
+    "placed": "Placed",
+    "launched": "Launched",
+    "thrown": "Thrown"
+  },
+  "group": {
+    "damage": "Damage",
+    "armor": "Armor",
+    "handling": "Handling",
+    "economy": "Economy",
+    "accuracy": "Accuracy & recoil",
+    "weapon": "Weapon"
+  },
+  "stat": {
+    "rateOfFire": "Rate of fire",
+    "magazine": "Magazine",
+    "reload": "Reload",
+    "damage": "Damage",
+    "dps": "Damage / s",
+    "htk": "Hits to kill",
+    "ttk": "Time to kill",
+    "velocity": "Muzzle velocity",
+    "range": "Range",
+    "maxRange": "Max range",
+    "mags": "Mags carried",
+    "armorDmg": "Armor damage",
+    "armorDps": "Armor DPS",
+    "armorPen": "Armor pen",
+    "armorPenFar": "Armor pen · far",
+    "penRange": "Pen range",
+    "cone": "Cone of fire",
+    "recoilUp": "Recoil ↑",
+    "recoilRight": "Recoil ↔",
+    "recoilSpread": "Recoil spread",
+    "bloom": "Cone bloom / shot",
+    "sway": "Sway ({stance})",
+    "swaySpeed": "Sway speed",
+    "swayFatigue": "Sway fatigue",
+    "turnPenalty": "Turn penalty",
+    "equipTime": "Equip time",
+    "costPerShot": "Cost / shot",
+    "costPerMag": "Cost / mag",
+    "costToBuy": "Cost to buy",
+    "ep": "Equipment pts",
+    "explosionDmg": "Explosion damage",
+    "directHit": "Direct hit",
+    "killRadius": "Kill radius",
+    "blastRadius": "Blast radius",
+    "fuseTime": "Fuse time",
+    "projectileVelocity": "Projectile velocity",
+    "maxDistance": "Max distance",
+    "type": "Type",
+    "costPerUse": "Cost / use",
+    "free": "Free",
+    "meleeDamage": "Melee damage",
+    "rangeReach": "Range / reach"
+  },
+  "unit": {
+    "rpm": "rpm",
+    "rds": "rds",
+    "s": "s",
+    "hp": "hp",
+    "hpPerS": "hp/s",
+    "ms": "ms",
+    "mPerS": "m/s",
+    "m": "m",
+    "deg": "°",
+    "mm": "mm",
+    "cr": "cr",
+    "g": "g"
+  },
+  "spread": {
+    "vsSoldier": "Spread vs a soldier",
+    "vsTank": "Spread vs an M5A1 Stuart",
+    "recoilPattern": "Recoil pattern (one mag)",
+    "soldierScale": "0.5 m",
+    "tankScale": "1 m",
+    "soldierPct": "of a torso",
+    "tankPct": "of a Stuart's height",
+    "recoilNote": "{n} shots · ↑{up} ↔{right} ±{var}",
+    "recoilFoot": "shot 1 = aim point · spray climbs upward",
+    "stock": "STOCK",
+    "thisBuild": "THIS BUILD",
+    "stuartLabel": "M5A1 Stuart · 4.34 × 2.26 m",
+    "at": "at",
+    "cmAcross": "cm across"
+  },
+  "curves": {
+    "title": "Combat curves",
+    "legendVs": "vs distance · after {hitbox}{heavyset}",
+    "legend100": "dashed = 100 hp",
+    "damage": "Damage",
+    "dps": "Damage / s",
+    "htk": "Hits to kill",
+    "ttk": "Time to kill (ms)",
+    "blast": "Blast falloff",
+    "blastLegend": "metres from centre · dashed 100 hp · kill radius {r} m"
+  },
+  "chart": {
+    "damageFromCentre": "Damage from centre",
+    "metresFromCentre": "metres from centre",
+    "dashedHp": "dashed = 100 hp",
+    "killRadius": "kill radius"
+  },
+  "table": {
+    "notice": "Compare all.",
+    "noticeBody": "Every weapon at stock, torso hit, no Heavy Set. Click a column to sort; click a row to open its sheet.",
+    "cols": {
+      "weapon": "Weapon",
+      "rpm": "RPM",
+      "dmg": "Dmg",
+      "dps": "DPS",
+      "htk": "HTK",
+      "ttk": "TTK ms",
+      "velocity": "m/s",
+      "far": "Far m",
+      "recoilUp": "Recoil↑",
+      "cone": "Cone°",
+      "mag": "Mag",
+      "ep": "EP"
+    }
+  },
+  "versus": {
+    "hitLocation": "Hit location",
+    "heavySet": "Enemy Heavy Set",
+    "fastReload": "Fast Reload",
+    "ironFist": "Inf / Iron Fist",
+    "grenadier": "Grenadier",
+    "stance": "Stance",
+    "selectTwo": "Select at least two weapons to compare.",
+    "none": "— none —",
+    "combatCurves": "Combat curves",
+    "colWeapon": "Weapon",
+    "colClass": "Class",
+    "colFaction": "Faction",
+    "colFireMode": "Fire mode"
+  },
+  "contact": {
+    "btn": "Contact & Support",
+    "bugs": "Bugs / suggestions",
+    "support": "Support the site",
+    "discord": "Discord",
+    "copy": "copy",
+    "copied": "copied",
+    "kofi": "ko-fi.com/tzm13",
+    "refurbish": "Refactor & i18n",
+    "originalAuthor": "Original author"
+  },
+  "lang": {
+    "switch": "中/EN"
+  }
+}

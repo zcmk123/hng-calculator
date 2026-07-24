@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)https://hng-armory.top/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H&amp;G Armory - Heroes &amp; Generals Weapon Stats &amp; TTK Calculator</title>
+<link rel="icon" type="image/png" href="https://hng-armory.top/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="https://hng-armory.top/favicon.svg">
+<link rel="shortcut icon" href="https://hng-armory.top/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="https://hng-armory.top/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="H&amp;G Armory">
+<link rel="manifest" href="https://hng-armory.top/site.webmanifest">
+<meta name="description" content="H&amp;G Armory is a free Heroes &amp; Generals weapon stats database and comparison tool. Compare damage, DPS, time-to-kill, recoil, accuracy, armor penetration and reload times for every rifle, SMG, LMG, pistol, anti-tank launcher, grenade and mine, with attachments, ammo types and badges.">
+<meta name="keywords" content="Heroes and Generals, H&amp;G, weapon stats, damage calculator, TTK, DPS, gun comparison, Heroes and Generals weapons">
+<meta name="author" content="zewm">
+<link rel="canonical" href="https://hng-armory.top/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#15170f">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="H&amp;G Armory">
+<meta property="og:url" content="https://hng-armory.top/">
+<meta property="og:title" content="H&amp;G Armory - Heroes &amp; Generals Weapon Stats">
+<meta property="og:description" content="Free Heroes &amp; Generals weapon stats: damage, DPS, time-to-kill, recoil, accuracy and armor penetration for every weapon, with attachments, ammo and badges. Compare any two or three weapons side by side.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="H&amp;G Armory - Heroes &amp; Generals Weapon Stats">
+<meta name="twitter:description" content="Free Heroes &amp; Generals weapon stats and comparison tool: damage, DPS, TTK, recoil, accuracy, armor penetration.">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication",
+"name":"H&G Armory","url":"https://hng-armory.top/",
+"applicationCategory":"GameApplication","operatingSystem":"Any (web browser)",
+"description":"Heroes & Generals weapon stats database and comparison tool covering damage, DPS, time-to-kill, recoil, accuracy, armor penetration and reload times, with attachments, ammunition types and badges.",
+"author":{"@type":"Person","name":"zewm"},
+"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+"about":{"@type":"VideoGame","name":"Heroes & Generals"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./H&amp;G Armory - Heroes &amp; Generals Weapon Stats &amp; TTK Calculator_files/css2" rel="stylesheet">
+<style>
+:root{
+  --bg:#15170f; --panel:#1e2117; --panel-2:#262a1d; --line:#3a3f2c;
+  --ink:#dcd8c4; --ink-dim:#9a977f; --ink-faint:#6c6a56;
+  --brass:#c9a24b; --brass-dim:#8f7332; --danger:#c85a3f; --good:#8aa34b;
+  --f-us:#a8b061; --f-ger:#7f95a3; --f-sov:#c05a45; --radius:3px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font-family:"Barlow Semi Condensed",system-ui,sans-serif;font-size:15px;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.disp{font-family:"Oswald",sans-serif;font-weight:600;letter-spacing:.02em}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+button{font-family:inherit;color:inherit;cursor:pointer}
+a{color:var(--brass)}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+.app{display:grid;grid-template-columns:270px 1fr;min-height:100vh}
+@media(max-width:820px){.app{grid-template-columns:1fr}}
+
+.topbar{grid-column:1/-1;display:flex;align-items:center;gap:16px;padding:12px 20px;background:linear-gradient(180deg,#20241a,#181b12);border-bottom:2px solid var(--brass-dim)}
+.brand{display:flex;align-items:baseline;gap:12px}
+.brand .stencil{font-family:"Oswald";font-weight:700;font-size:22px;letter-spacing:.14em;text-transform:uppercase}
+.brand .tag{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--brass)}
+.build{margin-left:auto;font-size:11px;letter-spacing:.15em;color:var(--ink-faint);text-transform:uppercase}
+.tabs{display:flex;gap:2px}
+.contact{margin-left:14px;position:relative}
+.contact-btn{background:transparent;color:var(--ink-faint);border:1px solid var(--line);border-radius:var(--radius);
+  font-family:"Oswald";text-transform:uppercase;letter-spacing:.1em;font-size:10px;padding:5px 10px;cursor:pointer;transition:.12s}
+.contact-btn:hover,.contact-btn[aria-expanded="true"]{color:var(--brass);border-color:var(--brass-dim)}
+.contact-pop{position:absolute;right:0;top:calc(100% + 8px);z-index:40;min-width:250px;
+  background:var(--panel-2);border:1px solid var(--brass-dim);border-radius:var(--radius);
+  padding:12px 14px;box-shadow:0 10px 26px #000a;display:flex;flex-direction:column;gap:10px}
+.contact-pop[hidden]{display:none}
+.cp-row{display:flex;flex-direction:column;gap:3px}
+.cp-k{font-family:"Oswald";text-transform:uppercase;letter-spacing:.1em;font-size:9px;color:var(--ink-faint)}
+.cp-v{font-family:"JetBrains Mono";font-size:12px;color:var(--ink-dim)}
+.cp-v b{color:var(--ink)}
+.cp-copy{background:transparent;border:1px solid var(--line);border-radius:3px;color:var(--ink-faint);
+  font-family:"JetBrains Mono";font-size:9px;padding:1px 5px;margin-left:4px;cursor:pointer}
+.cp-copy:hover{color:var(--brass);border-color:var(--brass-dim)}
+.cp-kofi{display:inline-flex;align-items:center;gap:6px;font-family:"JetBrains Mono";font-size:12px;color:var(--brass);text-decoration:none;align-self:flex-start;
+  border:1px solid var(--brass-dim);border-radius:var(--radius);padding:5px 9px;transition:.12s}
+.cp-kofi:hover{color:var(--ink);border-color:var(--brass);background:#2a2415}
+.kofi-ico{width:15px;height:15px;flex:0 0 auto}
+.tabs button{background:transparent;border:1px solid transparent;border-bottom:none;padding:7px 16px 6px;font-family:"Oswald";letter-spacing:.1em;text-transform:uppercase;font-size:13px;color:var(--ink-dim);border-radius:var(--radius) var(--radius) 0 0}
+.tabs button[aria-selected="true"]{color:var(--bg);background:var(--brass);font-weight:600}
+
+.sidebar{background:var(--panel);border-right:1px solid var(--line);overflow-y:auto;max-height:calc(100vh - 55px)}
+.search{padding:12px}
+.search input{width:100%;background:#12140d;border:1px solid var(--line);color:var(--ink);padding:8px 10px;border-radius:var(--radius);font-family:"JetBrains Mono";font-size:13px}
+.search input::placeholder{color:var(--ink-faint)}
+.faction-head{padding:9px 12px 5px;font-family:"Oswald";text-transform:uppercase;letter-spacing:.14em;font-size:12px;display:flex;align-items:center;gap:8px;border-top:1px solid var(--line);cursor:pointer;user-select:none}
+.faction-head:hover{background:var(--panel-2)}
+.faction-head .chip{width:10px;height:10px;border-radius:2px;box-shadow:0 0 0 1px #0004 inset}
+.cat-head{padding:6px 12px 3px 20px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px}
+.cat-head:hover{color:var(--ink-dim)}
+.cat-head .cnt{margin-left:auto;font-family:"JetBrains Mono";font-size:10px;opacity:.6;letter-spacing:0}
+.tw{display:inline-block;font-size:9px;transition:transform .12s;width:9px;color:var(--ink-faint)}
+.closed .tw{transform:rotate(-90deg)}
+.wpn-item{padding:6px 12px 6px 24px;font-size:14px;color:var(--ink-dim);cursor:pointer;border-left:3px solid transparent;display:flex;justify-content:space-between;gap:8px}
+.wpn-item:hover{background:var(--panel-2);color:var(--ink)}
+.wpn-item[aria-current="true"]{background:#2c3020;color:var(--ink);border-left-color:var(--brass)}
+.wpn-item .ep{font-family:"JetBrains Mono";font-size:11px;color:var(--ink-faint)}
+
+.main{overflow-y:auto;max-height:calc(100vh - 55px);padding:22px 26px 60px}
+.sheet-head{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:20px}
+.sheet-head .name{font-size:30px;line-height:1;text-transform:uppercase;letter-spacing:.03em}
+.sheet-head .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.badge{font-family:"JetBrains Mono";font-size:11px;letter-spacing:.06em;padding:3px 8px;border-radius:2px;border:1px solid var(--line);color:var(--ink-dim);text-transform:uppercase}
+.badge.faction{border-color:currentColor}
+
+.layout{display:grid;grid-template-columns:300px 1fr;gap:24px}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}}
+.config .block{margin-bottom:18px}
+.cfg-selects{display:grid;grid-template-columns:1fr 1fr;gap:6px 8px;margin-bottom:12px}
+.cfg-sel{display:flex;flex-direction:column;gap:2px;min-width:0}
+.cfg-sel label{font-family:"Oswald";text-transform:uppercase;letter-spacing:.08em;font-size:9px;color:var(--ink-faint)}
+.cfg-sel select{width:100%;background:#12140d;color:var(--ink);border:1px solid var(--line);padding:5px 6px;border-radius:var(--radius);font-size:12px}
+.cfg-seg{margin-bottom:8px}
+.cfg-seg>label{display:block;font-family:"Oswald";text-transform:uppercase;letter-spacing:.1em;font-size:9px;color:var(--ink-faint);margin-bottom:3px}
+.cfg-btns{display:flex;gap:6px;margin-top:10px}
+.cfg-btns .resetbtn{flex:1}
+.config label{display:block;font-family:"Oswald";text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--ink-faint);margin-bottom:5px}
+.config select{width:100%;background:#12140d;color:var(--ink);border:1px solid var(--line);padding:8px 9px;border-radius:var(--radius);font-size:14px}
+.seg{display:flex;flex-wrap:wrap;gap:4px}
+.seg button{flex:1 1 auto;background:#12140d;border:1px solid var(--line);color:var(--ink-dim);padding:6px 4px;font-size:12px;border-radius:var(--radius);letter-spacing:.04em;min-width:44px}
+.seg button[aria-pressed="true"]{background:var(--brass);color:#161810;border-color:var(--brass);font-weight:600}
+.hint{font-size:12px;color:var(--ink-faint);margin-top:4px;line-height:1.4}
+.resetbtn{background:transparent;border:1px solid var(--line);color:var(--ink-dim);padding:7px 10px;border-radius:var(--radius);font-size:12px;letter-spacing:.06em;text-transform:uppercase;width:100%}
+.resetbtn:hover{border-color:var(--brass);color:var(--brass)}
+
+.readouts{display:flex;flex-direction:column;gap:14px}
+.stat-group h3.sec-h{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin:0 0 7px;display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
+.stat-group h3.sec-h::after{content:"";flex:1;height:1px;background:var(--line)}
+.stat-group h3.sec-h .tw{font-size:9px;color:var(--brass);transition:transform .12s}
+.stat-group.sec-closed h3.sec-h .tw{transform:rotate(-90deg)}
+.stat-group.sec-closed .sec-body{display:none}
+.grid{display:flex;flex-wrap:wrap;gap:6px}
+.cell{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:6px 8px;flex:1 1 118px;min-width:118px}
+.cell .k{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cell .v{font-family:"JetBrains Mono";font-size:16px;font-weight:500;margin-top:2px}
+.cell .v small{font-size:10px;color:var(--ink-dim);font-weight:400}
+.cell.hot .v{color:var(--brass)}
+.cell.kill .v{color:var(--danger)}
+.cell .delta{font-family:"JetBrains Mono";font-size:10px;margin-left:5px}
+.delta.up{color:var(--good)} .delta.down{color:var(--danger)}
+
+.chartwrap{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px 12px 5px}
+.stat-flow{column-count:2;column-gap:16px}
+.stat-flow>.stat-group{break-inside:avoid;display:inline-block;width:100%;vertical-align:top;margin-bottom:12px}
+@media(max-width:1050px){.stat-flow{column-count:1}}
+.chart-legend{display:flex;gap:16px;font-size:12px;color:var(--ink-dim);margin-bottom:6px;flex-wrap:wrap}
+.chart-legend .k{display:inline-flex;align-items:center;gap:6px}
+.mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:1150px){.mini-grid{grid-template-columns:1fr 1fr}}
+.readouts-area{display:flex;gap:16px;align-items:flex-start}
+.readouts{flex:1 1 auto;min-width:0}
+.curves-col{flex:0 0 360px;position:sticky;top:6px}
+.curves-col .mini-grid{grid-template-columns:1fr}
+.curves-col .chartwrap{max-width:none;margin:0;padding:8px}
+.curves-title{font-family:"Oswald";font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin:0 0 6px}
+@media(max-width:1180px){.readouts-area{flex-wrap:wrap}.curves-col{flex-basis:100%;position:static}.curves-col .mini-grid{grid-template-columns:1fr 1fr}}
+.stat-cols{column-count:2;column-gap:14px}
+.stat-cols>.stat-group{break-inside:avoid;margin-bottom:12px;display:inline-block;width:100%}
+@media(max-width:900px){.stat-cols{column-count:1}}
+.cfg-seg>label{cursor:pointer;user-select:none;display:flex;align-items:center;gap:5px}
+.cfg-seg>label::before{content:"▾";font-size:8px;color:var(--ink-faint);transition:transform .12s}
+.cfg-seg.closed>label::before{transform:rotate(-90deg)}
+.cfg-seg.closed .seg{display:none}
+.rc-legend{display:flex;gap:12px;justify-content:center;font-family:"JetBrains Mono";font-size:10px;color:var(--ink-dim);margin-top:3px}
+.rc-legend i{display:inline-block;width:12px;height:0;border-top-width:2px;border-top-style:solid;margin-right:4px;vertical-align:middle}
+.rc-legend .rc-cur{border-color:var(--brass)}
+.rc-legend .rc-ref{border-top-style:dashed;border-color:var(--ink-faint)}
+.mini-chart{background:#1a1c14;border:1px solid var(--line);border-radius:var(--radius);padding:6px 4px 2px}
+.mini-title{font-family:"Oswald";font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim);text-align:center;margin-bottom:2px}
+.mc-plot{position:relative}
+.mc-tip{position:absolute;top:2px;pointer-events:none;opacity:0;transition:opacity .08s;background:#12140dee;border:1px solid var(--line);border-radius:3px;padding:2px 6px;font-family:"JetBrains Mono";font-size:10px;white-space:nowrap}
+.mc-tip b{color:var(--ink)}
+.spread-panes-2{grid-template-columns:1fr 1fr}
+.spread-panes-1{grid-template-columns:1fr;max-width:340px}
+.acc-wrap{max-width:720px}
+.spread-panes svg{max-height:230px;display:block;margin:0 auto}
+@media(max-width:900px){.spread-panes-2{grid-template-columns:1fr}}
+.rc-note{text-align:center;font-family:"JetBrains Mono";font-size:10px;color:var(--ink-faint);margin-top:2px}
+.readouts.two-col{column-count:2;column-gap:16px}
+.readouts.two-col>.stat-group{break-inside:avoid;margin-bottom:14px;display:inline-block;width:100%}
+@media(max-width:1250px){.readouts.two-col{column-count:1}}
+.spread-readout{font-family:"JetBrains Mono";font-size:14px;color:var(--ink);margin-bottom:8px}
+.spread-readout b{color:var(--brass);font-weight:500}
+.spread-readout .dim{color:var(--ink-faint);font-size:12px}
+.spread-slider{display:flex;align-items:center;gap:10px;font-family:"JetBrains Mono";font-size:11px;color:var(--ink-faint);margin-bottom:12px}
+.rng{flex:1;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:var(--line);outline:none}
+.rng::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--brass);cursor:pointer;border:2px solid #161810}
+.rng::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--brass);cursor:pointer;border:2px solid #161810}
+.spread-panes{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+@media(max-width:560px){.spread-panes{grid-template-columns:1fr}}
+.spread-cap{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px;text-align:center}
+.hb-legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:8px;font-family:"JetBrains Mono";font-size:11px;color:var(--ink-dim)}
+.hb-legend span{display:inline-flex;align-items:center;gap:4px;opacity:.7}
+.hb-legend span.on{opacity:1;color:var(--ink)}
+.hb-legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.dmg-plot{position:relative}
+.dmg-tip{position:absolute;top:8px;pointer-events:none;opacity:0;transition:opacity .08s;background:#12140dEE;border:1px solid var(--line);border-radius:var(--radius);padding:5px 8px;font-family:"JetBrains Mono";font-size:11px;line-height:1.35;white-space:nowrap}
+.dmg-tip b{color:var(--ink)}
+.vs-pickers{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.vs-pickbox{display:flex;align-items:center;gap:8px;flex:1 1 200px}
+.vs-dot{width:12px;height:12px;border-radius:3px;flex:none;box-shadow:0 0 0 1px #0004 inset}
+.vs-pick{flex:1;background:#12140d;color:var(--ink);border:1px solid var(--line);padding:8px 9px;border-radius:var(--radius);font-size:14px}
+.vs-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px;table-layout:fixed}
+.vs-col-lbl{width:170px}
+.vs-col{width:240px}
+.vs-table th,.vs-table td{padding:5px 14px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vs-table th{font-family:"Oswald";letter-spacing:.03em;font-size:14px;text-transform:none;position:static;background:none;cursor:default}
+.vs-head{vertical-align:top;padding:6px 10px 10px !important;text-align:left !important;border-bottom:1px solid var(--brass) !important}
+.vs-head select{max-width:100%}
+.vs-grouprow td{border-bottom:none;padding:14px 0 2px !important}
+.vs-grouplbl{text-align:left !important;font-family:"Oswald";text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--brass)}
+.vs-text{font-family:"Barlow Semi Condensed" !important;color:var(--ink-dim)}
+.vs-empty{border-bottom:1px solid var(--line)}
+.vs-area{display:flex;gap:18px;align-items:flex-start}
+.vs-tablewrap{flex:1 1 auto;min-width:0;overflow-x:auto}
+.vs-charts{flex:0 0 420px;position:sticky;top:6px}
+.vs-charts .chartwrap{max-width:none;margin:0;padding:8px}
+.vs-charts .mini-grid{grid-template-columns:1fr}
+.vs-charts .chart-legend{font-size:10px;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+@media(max-width:1250px){.vs-area{flex-wrap:wrap}.vs-charts{flex-basis:100%;position:static}.vs-charts .mini-grid{grid-template-columns:1fr 1fr}}
+.vs-tablewrap{overflow-x:auto}
+.vs-table td{font-family:"JetBrains Mono"}
+.vs-table td small{color:var(--ink-dim);font-size:10px}
+.vs-lbl{text-align:left !important;font-family:"Barlow Semi Condensed" !important;color:var(--ink-dim);font-size:12px;padding-right:24px !important}
+.vs-win{background:#c9a24b1a;color:var(--brass) !important}
+.vs-win small{color:var(--brass) !important;opacity:.7}
+.vs-pickers{max-width:640px}
+.vs-presets{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 18px;padding:12px 14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);max-width:900px}
+.vs-preset{display:flex;flex-direction:column;gap:4px}
+.vs-preset>label{font-family:"Oswald";text-transform:uppercase;letter-spacing:.1em;font-size:9px;color:var(--ink-faint)}
+.vs-preset .seg{gap:3px}
+.vs-preset .seg button{min-width:36px;padding:4px 6px;font-size:11px}
+.vs-picktop{display:flex;align-items:center;gap:8px}
+.vs-config{display:flex;flex-direction:column;gap:4px;margin-top:8px;padding-left:20px}
+.vs-pick2{background:#12140d;color:var(--ink-dim);border:1px solid var(--line);padding:4px 6px;border-radius:var(--radius);font-size:11px;width:100%;max-width:100%;box-sizing:border-box}
+.vs-picktop{min-width:0}
+.vs-picktop select{flex:1 1 auto;min-width:0}
+.vs-sub{font-family:"JetBrains Mono";font-size:10px;color:var(--ink-faint);font-weight:400;margin-top:2px;text-transform:none;letter-spacing:0}
+
+.tableview{display:none} .tableview.active{display:block} .detailview.hidden{display:none}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:7px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-family:"Oswald";text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--ink-dim);cursor:pointer;position:sticky;top:0;background:var(--panel-2);user-select:none}
+th[aria-sort]{color:var(--brass)}
+td{font-family:"JetBrains Mono"} tbody tr{cursor:pointer} tbody tr:hover{background:var(--panel)}
+.faction-dot{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:7px;vertical-align:middle}
+.seo-intro{max-width:760px;margin-bottom:22px;color:var(--ink-dim);font-size:14px;line-height:1.6}
+.seo-intro h1{font-family:"Oswald";font-size:22px;letter-spacing:.06em;color:var(--brass);margin:0 0 10px;text-transform:uppercase}
+.seo-intro p{margin:0 0 10px}
+.notice{background:#221d10;border:1px solid var(--brass-dim);border-radius:var(--radius);padding:12px 14px;font-size:13px;color:var(--ink-dim);line-height:1.5;margin-bottom:20px}
+.notice b{color:var(--brass);font-family:"Oswald";letter-spacing:.05em}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="brand"><span class="stencil">H&amp;G Armory</span><span class="tag">by zewm</span></div>
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-view="detail">Data Sheet</button>
+      <button role="tab" aria-selected="false" data-view="table">Weapon List</button>
+      <button role="tab" aria-selected="false" data-view="versus">Compare</button>
+    </div>
+    <span class="build mono" id="buildTag">82 items loaded</span>
+    <div class="contact" id="contactWrap">
+      <button class="contact-btn" id="contactBtn" aria-expanded="false">Contact &amp; Support</button>
+      <div class="contact-pop" id="contactPop" hidden="">
+        <div class="cp-row"><span class="cp-k">Bugs / suggestions</span>
+          <span class="cp-v">Discord: <b id="dcHandle">tzm13</b> <button class="cp-copy" id="copyDc" title="Copy">copy</button></span></div>
+        <div class="cp-row"><span class="cp-k">Support the site</span>
+          <a class="cp-kofi" href="https://ko-fi.com/tzm13" target="_blank" rel="noopener"><svg class="kofi-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h13v8a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V5z" fill="currentColor" opacity=".9"></path><path d="M17 7h1.6a2.9 2.9 0 0 1 0 5.8H17" fill="none" stroke="currentColor" stroke-width="1.8"></path><path d="M7.4 2.2c-.8.9-.8 1.7 0 2.6M10.6 2.2c-.8.9-.8 1.7 0 2.6M13.8 2.2c-.8.9-.8 1.7 0 2.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".75"></path><rect x="3.4" y="19.4" width="14.2" height="1.9" rx=".95" fill="currentColor" opacity=".9"></rect></svg>ko-fi.com/tzm13</a></div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="search"><input id="search" placeholder="search weapon…" autocomplete="off"></div>
+    <div id="wpnList"><div class="faction-head"><span class="tw">▾</span><span class="chip" style="background:#a8b061"></span>United States</div><div class="cat-head closed"><span class="tw">▾</span>Rifles<span class="cnt">6</span></div><div class="cat-head closed"><span class="tw">▾</span>Sub Machine Guns<span class="cnt">2</span></div><div class="cat-head"><span class="tw">▾</span>Light Machine Guns<span class="cnt">3</span></div><div class="wpn-item" aria-current="false"><span>Johnson M1941 LMG</span><span class="ep">6 EP</span></div><div class="wpn-item" aria-current="false"><span>M1918 Automatic Rifle</span><span class="ep">6 EP</span></div><div class="wpn-item" aria-current="false"><span>M1919A6 MG</span><span class="ep">7 EP</span></div><div class="cat-head"><span class="tw">▾</span>Handguns<span class="cnt">3</span></div><div class="wpn-item" aria-current="false"><span>1903 Pocket Hammerless</span><span class="ep">1 EP</span></div><div class="wpn-item" aria-current="true"><span>1911 Pistol</span><span class="ep">2 EP</span></div><div class="wpn-item" aria-current="false"><span>M1917 Revolver</span><span class="ep">2 EP</span></div><div class="cat-head closed"><span class="tw">▾</span>AT<span class="cnt">4</span></div><div class="cat-head closed"><span class="tw">▾</span>Mines<span class="cnt">2</span></div><div class="cat-head closed"><span class="tw">▾</span>Grenades<span class="cnt">4</span></div><div class="faction-head closed"><span class="tw">▾</span><span class="chip" style="background:#7f95a3"></span>Germany</div><div class="faction-head closed"><span class="tw">▾</span><span class="chip" style="background:#c05a45"></span>Soviet Union</div><div class="faction-head closed"><span class="tw">▾</span><span class="chip" style="background:#8f8a6f"></span>Misc</div></div>
+  </aside>
+
+  <main class="main">
+    <section class="detailview" id="detailView">
+      <div id="seoIntro" class="seo-intro" style="display: none;">
+        <h1>H&amp;G Armory - Heroes &amp; Generals Weapon Stats</h1>
+        <p>H&amp;G Armory is a free weapon statistics database and comparison tool for the WWII shooter
+        Heroes &amp; Generals. Every value is computed from the game's datamined values, covering
+        damage and damage falloff, damage per second, hits to kill, time to kill, rate of fire, muzzle
+        velocity, effective range, cone of fire, recoil, sway, reload time, armor damage, armor
+        penetration and credit costs.</p>
+        <p>All infantry equipment is included for the US, German and Soviet factions: rifles and
+        bolt-action rifles, sub machine guns, light machine guns, handguns, anti-tank launchers such as
+        the Bazooka, Panzerschreck and Panzerfaust, plus grenades, mines and other gear. Loadouts can be
+        configured with attachments, alternative ammunition types and the Fast Reload, Iron Fist,
+        Heavy Set and Grenadier badges, and any two or three weapons can be compared side by side.</p>
+        <noscript><p><strong>JavaScript is required to use the interactive weapon
+        database.</strong> Please enable JavaScript to browse and compare weapon statistics.</p></noscript>
+      </div>
+      <div class="sheet-head">
+        <div><div class="name disp" id="wName">1911 Pistol</div><div class="meta" id="wMeta"><span class="badge faction" style="color: rgb(168, 176, 97);">United States</span><span class="badge">Handguns</span><span class="badge">Semi-auto</span><span class="badge">2 EP</span></div></div>
+      </div>
+      <div class="layout">
+        <div class="config">
+          <div class="cfg-selects" id="cfgSelects">
+            <div class="cfg-sel"><label>Ammunition</label><select id="ammoSel"><option value="46">.45 Army Ball (default)</option><option value="8">Akicita Kinetic</option><option value="9">United Defense Ranger</option><option value="4">Akicita AMF</option></select></div>
+            <div id="modBlocks" style="display:contents"><div class="cfg-sel"><label>Sight</label><select><option value="">Stock</option><option value="31">Field Adjusted Sights</option><option value="33">Match Sights</option></select></div><div class="cfg-sel"><label>Trigger</label><select><option value="">Stock</option><option value="20">Field Adjusted Trigger</option><option value="23">Match Trigger</option><option value="21">Hair Trigger</option></select></div><div class="cfg-sel"><label>Bolt / Spring</label><select><option value="">Stock</option><option value="26">Light Pistol Spring</option><option value="25">Heavy Pistol Bolt</option><option value="27">Heavy Pistol Spring</option><option value="24">Light Pistol Bolt</option></select></div><div class="cfg-sel"><label>Barrel</label><select><option value="">Stock</option><option value="30">Chrome Lined Barrel</option><option value="29">Stainless Steel Barrel</option></select></div></div>
+          </div>
+          <div class="cfg-seg" data-key="hitbox"><label>Hit location</label><div class="seg" id="hitboxSeg"><button aria-pressed="false">Torso</button><button aria-pressed="false">Head</button><button aria-pressed="false">Legs</button><button aria-pressed="true">Arms</button></div></div>
+          <div class="cfg-seg closed" data-key="heavyset"><label>Enemy Heavy Set</label><div class="seg" id="heavySeg"><button aria-pressed="true">None</button><button aria-pressed="false">Bronze</button><button aria-pressed="false">Silver</button><button aria-pressed="false">Gold</button></div></div>
+          <div class="cfg-seg closed" data-key="reload"><label>Fast Reload badge</label><div class="seg" id="reloadSeg"><button aria-pressed="true">None</button><button aria-pressed="false">Bronze</button><button aria-pressed="false">Silver</button><button aria-pressed="false">Gold</button></div></div>
+          <div class="cfg-seg closed" data-key="ironfist"><label>Inf / Iron Fist badge</label><div class="seg" id="ironFistSeg"><button aria-pressed="true">None</button><button aria-pressed="false">Bronze</button><button aria-pressed="false">Silver</button><button aria-pressed="false">Gold</button></div></div>
+          <div class="cfg-seg closed" data-key="grenadier" id="grenadierRow" style="display: none;"><label>Grenadier badge</label><div class="seg" id="grenadierSeg"><button aria-pressed="true">None</button><button aria-pressed="false">Bronze</button><button aria-pressed="false">Silver</button><button aria-pressed="false">Gold</button></div></div>
+          <div class="cfg-seg closed" data-key="stance"><label>Stance (sway only)</label><div class="seg" id="stanceSeg"><button aria-pressed="true">Stand</button><button aria-pressed="false">Crouch</button><button aria-pressed="false">Prone</button></div></div>
+          <div class="cfg-btns"><button class="resetbtn" id="resetBtn">Reset</button><button class="resetbtn" id="compareBtn">⇄ Compare</button></div>
+        </div>
+        <div class="readouts-area">
+          <div class="readouts" id="readouts"><div class="stat-flow"><div class="stat-group"><h3 class="sec-h"><span class="tw">▾</span>Damage</h3><div class="sec-body"><div class="grid"><div class="cell hot"><div class="k">Rate of fire</div><div class="v">375 <small>rpm</small></div></div><div class="cell"><div class="k">Magazine</div><div class="v">8 <small>rds</small></div></div><div class="cell"><div class="k">Reload</div><div class="v">2.85 <small>s</small></div></div><div class="cell hot"><div class="k">Damage</div><div class="v">33 → 18 <small>hp</small></div></div><div class="cell hot"><div class="k">Damage / s</div><div class="v">206 → 113 <small>hp/s</small></div></div><div class="cell kill"><div class="k">Hits to kill</div><div class="v">7 → 12</div></div><div class="cell kill"><div class="k">Time to kill</div><div class="v">960 → 1,760 <small>ms</small></div></div><div class="cell"><div class="k">Muzzle velocity</div><div class="v">253 <small>m/s</small></div></div><div class="cell"><div class="k">Range</div><div class="v">20 → 65 <small>m</small></div></div><div class="cell"><div class="k">Max range</div><div class="v">500 <small>m</small></div></div><div class="cell"><div class="k">Mags carried</div><div class="v">5</div></div></div></div></div><div class="stat-group"><h3 class="sec-h"><span class="tw">▾</span>Armor</h3><div class="sec-body"><div class="grid"><div class="cell"><div class="k">Armor damage</div><div class="v">5–10 <small>hp</small></div></div><div class="cell"><div class="k">Armor DPS</div><div class="v">15 <small>hp/s</small></div></div><div class="cell"><div class="k">Armor pen</div><div class="v">1.0–2.0 <small>mm</small></div></div><div class="cell"><div class="k">Armor pen · far</div><div class="v">0.1–0.1 <small>mm</small></div></div><div class="cell"><div class="k">Pen range</div><div class="v">10–700 <small>m</small></div></div></div></div></div><div class="stat-group"><h3 class="sec-h"><span class="tw">▾</span>Handling</h3><div class="sec-body"><div class="grid"><div class="cell hot"><div class="k">Cone of fire</div><div class="v">0.200 <small>°</small></div></div><div class="cell"><div class="k">Recoil ↑</div><div class="v">0.660</div></div><div class="cell"><div class="k">Recoil ↔</div><div class="v">0.120</div></div><div class="cell"><div class="k">Recoil spread</div><div class="v">0.080</div></div><div class="cell"><div class="k">Cone bloom / shot</div><div class="v">2.20</div></div><div class="cell"><div class="k">Sway (stand)</div><div class="v">0.80</div></div><div class="cell"><div class="k">Sway speed</div><div class="v">1.00</div></div><div class="cell"><div class="k">Sway fatigue</div><div class="v">1.00</div></div><div class="cell"><div class="k">Turn penalty</div><div class="v">0.02</div></div><div class="cell"><div class="k">Equip time</div><div class="v">0.30 <small>s</small></div></div></div></div></div><div class="stat-group"><h3 class="sec-h"><span class="tw">▾</span>Economy</h3><div class="sec-body"><div class="grid"><div class="cell"><div class="k">Cost / shot</div><div class="v">1.74 <small>cr · 0.0209 g</small></div></div><div class="cell"><div class="k">Cost / mag</div><div class="v">13.94 <small>cr · 0.1670 g</small></div></div><div class="cell"><div class="k">Cost to buy</div><div class="v">79,000 <small>cr · 950 g</small></div></div><div class="cell"><div class="k">Equipment pts</div><div class="v">2</div></div></div></div></div></div><div class="stat-group"><h3 class="sec-h"><span class="tw">▾</span>Accuracy &amp; recoil</h3><div class="sec-body"><div class="chartwrap acc-wrap"><div><div id="spreadReadout" class="spread-readout"><b>0.200°</b> cone &nbsp;·&nbsp; at <b>10 m</b> → <b>±0.017 m</b> <span class="dim">(3.5 cm across, ≈ 7% of a torso)</span></div><div class="spread-slider"><span>10 m</span><input id="spreadSlider" class="rng" type="range" min="10" max="600" step="5" value="10"><span>600 m</span></div></div><div class="spread-panes spread-panes-2"><div><div class="spread-cap">Spread vs a soldier</div><div id="silhouetteBox"><svg viewBox="0 0 210 210" width="100%" preserveAspectRatio="xMidYMid meet"><circle cx="105" cy="114.1304347826087" r="26.25" fill="none" stroke="#ffffff08"></circle><circle cx="105" cy="114.1304347826087" r="52.5" fill="none" stroke="#ffffff08"></circle><circle cx="105" cy="114.1304347826087" r="78.75" fill="none" stroke="#ffffff08"></circle><circle cx="105" cy="114.1304347826087" r="105" fill="none" stroke="#ffffff08"></circle>
+    <ellipse cx="105" cy="37.43478260869564" rx="11.159420289855072" ry="12.833333333333332" fill="#d24b34" stroke="#00000030" stroke-width="1"></ellipse>
+    <rect x="72.2927536231884" y="68.47826086956522" width="8.440579710144927" height="62.08695652173914" rx="4" fill="#5f6350" stroke="#f4efdc" stroke-width="2"></rect>
+    <rect x="129.26666666666668" y="68.47826086956522" width="8.440579710144927" height="62.08695652173914" rx="4" fill="#5f6350" stroke="#f4efdc" stroke-width="2"></rect>
+    <path d="M 78.6231884057971 68.47826086956522 Q 105 61.17391304347825 131.3768115942029 68.47826086956522 L 126.10144927536231 126.91304347826087 L 83.89855072463769 126.91304347826087 Z" fill="#c9a24b" stroke="#00000030" stroke-width="1"></path>
+    <rect x="83.89855072463769" y="126.91304347826087" width="18.991304347826087" height="69.3913043478261" rx="4" fill="#8a9a56" stroke="#00000030" stroke-width="1"></rect>
+    <rect x="107.11014492753623" y="126.91304347826087" width="18.991304347826087" height="69.3913043478261" rx="4" fill="#8a9a56" stroke="#00000030" stroke-width="1"></rect><circle cx="105" cy="114.1304347826087" r="1.7706256767132758" fill="#f4efdc22" stroke="#f4efdc" stroke-width="1.5"></circle>
+    <line x1="103.22937432328672" y1="114.1304347826087" x2="106.77062567671328" y2="114.1304347826087" stroke="#f4efdc" stroke-dasharray="2 3" opacity=".7"></line>
+    <circle cx="105" cy="114.1304347826087" r="2.5" fill="var(--danger)"></circle><line x1="14" y1="198" x2="64.72463768115942" y2="198" stroke="var(--ink-faint)" stroke-width="2"></line><text x="39.36231884057971" y="192" fill="var(--ink-faint)" font-size="10" text-anchor="middle" font-family="JetBrains Mono">0.5 m</text></svg><div class="hb-legend"><span class=""><i style="background:#c9a24b"></i>Torso ×1</span><span class=""><i style="background:#d24b34"></i>Head ×3.56</span><span class=""><i style="background:#8a9a56"></i>Legs ×0.8</span><span class="on"><i style="background:#5f6350"></i>Arms ×0.5</span></div></div></div><div><div class="spread-cap">Recoil pattern (one mag)</div><div id="recoilBox"><svg viewBox="0 0 300 238" width="100%" preserveAspectRatio="xMidYMid meet"><line x1="42" y1="148.7" x2="258" y2="148.7" stroke="#ffffff08"></line><line x1="42" y1="89.3" x2="258" y2="89.3" stroke="#ffffff08"></line><line x1="42" y1="30.0" x2="258" y2="30.0" stroke="#ffffff08"></line><line x1="150" y1="26" x2="150" y2="208" stroke="#ffffff12"></line><polyline points="150.0,208.0 161.9,182.6 163.9,157.1 162.5,131.7 160.8,106.3 169.9,80.9 177.1,55.4 178.9,30.0" fill="none" stroke="var(--brass)" stroke-width="1.6" opacity=".85"></polyline><circle cx="150.0" cy="208.0" r="3.6" fill="var(--danger)"></circle><circle cx="161.9" cy="182.6" r="2.3" fill="var(--brass)"></circle><circle cx="163.9" cy="157.1" r="2.3" fill="var(--brass)"></circle><circle cx="162.5" cy="131.7" r="2.3" fill="var(--brass)"></circle><circle cx="160.8" cy="106.3" r="2.3" fill="var(--brass)"></circle><circle cx="169.9" cy="80.9" r="2.3" fill="var(--brass)"></circle><circle cx="177.1" cy="55.4" r="2.3" fill="var(--brass)"></circle><circle cx="178.9" cy="30.0" r="2.3" fill="var(--brass)"></circle><text x="10" y="224" fill="var(--ink-faint)" font-size="10" font-family="JetBrains Mono"><tspan fill="var(--danger)">●</tspan> shot 1 = aim point · spray climbs upward</text></svg><div class="rc-note">8 shots · ↑0.66 ↔0.12 ±0.08</div></div></div></div></div></div></div></div>
+          <div class="curves-col" id="curvesCol"><div><div class="curves-title">Combat curves</div><div class="chartwrap"><div class="chart-legend"><span class="k" style="color:var(--ink-faint)">vs distance · after arms · dashed = 100 hp</span></div><div class="mini-grid"><div class="mini-chart"><div class="mini-title">Damage</div><div class="mc-plot"><svg viewBox="0 0 340 168" width="100%" preserveAspectRatio="xMidYMid meet"><line x1="40" y1="142" x2="330" y2="142" stroke="#ffffff0e"></line><text x="35" y="146" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">0</text><line x1="40" y1="109.5" x2="330" y2="109.5" stroke="#ffffff0e"></line><text x="35" y="113.5" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">5</text><line x1="40" y1="77" x2="330" y2="77" stroke="#ffffff0e"></line><text x="35" y="81" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">10</text><line x1="40" y1="44.5" x2="330" y2="44.5" stroke="#ffffff0e"></line><text x="35" y="48.5" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">15</text><line x1="40" y1="12" x2="330" y2="12" stroke="#ffffff0e"></line><text x="35" y="16" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">20</text><text x="40" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">0</text><text x="98" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">20</text><text x="156" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">40</text><text x="214" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">60</text><text x="272" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">80</text><text x="330" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">100</text><polyline points="40.0,34.8 41.5,34.8 42.9,34.8 44.4,34.8 45.8,34.8 47.3,34.8 48.7,34.8 50.1,34.8 51.6,34.8 53.0,34.8 54.5,34.8 56.0,34.8 57.4,34.8 58.9,34.8 60.3,34.8 61.8,34.8 63.2,34.8 64.7,34.8 66.1,34.8 67.5,34.8 69.0,34.8 70.5,34.8 71.9,34.8 73.3,34.8 74.8,34.8 76.3,34.8 77.7,34.8 79.2,34.8 80.6,34.8 82.0,34.8 83.5,34.8 85.0,34.8 86.4,34.8 87.8,34.8 89.3,34.8 90.8,34.8 92.2,34.8 93.7,34.8 95.1,34.8 96.6,34.8 98.0,34.8 99.4,35.3 100.9,35.8 102.3,36.4 103.8,36.9 105.3,37.5 106.7,38.0 108.1,38.5 109.6,39.1 111.0,39.6 112.5,40.2 114.0,40.7 115.4,41.3 116.9,41.8 118.3,42.3 119.8,42.9 121.2,43.4 122.6,44.0 124.1,44.5 125.5,45.0 127.0,45.6 128.4,46.1 129.9,46.7 131.3,47.2 132.8,47.8 134.3,48.3 135.7,48.8 137.2,49.4 138.6,49.9 140.1,50.5 141.5,51.0 142.9,51.5 144.4,52.1 145.8,52.6 147.3,53.2 148.8,53.7 150.2,54.3 151.7,54.8 153.1,55.3 154.6,55.9 156.0,56.4 157.4,57.0 158.9,57.5 160.3,58.0 161.8,58.6 163.3,59.1 164.7,59.7 166.2,60.2 167.6,60.8 169.1,61.3 170.5,61.8 172.0,62.4 173.4,62.9 174.8,63.5 176.3,64.0 177.8,64.5 179.2,65.1 180.7,65.6 182.1,66.2 183.6,66.7 185.0,67.3 186.4,67.8 187.9,68.3 189.3,68.9 190.8,69.4 192.3,70.0 193.7,70.5 195.2,71.0 196.6,71.6 198.1,72.1 199.5,72.7 201.0,73.2 202.4,73.8 203.8,74.3 205.3,74.8 206.8,75.4 208.2,75.9 209.6,76.5 211.1,77.0 212.5,77.5 214.0,78.1 215.4,78.6 216.9,79.2 218.3,79.7 219.8,80.3 221.3,80.8 222.7,81.3 224.2,81.9 225.6,82.4 227.1,83.0 228.5,83.5 230.0,83.5 231.4,83.5 232.9,83.5 234.3,83.5 235.8,83.5 237.2,83.5 238.7,83.5 240.1,83.5 241.5,83.5 243.0,83.5 244.4,83.5 245.9,83.5 247.3,83.5 248.8,83.5 250.3,83.5 251.7,83.5 253.2,83.5 254.6,83.5 256.1,83.5 257.5,83.5 258.9,83.5 260.4,83.5 261.9,83.5 263.3,83.5 264.8,83.5 266.2,83.5 267.6,83.5 269.1,83.5 270.6,83.5 272.0,83.5 273.5,83.5 274.9,83.5 276.4,83.5 277.8,83.5 279.3,83.5 280.7,83.5 282.1,83.5 283.6,83.5 285.0,83.5 286.5,83.5 287.9,83.5 289.4,83.5 290.9,83.5 292.3,83.5 293.8,83.5 295.2,83.5 296.6,83.5 298.1,83.5 299.6,83.5 301.0,83.5 302.4,83.5 303.9,83.5 305.4,83.5 306.8,83.5 308.3,83.5 309.7,83.5 311.2,83.5 312.6,83.5 314.1,83.5 315.5,83.5 316.9,83.5 318.4,83.5 319.8,83.5 321.3,83.5 322.8,83.5 324.2,83.5 325.6,83.5 327.1,83.5 328.6,83.5 330.0,83.5" fill="none" stroke="var(--danger)" stroke-width="2.5"></polyline><g class="mc-cross" style="opacity: 0;"><line class="mcl" y1="12" y2="142" stroke="#f4efdc" stroke-width="1" opacity=".5" x1="271.3855421686747" x2="271.3855421686747"></line><circle class="mcd" r="3.5" fill="var(--danger)" cx="271.3855421686747" cy="83.5"></circle></g></svg><div class="mc-tip" style="opacity: 0; left: 262px;">80m · <b>9</b></div></div></div><div class="mini-chart"><div class="mini-title">Damage / s</div><div class="mc-plot"><svg viewBox="0 0 340 168" width="100%" preserveAspectRatio="xMidYMid meet"><line x1="40" y1="142" x2="330" y2="142" stroke="#ffffff0e"></line><text x="35" y="146" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">0</text><line x1="40" y1="120.33333333333334" x2="330" y2="120.33333333333334" stroke="#ffffff0e"></line><text x="35" y="124.33333333333334" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">20</text><line x1="40" y1="98.66666666666667" x2="330" y2="98.66666666666667" stroke="#ffffff0e"></line><text x="35" y="102.66666666666667" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">40</text><line x1="40" y1="77" x2="330" y2="77" stroke="#ffffff0e"></line><text x="35" y="81" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">60</text><line x1="40" y1="55.33333333333334" x2="330" y2="55.33333333333334" stroke="#ffffff0e"></line><text x="35" y="59.33333333333334" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">80</text><line x1="40" y1="33.66666666666666" x2="330" y2="33.66666666666666" stroke="#ffffff0e"></line><text x="35" y="37.66666666666666" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">100</text><line x1="40" y1="12" x2="330" y2="12" stroke="#ffffff0e"></line><text x="35" y="16" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">120</text><text x="40" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">0</text><text x="98" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">20</text><text x="156" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">40</text><text x="214" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">60</text><text x="272" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">80</text><text x="330" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">100</text><polyline points="40.0,30.3 41.5,30.3 42.9,30.3 44.4,30.3 45.8,30.3 47.3,30.3 48.7,30.3 50.1,30.3 51.6,30.3 53.0,30.3 54.5,30.3 56.0,30.3 57.4,30.3 58.9,30.3 60.3,30.3 61.8,30.3 63.2,30.3 64.7,30.3 66.1,30.3 67.5,30.3 69.0,30.3 70.5,30.3 71.9,30.3 73.3,30.3 74.8,30.3 76.3,30.3 77.7,30.3 79.2,30.3 80.6,30.3 82.0,30.3 83.5,30.3 85.0,30.3 86.4,30.3 87.8,30.3 89.3,30.3 90.8,30.3 92.2,30.3 93.7,30.3 95.1,30.3 96.6,30.3 98.0,30.3 99.4,30.8 100.9,31.4 102.3,32.0 103.8,32.5 105.3,33.1 106.7,33.7 108.1,34.2 109.6,34.8 111.0,35.4 112.5,35.9 114.0,36.5 115.4,37.1 116.9,37.6 118.3,38.2 119.8,38.7 121.2,39.3 122.6,39.9 124.1,40.4 125.5,41.0 127.0,41.6 128.4,42.1 129.9,42.7 131.3,43.3 132.8,43.8 134.3,44.4 135.7,45.0 137.2,45.5 138.6,46.1 140.1,46.6 141.5,47.2 142.9,47.8 144.4,48.3 145.8,48.9 147.3,49.5 148.8,50.0 150.2,50.6 151.7,51.2 153.1,51.7 154.6,52.3 156.0,52.9 157.4,53.4 158.9,54.0 160.3,54.5 161.8,55.1 163.3,55.7 164.7,56.2 166.2,56.8 167.6,57.4 169.1,57.9 170.5,58.5 172.0,59.1 173.4,59.6 174.8,60.2 176.3,60.8 177.8,61.3 179.2,61.9 180.7,62.4 182.1,63.0 183.6,63.6 185.0,64.1 186.4,64.7 187.9,65.3 189.3,65.8 190.8,66.4 192.3,67.0 193.7,67.5 195.2,68.1 196.6,68.6 198.1,69.2 199.5,69.8 201.0,70.3 202.4,70.9 203.8,71.5 205.3,72.0 206.8,72.6 208.2,73.2 209.6,73.7 211.1,74.3 212.5,74.9 214.0,75.4 215.4,76.0 216.9,76.5 218.3,77.1 219.8,77.7 221.3,78.2 222.7,78.8 224.2,79.4 225.6,79.9 227.1,80.5 228.5,81.1 230.0,81.1 231.4,81.1 232.9,81.1 234.3,81.1 235.8,81.1 237.2,81.1 238.7,81.1 240.1,81.1 241.5,81.1 243.0,81.1 244.4,81.1 245.9,81.1 247.3,81.1 248.8,81.1 250.3,81.1 251.7,81.1 253.2,81.1 254.6,81.1 256.1,81.1 257.5,81.1 258.9,81.1 260.4,81.1 261.9,81.1 263.3,81.1 264.8,81.1 266.2,81.1 267.6,81.1 269.1,81.1 270.6,81.1 272.0,81.1 273.5,81.1 274.9,81.1 276.4,81.1 277.8,81.1 279.3,81.1 280.7,81.1 282.1,81.1 283.6,81.1 285.0,81.1 286.5,81.1 287.9,81.1 289.4,81.1 290.9,81.1 292.3,81.1 293.8,81.1 295.2,81.1 296.6,81.1 298.1,81.1 299.6,81.1 301.0,81.1 302.4,81.1 303.9,81.1 305.4,81.1 306.8,81.1 308.3,81.1 309.7,81.1 311.2,81.1 312.6,81.1 314.1,81.1 315.5,81.1 316.9,81.1 318.4,81.1 319.8,81.1 321.3,81.1 322.8,81.1 324.2,81.1 325.6,81.1 327.1,81.1 328.6,81.1 330.0,81.1" fill="none" stroke="#e07a2f" stroke-width="2.5"></polyline><g class="mc-cross" style="opacity: 0;"><line class="mcl" y1="12" y2="142" stroke="#f4efdc" stroke-width="1" opacity=".5" x1="40" x2="40"></line><circle class="mcd" r="3.5" fill="#e07a2f" cx="40" cy="30.28125"></circle></g></svg><div class="mc-tip" style="opacity: 0; left: 23px;">0m · <b>103</b></div></div></div><div class="mini-chart"><div class="mini-title">Hits to kill</div><div class="mc-plot"><svg viewBox="0 0 340 168" width="100%" preserveAspectRatio="xMidYMid meet"><line x1="40" y1="142" x2="330" y2="142" stroke="#ffffff0e"></line><text x="35" y="146" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">0</text><line x1="40" y1="98.66666666666667" x2="330" y2="98.66666666666667" stroke="#ffffff0e"></line><text x="35" y="102.66666666666667" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">5</text><line x1="40" y1="55.33333333333334" x2="330" y2="55.33333333333334" stroke="#ffffff0e"></line><text x="35" y="59.33333333333334" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">10</text><line x1="40" y1="12" x2="330" y2="12" stroke="#ffffff0e"></line><text x="35" y="16" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">15</text><text x="40" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">0</text><text x="98" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">20</text><text x="156" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">40</text><text x="214" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">60</text><text x="272" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">80</text><text x="330" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">100</text><polyline points="40.0,81.3 41.5,81.3 42.9,81.3 44.4,81.3 45.8,81.3 47.3,81.3 48.7,81.3 50.1,81.3 51.6,81.3 53.0,81.3 54.5,81.3 56.0,81.3 57.4,81.3 58.9,81.3 60.3,81.3 61.8,81.3 63.2,81.3 64.7,81.3 66.1,81.3 67.5,81.3 69.0,81.3 70.5,81.3 71.9,81.3 73.3,81.3 74.8,81.3 76.3,81.3 77.7,81.3 79.2,81.3 80.6,81.3 82.0,81.3 83.5,81.3 85.0,81.3 86.4,81.3 87.8,81.3 89.3,81.3 90.8,81.3 92.2,81.3 93.7,81.3 95.1,81.3 96.6,81.3 98.0,81.3 99.4,81.3 100.9,81.3 102.3,81.3 103.8,81.3 105.3,81.3 106.7,81.3 108.1,81.3 109.6,81.3 111.0,81.3 112.5,81.3 114.0,81.3 115.4,81.3 116.9,81.3 118.3,81.3 119.8,81.3 121.2,81.3 122.6,81.3 124.1,81.3 125.5,81.3 127.0,81.3 128.4,81.3 129.9,81.3 131.3,81.3 132.8,81.3 134.3,81.3 135.7,81.3 137.2,81.3 137.2,72.7 138.6,72.7 140.1,72.7 141.5,72.7 142.9,72.7 144.4,72.7 145.8,72.7 147.3,72.7 148.8,72.7 150.2,72.7 151.7,72.7 153.1,72.7 154.6,72.7 156.0,72.7 157.4,72.7 158.9,72.7 160.3,72.7 161.8,72.7 163.3,72.7 164.7,72.7 166.2,72.7 167.6,72.7 169.1,72.7 169.1,64.0 170.5,64.0 172.0,64.0 173.4,64.0 174.8,64.0 176.3,64.0 177.8,64.0 179.2,64.0 180.7,64.0 182.1,64.0 183.6,64.0 185.0,64.0 186.4,64.0 187.9,64.0 189.3,64.0 190.8,64.0 192.3,64.0 192.3,55.3 193.7,55.3 195.2,55.3 196.6,55.3 198.1,55.3 199.5,55.3 201.0,55.3 202.4,55.3 203.8,55.3 205.3,55.3 206.8,55.3 208.2,55.3 209.6,55.3 211.1,55.3 212.5,55.3 212.5,46.7 214.0,46.7 215.4,46.7 216.9,46.7 218.3,46.7 219.8,46.7 221.3,46.7 222.7,46.7 224.2,46.7 225.6,46.7 227.1,46.7 227.1,38.0 228.5,38.0 230.0,38.0 231.4,38.0 232.9,38.0 234.3,38.0 235.8,38.0 237.2,38.0 238.7,38.0 240.1,38.0 241.5,38.0 243.0,38.0 244.4,38.0 245.9,38.0 247.3,38.0 248.8,38.0 250.3,38.0 251.7,38.0 253.2,38.0 254.6,38.0 256.1,38.0 257.5,38.0 258.9,38.0 260.4,38.0 261.9,38.0 263.3,38.0 264.8,38.0 266.2,38.0 267.6,38.0 269.1,38.0 270.6,38.0 272.0,38.0 273.5,38.0 274.9,38.0 276.4,38.0 277.8,38.0 279.3,38.0 280.7,38.0 282.1,38.0 283.6,38.0 285.0,38.0 286.5,38.0 287.9,38.0 289.4,38.0 290.9,38.0 292.3,38.0 293.8,38.0 295.2,38.0 296.6,38.0 298.1,38.0 299.6,38.0 301.0,38.0 302.4,38.0 303.9,38.0 305.4,38.0 306.8,38.0 308.3,38.0 309.7,38.0 311.2,38.0 312.6,38.0 314.1,38.0 315.5,38.0 316.9,38.0 318.4,38.0 319.8,38.0 321.3,38.0 322.8,38.0 324.2,38.0 325.6,38.0 327.1,38.0 328.6,38.0 330.0,38.0" fill="none" stroke="var(--good)" stroke-width="2.5"></polyline><g class="mc-cross" style="opacity: 0;"><line class="mcl" y1="12" y2="142" stroke="#f4efdc" stroke-width="1" opacity=".5" x1="328.7349397590362" x2="328.7349397590362"></line><circle class="mcd" r="3.5" fill="var(--good)" cx="328.7349397590362" cy="38"></circle></g></svg><div class="mc-tip" style="opacity: 0; left: 262px;">100m · <b>12</b></div></div></div><div class="mini-chart"><div class="mini-title">Time to kill (ms)</div><div class="mc-plot"><svg viewBox="0 0 340 168" width="100%" preserveAspectRatio="xMidYMid meet"><line x1="40" y1="142" x2="330" y2="142" stroke="#ffffff0e"></line><text x="35" y="146" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">0</text><line x1="40" y1="109.5" x2="330" y2="109.5" stroke="#ffffff0e"></line><text x="35" y="113.5" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">500</text><line x1="40" y1="77" x2="330" y2="77" stroke="#ffffff0e"></line><text x="35" y="81" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">1000</text><line x1="40" y1="44.5" x2="330" y2="44.5" stroke="#ffffff0e"></line><text x="35" y="48.5" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">1500</text><line x1="40" y1="12" x2="330" y2="12" stroke="#ffffff0e"></line><text x="35" y="16" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">2000</text><text x="40" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">0</text><text x="98" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">20</text><text x="156" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">40</text><text x="214" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">60</text><text x="272" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">80</text><text x="330" y="160" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">100</text><polyline points="40.0,79.6 41.5,79.6 42.9,79.6 44.4,79.6 45.8,79.6 47.3,79.6 48.7,79.6 50.1,79.6 51.6,79.6 53.0,79.6 54.5,79.6 56.0,79.6 57.4,79.6 58.9,79.6 60.3,79.6 61.8,79.6 63.2,79.6 64.7,79.6 66.1,79.6 67.5,79.6 69.0,79.6 70.5,79.6 71.9,79.6 73.3,79.6 74.8,79.6 76.3,79.6 77.7,79.6 79.2,79.6 80.6,79.6 82.0,79.6 83.5,79.6 85.0,79.6 86.4,79.6 87.8,79.6 89.3,79.6 90.8,79.6 92.2,79.6 93.7,79.6 95.1,79.6 96.6,79.6 98.0,79.6 99.4,79.6 100.9,79.6 102.3,79.6 103.8,79.6 105.3,79.6 106.7,79.6 108.1,79.6 109.6,79.6 111.0,79.6 112.5,79.6 114.0,79.6 115.4,79.6 116.9,79.6 118.3,79.6 119.8,79.6 121.2,79.6 122.6,79.6 124.1,79.6 125.5,79.6 127.0,79.6 128.4,79.6 129.9,79.6 131.3,79.6 132.8,79.6 134.3,79.6 135.7,79.6 137.2,79.6 137.2,69.2 138.6,69.2 140.1,69.2 141.5,69.2 142.9,69.2 144.4,69.2 145.8,69.2 147.3,69.2 148.8,69.2 150.2,69.2 151.7,69.2 153.1,69.2 154.6,69.2 156.0,69.2 157.4,69.2 158.9,69.2 160.3,69.2 161.8,69.2 163.3,69.2 164.7,69.2 166.2,69.2 167.6,69.2 169.1,69.2 169.1,58.8 170.5,58.8 172.0,58.8 173.4,58.8 174.8,58.8 176.3,58.8 177.8,58.8 179.2,58.8 180.7,58.8 182.1,58.8 183.6,58.8 185.0,58.8 186.4,58.8 187.9,58.8 189.3,58.8 190.8,58.8 192.3,58.8 192.3,48.4 193.7,48.4 195.2,48.4 196.6,48.4 198.1,48.4 199.5,48.4 201.0,48.4 202.4,48.4 203.8,48.4 205.3,48.4 206.8,48.4 208.2,48.4 209.6,48.4 211.1,48.4 212.5,48.4 212.5,38.0 214.0,38.0 215.4,38.0 216.9,38.0 218.3,38.0 219.8,38.0 221.3,38.0 222.7,38.0 224.2,38.0 225.6,38.0 227.1,38.0 227.1,27.6 228.5,27.6 230.0,27.6 231.4,27.6 232.9,27.6 234.3,27.6 235.8,27.6 237.2,27.6 238.7,27.6 240.1,27.6 241.5,27.6 243.0,27.6 244.4,27.6 245.9,27.6 247.3,27.6 248.8,27.6 250.3,27.6 251.7,27.6 253.2,27.6 254.6,27.6 256.1,27.6 257.5,27.6 258.9,27.6 260.4,27.6 261.9,27.6 263.3,27.6 264.8,27.6 266.2,27.6 267.6,27.6 269.1,27.6 270.6,27.6 272.0,27.6 273.5,27.6 274.9,27.6 276.4,27.6 277.8,27.6 279.3,27.6 280.7,27.6 282.1,27.6 283.6,27.6 285.0,27.6 286.5,27.6 287.9,27.6 289.4,27.6 290.9,27.6 292.3,27.6 293.8,27.6 295.2,27.6 296.6,27.6 298.1,27.6 299.6,27.6 301.0,27.6 302.4,27.6 303.9,27.6 305.4,27.6 306.8,27.6 308.3,27.6 309.7,27.6 311.2,27.6 312.6,27.6 314.1,27.6 315.5,27.6 316.9,27.6 318.4,27.6 319.8,27.6 321.3,27.6 322.8,27.6 324.2,27.6 325.6,27.6 327.1,27.6 328.6,27.6 330.0,27.6" fill="none" stroke="var(--brass)" stroke-width="2.5"></polyline><g class="mc-cross" style="opacity:0"><line class="mcl" y1="12" y2="142" stroke="#f4efdc" stroke-width="1" opacity=".5"></line><circle class="mcd" r="3.5" fill="var(--brass)"></circle></g></svg><div class="mc-tip"></div></div></div></div></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tableview" id="tableView">
+      <div class="notice" style="margin-top:2px"><b>Compare all.</b> Every weapon at stock, torso hit, no Heavy Set.
+        Click a column to sort; click a row to open its sheet.</div>
+      <div style="overflow-x:auto"><table id="cmpTable"><thead><tr><th aria-sort="ascending">Weapon</th><th>RPM</th><th>Dmg</th><th>DPS</th><th>HTK</th><th>TTK ms</th><th>m/s</th><th>Far m</th><th>Recoil↑</th><th>Cone°</th><th>Mag</th><th>EP</th></tr></thead><tbody><tr><td><span class="faction-dot" style="background:#a8b061"></span>1903 Pocket Hammerless</td><td>346</td><td>30.0</td><td>173</td><td>4</td><td>521</td><td>253</td><td>50.0</td><td>1</td><td>0.200</td><td>8</td><td>1</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>1911 Pistol</td><td>375</td><td>33.0</td><td>206</td><td>4</td><td>480</td><td>253</td><td>65.0</td><td>1</td><td>0.200</td><td>8</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#8f8a6f"></span>Adjustable Wrench</td><td>60</td><td>35.0</td><td>35</td><td>3</td><td>2,000</td><td>100</td><td>50.0</td><td>0</td><td>0.150</td><td>0</td><td>1</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>Ampulomet Model 1941</td><td>86</td><td>1,000.0</td><td>1,429</td><td>1</td><td>0</td><td>60</td><td>100.0</td><td>11</td><td>0.600</td><td>1</td><td>5</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>AVS-36</td><td>545</td><td>37.0</td><td>336</td><td>3</td><td>220</td><td>835</td><td>140.0</td><td>2</td><td>0.250</td><td>15</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>Bazooka M1A1</td><td>86</td><td>1,000.0</td><td>1,429</td><td>1</td><td>0</td><td>82</td><td>100.0</td><td>1</td><td>0.530</td><td>1</td><td>5</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>Bazooka M9A1</td><td>86</td><td>1,000.0</td><td>1,429</td><td>1</td><td>0</td><td>82</td><td>100.0</td><td>1</td><td>0.450</td><td>1</td><td>5</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>Degtyarev DP 28</td><td>550</td><td>35.0</td><td>321</td><td>3</td><td>218</td><td>835</td><td>329.0</td><td>1</td><td>0.500</td><td>47</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>Degtyarev DT-29</td><td>600</td><td>35.0</td><td>350</td><td>3</td><td>200</td><td>835</td><td>329.0</td><td>1</td><td>0.350</td><td>63</td><td>7</td></tr><tr><td><span class="faction-dot" style="background:#8f8a6f"></span>Easter Egg</td><td>150</td><td>10.0</td><td>25</td><td>10</td><td>3,600</td><td>19</td><td>100.0</td><td>0</td><td>0.750</td><td>1</td><td>0</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Einstossflammenwerfer 46</td><td>1,200</td><td>50.0</td><td>1,000</td><td>2</td><td>50</td><td>60</td><td>25.0</td><td>0</td><td>0.000</td><td>1</td><td>8</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Fallschirmjägergewehr 42</td><td>540</td><td>37.0</td><td>333</td><td>3</td><td>222</td><td>767</td><td>368.0</td><td>1</td><td>0.410</td><td>20</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Flammenwerfer 41</td><td>1,200</td><td>50.0</td><td>1,000</td><td>2</td><td>50</td><td>60</td><td>25.0</td><td>0</td><td>0.000</td><td>10</td><td>8</td></tr><tr><td><span class="faction-dot" style="background:#8f8a6f"></span>FP-45 Liberator</td><td>240</td><td>33.0</td><td>132</td><td>4</td><td>750</td><td>253</td><td>65.0</td><td>1</td><td>0.200</td><td>1</td><td>0</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>German First Aid Kit</td><td>600</td><td>0.0</td><td>0</td><td>∞</td><td>∞</td><td>1</td><td>2.0</td><td>0</td><td>0.150</td><td>1</td><td>1</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>German Medic Pouch</td><td>600</td><td>0.0</td><td>0</td><td>∞</td><td>∞</td><td>1</td><td>2.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Gewehr 43</td><td>253</td><td>51.0</td><td>215</td><td>2</td><td>237</td><td>852</td><td>160.0</td><td>2</td><td>0.130</td><td>10</td><td>5</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Granatbüchse-39</td><td>120</td><td>1,100.0</td><td>2,200</td><td>1</td><td>0</td><td>70</td><td>100.0</td><td>11</td><td>0.500</td><td>1</td><td>5</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Hafthohlladung H3</td><td>150</td><td>0.0</td><td>0</td><td>∞</td><td>∞</td><td>0</td><td>0.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>Infantry Demolition Kit M1</td><td>100</td><td>100.0</td><td>167</td><td>1</td><td>0</td><td>12</td><td>50.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>Infantry Demolition Kit M1</td><td>100</td><td>100.0</td><td>167</td><td>1</td><td>0</td><td>12</td><td>50.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>Johnson M1941 LMG</td><td>577</td><td>39.0</td><td>375</td><td>3</td><td>208</td><td>852</td><td>345.0</td><td>1</td><td>0.450</td><td>20</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Karabiner 98 Kurz</td><td>200</td><td>54.0</td><td>180</td><td>2</td><td>300</td><td>899</td><td>673.6</td><td>1</td><td>0.040</td><td>5</td><td>5</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>Korovin TK</td><td>432</td><td>25.0</td><td>180</td><td>4</td><td>416</td><td>228</td><td>50.0</td><td>1</td><td>0.250</td><td>8</td><td>1</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>M1 Carbine</td><td>451</td><td>34.0</td><td>256</td><td>3</td><td>266</td><td>600</td><td>120.0</td><td>1</td><td>0.400</td><td>15</td><td>5</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>M1 Garand</td><td>276</td><td>53.0</td><td>244</td><td>2</td><td>217</td><td>852</td><td>150.0</td><td>2</td><td>0.110</td><td>8</td><td>5</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>M18 Recoilless Rifle</td><td>86</td><td>1,000.0</td><td>1,429</td><td>1</td><td>0</td><td>366</td><td>100.0</td><td>0</td><td>0.150</td><td>1</td><td>5</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>M1917 Revolver</td><td>333</td><td>39.0</td><td>217</td><td>3</td><td>360</td><td>282</td><td>55.3</td><td>1</td><td>0.130</td><td>6</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>M1918 Automatic Rifle</td><td>522</td><td>37.0</td><td>322</td><td>3</td><td>230</td><td>853</td><td>375.0</td><td>1</td><td>0.400</td><td>20</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>M1919A6 MG</td><td>600</td><td>39.0</td><td>390</td><td>3</td><td>200</td><td>809</td><td>375.0</td><td>2</td><td>0.250</td><td>100</td><td>7</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>M1A1</td><td>∞</td><td>0.0</td><td>NaN</td><td>∞</td><td>NaN</td><td>0</td><td>0.0</td><td>0</td><td>0.150</td><td>1</td><td>3</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>M1A1 Carbine</td><td>451</td><td>34.0</td><td>256</td><td>3</td><td>266</td><td>600</td><td>108.0</td><td>1</td><td>0.450</td><td>15</td><td>4</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>M2 Carbine</td><td>577</td><td>31.0</td><td>298</td><td>4</td><td>312</td><td>600</td><td>104.0</td><td>1</td><td>0.350</td><td>30</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>M2 Flamethrower</td><td>1,200</td><td>50.0</td><td>1,000</td><td>2</td><td>50</td><td>60</td><td>25.0</td><td>0</td><td>0.000</td><td>5</td><td>8</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>M24 Fragmentation sleeve</td><td>100</td><td>100.0</td><td>167</td><td>1</td><td>0</td><td>15</td><td>50.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>M2A3</td><td>∞</td><td>0.0</td><td>NaN</td><td>∞</td><td>NaN</td><td>0</td><td>0.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>M3 Grease Gun</td><td>462</td><td>34.0</td><td>262</td><td>3</td><td>260</td><td>304</td><td>47.4</td><td>0</td><td>0.640</td><td>30</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Maschinengewehr 13</td><td>550</td><td>35.0</td><td>321</td><td>3</td><td>218</td><td>767</td><td>368.0</td><td>1</td><td>0.410</td><td>25</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Maschinengewehr 34</td><td>700</td><td>34.0</td><td>397</td><td>3</td><td>171</td><td>750</td><td>500.0</td><td>1</td><td>0.270</td><td>50</td><td>7</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Maschinengewehr 42</td><td>1,000</td><td>29.0</td><td>483</td><td>4</td><td>180</td><td>750</td><td>448.0</td><td>2</td><td>0.250</td><td>100</td><td>7</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Maschinenpistole 34</td><td>500</td><td>34.0</td><td>283</td><td>3</td><td>240</td><td>404</td><td>45.6</td><td>1</td><td>0.690</td><td>20</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Maschinenpistole 40</td><td>550</td><td>36.0</td><td>330</td><td>3</td><td>218</td><td>412</td><td>55.8</td><td>0</td><td>0.600</td><td>32</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>Maxim-Tokarev MT</td><td>600</td><td>39.0</td><td>390</td><td>3</td><td>200</td><td>902</td><td>350.0</td><td>2</td><td>0.250</td><td>100</td><td>7</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>Mk II Grenade</td><td>100</td><td>100.0</td><td>167</td><td>1</td><td>0</td><td>15</td><td>50.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>Mk IIIA1 Offensive Grenade</td><td>100</td><td>100.0</td><td>167</td><td>1</td><td>0</td><td>18</td><td>50.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Model 1934</td><td>346</td><td>30.0</td><td>173</td><td>4</td><td>521</td><td>348</td><td>50.0</td><td>1</td><td>0.250</td><td>8</td><td>1</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>Mosin-Nagant 1891-30</td><td>200</td><td>52.0</td><td>173</td><td>2</td><td>300</td><td>1,025</td><td>646.8</td><td>1</td><td>0.040</td><td>5</td><td>5</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>Nagant M1895</td><td>346</td><td>37.0</td><td>213</td><td>3</td><td>347</td><td>327</td><td>65.0</td><td>1</td><td>0.100</td><td>7</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>P08 Parabellum</td><td>432</td><td>35.0</td><td>252</td><td>3</td><td>278</td><td>383</td><td>61.2</td><td>1</td><td>0.240</td><td>8</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>P38 Parabellum</td><td>432</td><td>36.0</td><td>259</td><td>3</td><td>278</td><td>404</td><td>71.4</td><td>1</td><td>0.240</td><td>8</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Panzerbüchse-39</td><td>200</td><td>250.0</td><td>833</td><td>1</td><td>0</td><td>1,210</td><td>500.0</td><td>5</td><td>0.800</td><td>1</td><td>7</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Panzerfaust 60</td><td>86</td><td>1,000.0</td><td>1,429</td><td>1</td><td>0</td><td>70</td><td>100.0</td><td>1</td><td>0.540</td><td>1</td><td>5</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Panzerschreck RPzB 54</td><td>86</td><td>1,000.0</td><td>1,429</td><td>1</td><td>0</td><td>110</td><td>100.0</td><td>1</td><td>0.530</td><td>1</td><td>5</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Panzerwurfmine Lang</td><td>100</td><td>200.0</td><td>333</td><td>1</td><td>0</td><td>18</td><td>100.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Pistol C96</td><td>360</td><td>32.0</td><td>192</td><td>4</td><td>500</td><td>425</td><td>68.0</td><td>1</td><td>0.310</td><td>10</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>PMK-40</td><td>∞</td><td>0.0</td><td>NaN</td><td>∞</td><td>NaN</td><td>0</td><td>0.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>PPD-40</td><td>650</td><td>26.0</td><td>282</td><td>4</td><td>277</td><td>480</td><td>48.8</td><td>0</td><td>0.700</td><td>71</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>PPS-43</td><td>550</td><td>34.0</td><td>312</td><td>3</td><td>218</td><td>499</td><td>53.3</td><td>0</td><td>0.650</td><td>35</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>PPSh-41</td><td>850</td><td>26.0</td><td>368</td><td>4</td><td>212</td><td>480</td><td>50.1</td><td>1</td><td>0.660</td><td>71</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>PTRD 1941</td><td>200</td><td>300.0</td><td>1,000</td><td>1</td><td>0</td><td>1,114</td><td>600.0</td><td>5</td><td>0.800</td><td>1</td><td>7</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>PTRS 1941</td><td>150</td><td>270.0</td><td>675</td><td>1</td><td>0</td><td>1,003</td><td>540.0</td><td>5</td><td>1.000</td><td>5</td><td>7</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>RG-42</td><td>100</td><td>100.0</td><td>167</td><td>1</td><td>0</td><td>18</td><td>50.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>RGD-33</td><td>100</td><td>100.0</td><td>167</td><td>1</td><td>0</td><td>15</td><td>50.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>RGD-33 Bundle</td><td>100</td><td>100.0</td><td>167</td><td>1</td><td>0</td><td>12</td><td>50.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>Rifle M1903</td><td>200</td><td>56.0</td><td>187</td><td>2</td><td>300</td><td>899</td><td>624.0</td><td>1</td><td>0.040</td><td>5</td><td>5</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>ROKS-3 Flamethrower</td><td>1,200</td><td>50.0</td><td>1,000</td><td>2</td><td>50</td><td>60</td><td>25.0</td><td>0</td><td>0.000</td><td>10</td><td>8</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>RPG-43</td><td>100</td><td>200.0</td><td>333</td><td>1</td><td>0</td><td>18</td><td>100.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>S-Mine</td><td>∞</td><td>0.0</td><td>NaN</td><td>∞</td><td>NaN</td><td>0</td><td>0.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>S.T. Grenade No.74</td><td>100</td><td>0.0</td><td>0</td><td>∞</td><td>∞</td><td>18</td><td>0.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#8f8a6f"></span>Snowball</td><td>150</td><td>10.0</td><td>25</td><td>10</td><td>3,600</td><td>19</td><td>100.0</td><td>0</td><td>0.500</td><td>1</td><td>0</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>Soviet First Aid Kit</td><td>600</td><td>0.0</td><td>0</td><td>∞</td><td>∞</td><td>1</td><td>2.0</td><td>0</td><td>0.150</td><td>1</td><td>1</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>Soviet Medic Pouch</td><td>600</td><td>0.0</td><td>0</td><td>∞</td><td>∞</td><td>1</td><td>2.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Stielhandgranate M24</td><td>100</td><td>100.0</td><td>167</td><td>1</td><td>0</td><td>18</td><td>50.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Stielhandgranate M24 Bundle</td><td>100</td><td>100.0</td><td>167</td><td>1</td><td>0</td><td>12</td><td>50.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Sturmgewehr 44</td><td>500</td><td>34.0</td><td>283</td><td>3</td><td>240</td><td>685</td><td>133.0</td><td>1</td><td>0.310</td><td>30</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#7f95a3"></span>Tellermine 42</td><td>∞</td><td>0.0</td><td>NaN</td><td>∞</td><td>NaN</td><td>0</td><td>0.0</td><td>0</td><td>0.150</td><td>1</td><td>3</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>Thompson M1A1</td><td>600</td><td>34.0</td><td>340</td><td>3</td><td>200</td><td>304</td><td>49.4</td><td>0</td><td>0.500</td><td>30</td><td>6</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>TM-35</td><td>∞</td><td>0.0</td><td>NaN</td><td>∞</td><td>NaN</td><td>0</td><td>0.0</td><td>0</td><td>0.150</td><td>1</td><td>3</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>Tokarev SVT-40</td><td>287</td><td>51.0</td><td>244</td><td>2</td><td>209</td><td>949</td><td>140.0</td><td>2</td><td>0.145</td><td>10</td><td>5</td></tr><tr><td><span class="faction-dot" style="background:#c05a45"></span>Tula Tokarev 33</td><td>389</td><td>29.0</td><td>188</td><td>4</td><td>463</td><td>480</td><td>65.0</td><td>1</td><td>0.390</td><td>8</td><td>2</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>U.S. First Aid Kit</td><td>600</td><td>0.0</td><td>0</td><td>∞</td><td>∞</td><td>1</td><td>2.0</td><td>0</td><td>0.150</td><td>1</td><td>1</td></tr><tr><td><span class="faction-dot" style="background:#a8b061"></span>U.S. Medic Pouch</td><td>600</td><td>0.0</td><td>0</td><td>∞</td><td>∞</td><td>1</td><td>2.0</td><td>0</td><td>0.150</td><td>1</td><td>2</td></tr></tbody></table></div>
+    </section>
+
+    <section class="tableview" id="versusView"></section>
+  </main>
+</div>
+
+<script src="./H&amp;G Armory - Heroes &amp; Generals Weapon Stats &amp; TTK Calculator_files/weapons.js"></script>
+<script>
+/* ============================================================================
+   1) LOOKUP MAPS  — edit as you confirm IDs.
+   Confirmed from your samples: factiontemplateid 1 = USA;
+   weaponcategoryid 14 = Light Machine Guns, 16 = Sub Machine Guns.
+   Others below are placeholders — sidebar sections seen: Semi-auto, Bolt-action,
+   Rifles/Assault, Light Machine Guns, Sub Machine Guns, Handguns, Flamethrowers.
+   Fill the ids as you spot them; unknown ids just render as "Category N".
+   ========================================================================== */
+const FACTIONS = {
+  1:{name:"United States", color:"#a8b061"},   // confirmed
+  2:{name:"Germany",       color:"#7f95a3"},   // confirmed
+  3:{name:"Soviet Union",  color:"#c05a45"},   // confirmed
+  0:{name:"Shared / Other",color:"#8f8a6f"},   // wrench, snowball, etc.
+};
+const CATEGORIES = {
+  11:"Semi-auto Rifles", 12:"Bolt-action Rifles", 13:"Assault Rifles",
+  14:"Light Machine Guns", 16:"Sub Machine Guns", 17:"Handguns",
+  // non-gun infantry gear also present in this dataset:
+  4:"Equipment", 5:"AP Mines", 6:"AT Mines", 7:"AT Weapons", 8:"Rocket Launchers", 9:"Grenades",
+};
+const MOD_CATEGORIES = { 2:"Barrel", 3:"Bolt / Spring", 4:"Sight", 5:"Trigger" };
+// display order matching the in-game modification screen: Ammo (rendered first,
+// separately), then Sight, Trigger, Bolt/Spring, Barrel.
+const MOD_ORDER = [4,5,3,2];
+
+const HITBOX = [
+  {id:"torso",label:"Torso",mult:1.00},{id:"head",label:"Head",mult:3.56},
+  {id:"legs",label:"Legs",mult:0.80},{id:"arms",label:"Arms",mult:0.50},
+];
+const HEAVYSET = [
+  {id:"none",label:"None",mult:1.00},{id:"bronze",label:"Bronze",mult:0.95},
+  {id:"silver",label:"Silver",mult:0.90},{id:"gold",label:"Gold",mult:0.85},
+];
+const FASTRELOAD = [   // Fast Reload badge: cuts reload time
+  {id:"none",label:"None",mult:1.00},{id:"bronze",label:"Bronze",mult:0.82},
+  {id:"silver",label:"Silver",mult:0.70},{id:"gold",label:"Gold",mult:0.57},
+];
+const IRONFIST = [     // Infantry / Iron Fist badge: boosts armor damage
+  {id:"none",label:"None",mult:1.00},{id:"bronze",label:"Bronze",mult:1.13},
+  {id:"silver",label:"Silver",mult:1.19},{id:"gold",label:"Gold",mult:1.25},
+];
+const GRENADIER = [    // Grenadier badge: boosts explosives' player (blast) damage
+  {id:"none",label:"None",mult:1.00},{id:"bronze",label:"Bronze",mult:1.08},
+  {id:"silver",label:"Silver",mult:1.11},{id:"gold",label:"Gold",mult:1.15},
+];
+const STANCES = [      // stance only affects sway; ADS == Stand so it's dropped
+  {id:"stand",label:"Stand"},{id:"crouch",label:"Crouch"},{id:"prone",label:"Prone"},
+];
+const TARGET_HP = 100;
+
+/* ============================================================================
+   2) WEAPON DATA  — your regeneratable "data file".  These are the exact fields
+   the app reads (unused engine fields dropped). Extend with all ~81 weapons.
+   ========================================================================== */
+/* Weapon data now lives in weapons.js (loaded by the <script src> tag above),
+   which defines the global `const WEAPONS = [ ... ]`. */
+if(typeof WEAPONS==="undefined"||!Array.isArray(WEAPONS)||!WEAPONS.length){
+  document.querySelector(".main").innerHTML=
+    '<div class="notice" style="margin:22px">'+
+    '<b>weapons.js not loaded.</b> Make sure <span class=\'mono\'>weapons.js</span> sits in the same '+
+    'folder as this page and is uploaded alongside it. If you double-clicked this file straight from '+
+    'your computer it should still work — if it doesn\'t, re-download both files together.</div>';
+  throw new Error("WEAPONS missing");
+}
+
+/* ============================================================================
+   3) COMPUTE ENGINE  — all formulas verified to the decimal vs the reference.
+   ========================================================================== */
+const prod = arr => arr.reduce((a,b)=>a*(b??1),1);
+const isDefaultAmmo = (w,a) => a.id === w.defaultAmmo.id;
+
+function compute(w, cfg){
+  const ammo = [w.defaultAmmo, ...(w.ammunition||[])].find(a=>a.id===cfg.ammoId) || w.defaultAmmo;
+  const mods = (w.modifiers||[]).filter(m=>cfg.modIds.includes(m.id));
+  const f = key => prod(mods.map(m=>m[key]));
+
+  const rpm = 60 / (w.recoiltime * f("fRecoilTime"));
+  const velocity = ammo.speed * (w.ammoSpeedMod ?? 1);
+
+  // Grenadier badge boosts explosives' player (blast) damage only — not guns.
+  const grenMul = [5,6,7,8,9].includes(w.weaponcategoryid) ? (GRENADIER.find(x=>x.id===cfg.grenadier)||{mult:1}).mult : 1;
+  // damage: floored base (verified: DPS & HTK both use the floored value)
+  const dmgNear = Math.floor(ammo.damage    * (w.ammoDamageMod    ?? 1) * f("fDamage")    * grenMul);
+  const dmgFar  = Math.floor(ammo.damagefar * (w.ammoDamageFarMod ?? 1) * f("fDamageFar") * grenMul);
+
+  const rNear = ammo.rangenear * (w.ammoRangeNearMod ?? 1) * f("fRangeNear");
+  const rFar  = ammo.rangefar  * (w.ammoRangeFarMod  ?? 1) * f("fRangeFar");
+  const rMax  = ammo.rangemax  * (w.ammoRangeMaxMod  ?? 1);
+
+  // accuracy cone (degrees) — NOT stance-dependent for the base weapon; uses the
+  // aim cone modifier from attachments + the ammo cone modifier.
+  const cone = w.baseconefire * f("fConeAimModifier") * (ammo.coneModifier ?? 1);
+
+  // recoil — includes ammo.recoilModifier + attachment recoil mods
+  const rMul = ammo.recoilModifier ?? 1;
+  const recoilUp    = Math.abs(w.camerarecoilup)       * f("fCameraRecoilUp")       * rMul;
+  const recoilRight = Math.abs(w.camerarecoilright)    * f("fCameraRecoilRight")    * rMul;
+  const recoilVar   = Math.abs(w.camerarecoilvariance) * f("fCameraRecoilVariance") * rMul;
+
+  // sway is the stance-dependent part
+  const swayMap={stand:w.swaystandmode,crouch:w.swaycrouchmode,prone:w.swaypronemode,aim:w.swaystandmode};
+  const sway = swayMap[cfg.stance] ?? w.swaystandmode;
+
+  const dpsNear = dmgNear * rpm/60, dpsFar = dmgFar * rpm/60;
+
+  const hb = HITBOX.find(h=>h.id===cfg.hitbox).mult, hs = HEAVYSET.find(h=>h.id===cfg.heavyset).mult;
+  const perNear = dmgNear*hb*hs, perFar = dmgFar*hb*hs;
+  const htkNear = Math.max(1,Math.ceil(TARGET_HP/perNear));
+  const htkFar  = Math.max(1,Math.ceil(TARGET_HP/perFar));
+  const ttkNear = (htkNear-1)*(60/rpm)*1000, ttkFar = (htkFar-1)*(60/rpm)*1000;
+
+  // armor — guns & AT weapons use the direct fields; mines use the explosion fields
+  const aMinRaw=ammo.armorMinDamage||ammo.armorExplosionMinDamage||0;
+  const aMaxRaw=ammo.armorMaxDamage||ammo.armorExplosionMaxDamage||0;
+  const pMinRaw=ammo.armorMinPenetration||ammo.armorExplosionMinPenetration||0;
+  const pMaxRaw=ammo.armorMaxPenetration||ammo.armorExplosionMaxPenetration||0;
+  const ironMul = (IRONFIST.find(x=>x.id===cfg.ironFist)||{mult:1}).mult; // Iron Fist: armor dmg
+  const armorMin = Math.floor(aMinRaw * (w.ammoArmorMinDamageMod ?? 1) * ironMul);
+  const armorMax = Math.floor(aMaxRaw * (w.ammoArmorMaxDamageMod ?? 1) * ironMul);
+  const penMin = pMinRaw * (w.ammoArmorMinPenetrationMod ?? 1) * 1000; // → mm
+  const penMax = pMaxRaw * (w.ammoArmorMaxPenetrationMod ?? 1) * 1000;
+  const penFarPct = ammo.armorPenetrationFarPercent ?? 0;
+  const penFarMin = penMin * penFarPct, penFarMax = penMax * penFarPct;
+
+  const reload = w.reloadtime * (FASTRELOAD.find(x=>x.id===cfg.fastReload)||{mult:1}).mult;
+  // sustained armor damage per second: empty a mag then reload (works for 1-shot launchers too)
+  const avgArmor=(armorMin+armorMax)/2;
+  const cycle=(w.clipsize-1)*(60/rpm)+reload;
+  const armorDPS = cycle>0 ? (w.clipsize*avgArmor)/cycle : avgArmor*rpm/60;
+
+  // economy — cost per shot = summed wear cost of weapon + ammo + mods
+  const wearCost = (o,cur)=> (o.wearPerShot??0) * (o[cur]??0) / (o.maxCondition||1);
+  const costPerShot = wearCost(w,"maxConditionRepairCredits") + wearCost(ammo,"maxConditionRepairCredits") + mods.reduce((s,m)=>s+wearCost(m,"maxConditionRepairCredits"),0);
+  const costPerShotG= wearCost(w,"maxConditionRepairGold")    + wearCost(ammo,"maxConditionRepairGold")    + mods.reduce((s,m)=>s+wearCost(m,"maxConditionRepairGold"),0);
+  const buy  = w.purchaseCostCredits + (isDefaultAmmo(w,ammo)?0:(ammo.purchaseCostCredits||0)) + mods.reduce((s,m)=>s+(m.purchaseCostCredits||0),0);
+  const buyG = w.purchaseCostGold    + (isDefaultAmmo(w,ammo)?0:(ammo.purchaseCostGold||0))    + mods.reduce((s,m)=>s+(m.purchaseCostGold||0),0);
+
+  return {ammo,mods,rpm,velocity,dmgNear,dmgFar,rNear,rFar,rMax,cone,
+    recoilUp,recoilRight,recoilVar,sway,swayspeed:w.swayspeed,dpsNear,dpsFar,htkNear,htkFar,ttkNear,ttkFar,
+    equiptime:w.equiptime,swayFatigue:w.swayfatigue,bloom:w.aimpenaltyperbullet,turnPenalty:w.aimpenaltyturn,coneRecovery:w.aimpenaltycontractionpersec,
+    armorMin,armorMax,penMin,penMax,penFarMin,penFarMax,armorDPS,
+    penNearRange:ammo.armorPenetrationNearRange,penFarRange:ammo.armorPenetrationFarRange,
+    reload,mag:w.clipsize,mags:w.clipCount,ep:w.equipmentPointsCost,
+    costPerShot,costPerShotG,costPerMag:costPerShot*w.clipsize,costPerMagG:costPerShotG*w.clipsize,buy,buyG};
+}
+function dmgAtRange(s,d){
+  if(d<=s.rNear) return s.dmgNear;
+  if(d>=s.rFar)  return s.dmgFar;
+  return s.dmgNear+(s.dmgFar-s.dmgNear)*((d-s.rNear)/(s.rFar-s.rNear));
+}
+
+/* ============================================================================
+   4) UI
+   ========================================================================== */
+const $=(s,r=document)=>r.querySelector(s);
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
+const fmt=(n,d=0)=>Number(n).toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d});
+
+let state={wid:WEAPONS[0].id,ammoId:WEAPONS[0].defaultAmmo.id,modIds:[],hitbox:"torso",heavyset:"none",fastReload:"none",ironFist:"none",grenadier:"none",stance:"stand",
+           versus:[{wid:WEAPONS[0].id,ammoId:WEAPONS[0].defaultAmmo.id,modIds:[]},
+                   {wid:(WEAPONS[1]||WEAPONS[0]).id,ammoId:(WEAPONS[1]||WEAPONS[0]).defaultAmmo.id,modIds:[]},null],
+           spreadRange:100,view:"detail",sort:{key:"name",dir:1},open:{fac:{},cat:{}},secClosed:{},
+           cfgOpen:{hitbox:true,heavyset:false,reload:false,ironfist:false,grenadier:false,stance:false},
+           vs:{hitbox:"torso",heavyset:"none",fastReload:"none",ironFist:"none",grenadier:"none",stance:"stand"}};
+let lastCone=0; // current cone-of-fire (deg) for the spread visual
+let lastTarget="soldier"; // spread target: soldier (guns) or tank (AT weapons)
+let lastRecoil=true; // whether the recoil pane is shown
+let lastStats=null; // current computed stats, for the recoil pane redraw
+let lastStatsBase=null; // stock stats, for the recoil reference silhouette
+const curWeapon=()=>WEAPONS.find(w=>w.id===state.wid);
+const stockCfg=()=>({ammoId:curWeapon().defaultAmmo.id,modIds:[],hitbox:state.hitbox,heavyset:state.heavyset,stance:state.stance});
+
+// merged sidebar categories: several raw weaponcategoryids fold into one display group.
+const CAT_MERGE={
+  11:{label:"Rifles",order:1}, 12:{label:"Rifles",order:1}, 13:{label:"Rifles",order:1},
+  16:{label:"Sub Machine Guns",order:2},
+  14:{label:"Light Machine Guns",order:3},
+  17:{label:"Handguns",order:4},
+  7:{label:"AT",order:5}, 8:{label:"AT",order:5},
+  5:{label:"Mines",order:6}, 6:{label:"Mines",order:6},
+  9:{label:"Grenades",order:7},
+};
+function catName(w){                       // merged category label for any item
+  if(w.factiontemplateid===0 || w.weaponcategoryid===4) return "Misc";
+  return (CAT_MERGE[w.weaponcategoryid]||{}).label || CATEGORIES[w.weaponcategoryid] || ("Category "+w.weaponcategoryid);
+}
+// which sidebar group an item belongs to. Misc = shared/other faction + all equipment.
+function groupOf(w){
+  if(w.factiontemplateid===0 || w.weaponcategoryid===4) return {fac:"misc",cat:null};
+  return {fac:String(w.factiontemplateid), cat:catName(w)};
+}
+function ensureVisible(id){                 // auto-open the group holding the selected item
+  const w=WEAPONS.find(x=>x.id===id); if(!w)return;
+  const g=groupOf(w); state.open.fac[g.fac]=true; if(g.cat)state.open.cat[g.fac+":"+g.cat]=true;
+}
+
+function buildSidebar(filter=""){
+  const list=$("#wpnList"); list.innerHTML="";
+  const f=filter.trim().toLowerCase(), searching=!!f;
+  const shown=WEAPONS.filter(w=>!f||w.name.toLowerCase().includes(f));
+
+  // ----- Misc group (shared/other + all equipment), flat list -----
+  const misc=shown.filter(w=>groupOf(w).fac==="misc");
+  const realFacs={};
+  shown.filter(w=>groupOf(w).fac!=="misc").forEach(w=>{
+    const g=groupOf(w);
+    (realFacs[g.fac] ??= {});
+    (realFacs[g.fac][g.cat] ??= []).push(w);
+  });
+
+  const catOrder=lbl=>{const e=Object.values(CAT_MERGE).find(x=>x.label===lbl);return e?e.order:99;};
+
+  const factionBlock=(facKey,facName,facColor,cats,flatItems)=>{
+    const fOpen=searching || !!state.open.fac[facKey];
+    const fh=el("div","faction-head"+(fOpen?"":" closed"),
+      `<span class="tw">▾</span><span class="chip" style="background:${facColor}"></span>${facName}`);
+    fh.onclick=()=>{state.open.fac[facKey]=!state.open.fac[facKey];buildSidebar(filter);};
+    list.appendChild(fh);
+    if(!fOpen)return;
+    if(flatItems){                                   // Misc: no sub-categories
+      flatItems.sort((a,b)=>a.name.localeCompare(b.name)).forEach(w=>list.appendChild(wpnItem(w)));
+      return;
+    }
+    Object.keys(cats).sort((a,b)=>catOrder(a)-catOrder(b)||a.localeCompare(b)).forEach(cat=>{
+      const key=facKey+":"+cat, cOpen=searching || !!state.open.cat[key], items=cats[cat];
+      const ch=el("div","cat-head"+(cOpen?"":" closed"),
+        `<span class="tw">▾</span>${cat}<span class="cnt">${items.length}</span>`);
+      ch.onclick=()=>{state.open.cat[key]=!state.open.cat[key];buildSidebar(filter);};
+      list.appendChild(ch);
+      if(!cOpen)return;
+      items.sort((a,b)=>a.name.localeCompare(b.name)).forEach(w=>list.appendChild(wpnItem(w)));
+    });
+  };
+
+  // real factions first (1,2,3 order), Misc last
+  Object.keys(realFacs).sort().forEach(fid=>{
+    const fac=FACTIONS[fid]||{name:"Faction "+fid,color:"#888"};
+    factionBlock(fid,fac.name,fac.color,realFacs[fid],null);
+  });
+  if(misc.length) factionBlock("misc","Misc","#8f8a6f",null,misc);
+
+  $("#buildTag").textContent=WEAPONS.length+" items loaded";
+}
+function wpnItem(w){
+  const it=el("div","wpn-item",`<span>${w.name}</span><span class="ep">${w.equipmentPointsCost} EP</span>`);
+  it.setAttribute("aria-current",w.id===state.wid); it.onclick=()=>selectWeapon(w.id);
+  return it;
+}
+function selectWeapon(id){
+  state.wid=id; const w=curWeapon();
+  state.ammoId=w.defaultAmmo.id; state.modIds=[]; state.view="detail";
+  ensureVisible(id);
+  syncTabs(); buildSidebar($("#search").value); renderDetail();
+}
+function seg(container,items,current,onPick){
+  container.innerHTML="";
+  items.forEach(it=>{const b=el("button",null,it.label);b.setAttribute("aria-pressed",it.id===current);b.onclick=()=>onPick(it.id);container.appendChild(b);});
+}
+
+function renderDetail(){
+  const w=curWeapon(), fac=FACTIONS[w.factiontemplateid]||{name:"?",color:"#888"};
+  $("#wName").textContent=w.name;
+  const meta=$("#wMeta"); meta.innerHTML="";
+  const fb=el("span","badge faction",fac.name); fb.style.color=fac.color; meta.appendChild(fb);
+  meta.appendChild(el("span","badge",CATEGORIES[w.weaponcategoryid]||("cat "+w.weaponcategoryid)));
+  meta.appendChild(el("span","badge",w.fireModeAuto?(w.fireModeSingle?"Select fire":"Automatic"):"Semi-auto"));
+  meta.appendChild(el("span","badge",w.equipmentPointsCost+" EP"));
+
+  const asel=$("#ammoSel"); asel.innerHTML="";
+  [w.defaultAmmo,...(w.ammunition||[])].forEach((a,i)=>{
+    const o=el("option",null,a.name+(i===0?" (default)":"")); o.value=a.id;
+    if(a.id===state.ammoId)o.selected=true; asel.appendChild(o);
+  });
+  asel.onchange=()=>{state.ammoId=+asel.value;renderDetail();};
+
+  const mb=$("#modBlocks"); mb.innerHTML=""; const cats={};
+  (w.modifiers||[]).forEach(m=>{(cats[m.weaponModCategoryId] ??= []).push(m);});
+  // order to match the in-game modification screen; anything unrecognised falls in after
+  const ordered=Object.keys(cats).map(Number).sort((a,b)=>{
+    const ia=MOD_ORDER.indexOf(a), ib=MOD_ORDER.indexOf(b);
+    return (ia<0?99:ia)-(ib<0?99:ib) || a-b;
+  });
+  ordered.forEach(cid=>{
+    const blk=el("div","cfg-sel"); blk.appendChild(el("label",null,MOD_CATEGORIES[cid]||("Mod "+cid)));
+    const sel=el("select"); const none=el("option",null,"Stock"); none.value=""; sel.appendChild(none);
+    cats[cid].forEach(m=>{const o=el("option",null,m.name);o.value=m.id;if(state.modIds.includes(m.id))o.selected=true;sel.appendChild(o);});
+    sel.onchange=()=>{const ids=cats[cid].map(m=>m.id);state.modIds=state.modIds.filter(id=>!ids.includes(id));if(sel.value)state.modIds.push(+sel.value);renderDetail();};
+    blk.appendChild(sel); mb.appendChild(blk);
+  });
+
+  seg($("#hitboxSeg"),HITBOX,state.hitbox,id=>{state.hitbox=id;renderDetail();});
+  seg($("#heavySeg"),HEAVYSET,state.heavyset,id=>{state.heavyset=id;renderDetail();});
+  seg($("#reloadSeg"),FASTRELOAD,state.fastReload,id=>{state.fastReload=id;renderDetail();});
+  seg($("#ironFistSeg"),IRONFIST,state.ironFist,id=>{state.ironFist=id;renderDetail();});
+  seg($("#grenadierSeg"),GRENADIER,state.grenadier,id=>{state.grenadier=id;renderDetail();});
+  seg($("#stanceSeg"),STANCES,state.stance,id=>{state.stance=id;renderDetail();});
+  // Grenadier only affects explosives — hide the row for guns/equipment
+  const gRow=$("#grenadierRow"); if(gRow)gRow.style.display=itemKind(w)==="explosive"?"":"none";
+  // make the preset rows collapsible (label toggles) to save space
+  document.querySelectorAll(".cfg-seg").forEach(box=>{
+    const key=box.dataset.key, lbl=box.querySelector("label");
+    if(state.cfgOpen[key]===false)box.classList.add("closed");
+    lbl.onclick=()=>{const closed=box.classList.toggle("closed");state.cfgOpen[key]=!closed;};
+  });
+  $("#resetBtn").onclick=()=>{state.ammoId=w.defaultAmmo.id;state.modIds=[];renderDetail();};
+  $("#compareBtn").onclick=()=>{
+    state.versus[0]={wid:state.wid,ammoId:state.ammoId,modIds:[...state.modIds]};
+    state.view="versus"; syncTabs();
+  };
+
+  const cfg={ammoId:state.ammoId,modIds:state.modIds,hitbox:state.hitbox,heavyset:state.heavyset,fastReload:state.fastReload,ironFist:state.ironFist,grenadier:state.grenadier,stance:state.stance};
+  renderReadouts(compute(w,cfg),compute(w,stockCfg()));
+}
+
+function cell(k,v,unit,opts={}){
+  const c=el("div","cell"+(opts.hot?" hot":"")+(opts.kill?" kill":""));
+  c.appendChild(el("div","k",k));
+  const val=el("div","v"); val.innerHTML=v+(unit?` <small>${unit}</small>`:"");
+  if(opts.delta!=null && Math.abs(opts.delta)>0.0005){
+    const up=opts.delta>0, good=opts.betterWhenUp?up:!up;
+    val.innerHTML+=` <span class="delta ${good?'up':'down'}">${up?'▲':'▼'}${fmt(Math.abs(opts.delta),opts.dd??0)}</span>`;
+  }
+  c.appendChild(val); return c;
+}
+function sectionHead(g,title){
+  const h=el("h3","sec-h",`<span class="tw">▾</span>${title}`);
+  h.onclick=()=>{state.secClosed[title]=g.classList.toggle("sec-closed");};
+  return h;
+}
+function group(title,cells){
+  const g=el("div","stat-group"+(state.secClosed[title]?" sec-closed":""));
+  g.appendChild(sectionHead(g,title));
+  const body=el("div","sec-body");
+  const grid=el("div","grid"); cells.forEach(c=>c&&grid.appendChild(c)); body.appendChild(grid);
+  g.appendChild(body); return g;
+}
+// wrap arbitrary content (charts etc.) in a collapsible section
+function sectionOf(title,content){
+  const g=el("div","stat-group"+(state.secClosed[title]?" sec-closed":""));
+  g.appendChild(sectionHead(g,title));
+  const body=el("div","sec-body"); body.appendChild(content); g.appendChild(body);
+  return g;
+}
+
+// classify by weaponcategoryid: guns get the full combat sheet; explosives and
+// equipment get trimmed cards that only show fields that apply to them.
+const GUN_CATS=[11,12,13,14,16,17];
+const EXPLOSIVE_CATS=[5,6,7,8,9];       // mines, AT weapons, rocket launchers, grenades
+function itemKind(w){
+  if(GUN_CATS.includes(w.weaponcategoryid)) return "gun";
+  if(EXPLOSIVE_CATS.includes(w.weaponcategoryid)) return "explosive";
+  return "equipment";                    // cat 4 (medkits, wrench, etc.)
+}
+
+function renderReadouts(s,b){
+  const R=$("#readouts"); R.innerHTML="";
+  const C=$("#curvesCol"); if(C)C.innerHTML="";
+  const kind=itemKind(curWeapon());
+  if(kind==="explosive"){renderExplosive(R,curWeapon());return;}
+  if(kind==="equipment"){renderEquipment(R,curWeapon());return;}
+  renderGun(R,s,b);
+}
+
+function renderGun(R,s,b){
+  lastStats=s; lastStatsBase=b;
+  // combat curves live in the side column so they don't overlap the stats
+  const C=$("#curvesCol");
+  if(C){ C.innerHTML=""; const cw=el("div"); cw.appendChild(el("div","curves-title","Combat curves")); cw.appendChild(combatGraphs(s)); C.appendChild(cw); }
+
+  // stat sections flow into two columns so short ones sit side-by-side (no dead space);
+  // cells within each section grow to fill their row.
+  const flow=el("div","stat-flow");
+  flow.appendChild(group("Damage",[
+    cell("Rate of fire",fmt(s.rpm),"rpm",{hot:true,delta:s.rpm-b.rpm,betterWhenUp:true}),
+    cell("Magazine",s.mag,"rds",{}),
+    cell("Reload",fmt(s.reload,2),"s",{delta:s.reload-b.reload,dd:2,betterWhenUp:false}),
+    cell("Damage",fmt(s.dmgNear)+" → "+fmt(s.dmgFar),"hp",{hot:true,delta:s.dmgNear-b.dmgNear,betterWhenUp:true}),
+    cell("Damage / s",fmt(s.dpsNear)+" → "+fmt(s.dpsFar),"hp/s",{hot:true}),
+    cell("Hits to kill",s.htkNear+" → "+s.htkFar,"",{kill:true}),
+    cell("Time to kill",fmt(s.ttkNear)+" → "+fmt(s.ttkFar),"ms",{kill:true}),
+    cell("Muzzle velocity",fmt(s.velocity),"m/s",{}),
+    cell("Range",fmt(s.rNear,0)+" → "+fmt(s.rFar,0),"m",{}),
+    cell("Max range",fmt(s.rMax),"m",{}),
+    cell("Mags carried",s.mags,"",{}),
+  ]));
+  flow.appendChild(group("Armor",[
+    cell("Armor damage",fmt(s.armorMin)+"–"+fmt(s.armorMax),"hp",{}),
+    cell("Armor DPS",fmt(s.armorDPS),"hp/s",{}),
+    cell("Armor pen",fmt(s.penMin,1)+"–"+fmt(s.penMax,1),"mm",{}),
+    cell("Armor pen · far",fmt(s.penFarMin,1)+"–"+fmt(s.penFarMax,1),"mm",{}),
+    cell("Pen range",fmt(s.penNearRange)+"–"+fmt(s.penFarRange),"m",{}),
+  ]));
+  flow.appendChild(group("Handling",[
+    cell("Cone of fire",fmt(s.cone,3),"°",{hot:true,delta:s.cone-b.cone,dd:3,betterWhenUp:false}),
+    cell("Recoil ↑",fmt(s.recoilUp,3),"",{delta:s.recoilUp-b.recoilUp,dd:3,betterWhenUp:false}),
+    cell("Recoil ↔",fmt(s.recoilRight,3),"",{delta:s.recoilRight-b.recoilRight,dd:3,betterWhenUp:false}),
+    cell("Recoil spread",fmt(s.recoilVar,3),"",{delta:s.recoilVar-b.recoilVar,dd:3,betterWhenUp:false}),
+    cell("Cone bloom / shot",fmt(s.bloom,2),"",{}),
+    cell("Sway ("+state.stance+")",fmt(s.sway,2),"",{}),
+    cell("Sway speed",fmt(s.swayspeed,2),"",{}),
+    cell("Sway fatigue",fmt(s.swayFatigue,2),"",{}),
+    cell("Turn penalty",fmt(s.turnPenalty,2),"",{}),
+    cell("Equip time",fmt(s.equiptime,2),"s",{}),
+  ]));
+  flow.appendChild(group("Economy",[
+    cell("Cost / shot",fmt(s.costPerShot,2),"cr · "+fmt(s.costPerShotG,4)+" g",{}),
+    cell("Cost / mag",fmt(s.costPerMag,2),"cr · "+fmt(s.costPerMagG,4)+" g",{}),
+    cell("Cost to buy",fmt(s.buy),"cr · "+fmt(s.buyG)+" g",{}),
+    cell("Equipment pts",s.ep,"",{}),
+  ]));
+  R.appendChild(flow);
+
+  lastCone=s.cone;
+  R.appendChild(sectionOf("Accuracy & recoil",buildAccuracy({target:"soldier",recoil:true})));
+  updateSpread();
+}
+
+// shared cost-per-use helper (wear cost of one use)
+function useCost(o,cur){return (o.wearPerShot??0)*(o[cur]??0)/(o.maxCondition||1);}
+
+function renderExplosive(R,w){
+  const a=w.defaultAmmo||{};
+  const cat=w.weaponcategoryid;
+  const isAT=[7,8].includes(cat), isMine=[5,6].includes(cat);
+  const thrown=(a.speed||0)>1;
+  const grenMul=(GRENADIER.find(x=>x.id===state.grenadier)||{mult:1}).mult;  // blast damage
+  const ironMul=(IRONFIST.find(x=>x.id===state.ironFist)||{mult:1}).mult;     // armor damage
+  const explDmg=Math.floor((a.explosiondamage||0)*grenMul), radius=a.explosionradius||0;
+  const directHit=a.damage?Math.floor(a.damage*grenMul):0;
+  const killR=(explDmg>TARGET_HP&&radius>0) ? radius*(1-TARGET_HP/explDmg) : 0;
+  const aMinD=Math.floor((a.armorExplosionMinDamage||a.armorMinDamage||0)*ironMul), aMaxD=Math.floor((a.armorExplosionMaxDamage||a.armorMaxDamage||0)*ironMul);
+  const pMin=(a.armorExplosionMinPenetration||a.armorMinPenetration||0)*1000;
+  const pMax=(a.armorExplosionMaxPenetration||a.armorMaxPenetration||0)*1000;
+  const fuse=a.explosiontimer||0;
+  const reload=(w.reloadtime||0)*(FASTRELOAD.find(x=>x.id===state.fastReload)||{mult:1}).mult; // Fast Reload badge
+  const avgArmor=(aMinD+aMaxD)/2, armorDPS=reload>0?avgArmor/reload:0;
+  const cone=(w.baseconefire||0)*(a.coneModifier??1); // AT launchers have a real cone
+  const costUse=useCost(a,"maxConditionRepairCredits")+useCost(w,"maxConditionRepairCredits");
+  const costUseG=useCost(a,"maxConditionRepairGold")+useCost(w,"maxConditionRepairGold");
+
+  // side column mirrors the gun sheet: a small chart lives here (blast falloff)
+  const C=$("#curvesCol");
+  if(C){ C.innerHTML=""; if(explDmg&&radius){const cw=el("div");cw.appendChild(el("div","curves-title","Blast falloff"));cw.appendChild(blastChart(explDmg,radius,killR));C.appendChild(cw);} }
+
+  const flow=el("div","stat-flow");
+  flow.appendChild(group("Damage",[
+    explDmg?cell("Explosion damage",fmt(explDmg),"hp",{hot:true}):null,
+    directHit?cell("Direct hit",fmt(directHit),"hp",{hot:true}):null,
+    radius?cell("Kill radius",fmt(killR,2),"m",{kill:true}):null,
+    radius?cell("Blast radius",fmt(radius,2),"m",{}):null,
+    reload?cell("Reload",fmt(reload,1),"s",{}):null,
+    thrown?cell("Projectile velocity",fmt(a.speed),"m/s",{}):null,
+    (thrown&&a.rangemax)?cell("Max distance",fmt(a.rangemax),"m",{}):null,
+    fuse?cell("Fuse time",fmt(fuse,1),"s",{}):null,
+  ].filter(Boolean)));
+
+  flow.appendChild(group("Armor",[
+    (aMinD||aMaxD)?cell("Armor damage",fmt(aMinD)+"–"+fmt(aMaxD),"hp",{hot:true}):null,
+    armorDPS?cell("Armor DPS",fmt(armorDPS,0),"hp/s",{hot:true}):null,
+    (pMin||pMax)?cell("Armor pen",fmt(pMin,1)+"–"+fmt(pMax,1),"mm",{}):null,
+  ].filter(Boolean)));
+
+  flow.appendChild(group("Handling",[
+    cell("Type",isMine?"Placed":(a.speed>40?"Launched":"Thrown"),""),
+    cone?cell("Cone of fire",fmt(cone,3),"°",{}):null,
+    cell("Equip time",fmt(w.equiptime??0,2),"s",{}),
+    cell("Equipment pts",w.equipmentPointsCost,""),
+  ].filter(Boolean)));
+
+  flow.appendChild(group("Economy",[
+    (costUse>0)?cell("Cost / use",fmt(costUse,2),"cr · "+fmt(costUseG,4)+" g",{}):null,
+    w.purchaseCostCredits?cell("Cost to buy",fmt(w.purchaseCostCredits),"cr · "+fmt(w.purchaseCostGold)+" g",{}):cell("Cost to buy","Free",""),
+  ].filter(Boolean)));
+  R.appendChild(flow);
+
+  // AT launchers get the same accuracy visual as guns, but ranged at a tank
+  if(isAT&&cone>0){
+    lastCone=cone;
+    R.appendChild(sectionOf("Accuracy",buildAccuracy({target:"tank",recoil:false})));
+    updateSpread();
+  }
+}
+
+// blast damage vs distance from centre (linear falloff to 0 at radius) + kill line
+function blastChart(explDmg,radius,killR){
+  const dmgAt=r=>Math.max(0,explDmg*(1-r/radius));
+  const wrap=el("div","chartwrap");
+  const mc=metricChart({rFar:radius},{title:"Damage from centre",color:"var(--danger)",
+    yAt:r=>dmgAt(r),maxD:radius,kill100:true});
+  wrap.appendChild(mc);
+  wrap.appendChild(el("div","chart-legend",
+    `<span class="k" style="color:var(--ink-faint)">metres from centre · dashed 100 hp · kill radius ${fmt(killR,2)} m</span>`));
+  return wrap;
+}
+
+function renderEquipment(R,w){
+  const a=w.defaultAmmo||{};
+  const costUse=useCost(a,"maxConditionRepairCredits")+useCost(w,"maxConditionRepairCredits");
+  const costUseG=useCost(a,"maxConditionRepairGold")+useCost(w,"maxConditionRepairGold");
+  R.appendChild(group("Item",[
+    cell("Type",CATEGORIES[w.weaponcategoryid]||"Equipment",""),
+    a.damage?cell("Melee damage",fmt(a.damage),"hp",{}):null,
+    a.rangemax?cell("Range / reach",fmt(a.rangemax),"m",{}):null,
+    cell("Equipment pts",w.equipmentPointsCost,""),
+  ].filter(Boolean)));
+  R.appendChild(group("Economy",[
+    (costUse>0)?cell("Cost / use",fmt(costUse,2),"cr · "+fmt(costUseG,4)+" g",{}):null,
+    w.purchaseCostCredits?cell("Cost to buy",fmt(w.purchaseCostCredits),"cr · "+fmt(w.purchaseCostGold)+" g",{}):cell("Cost to buy","Free",""),
+  ].filter(Boolean)));
+}
+const coneRadius=(deg,d)=> d*Math.tan((deg/2)*Math.PI/180); // ± metres at distance d
+
+function buildAccuracy(opts={}){
+  lastTarget=opts.target||"soldier"; lastRecoil=opts.recoil!==false;
+  const wrap=el("div","chartwrap acc-wrap");
+  const head=el("div",null,'<div id="spreadReadout" class="spread-readout"></div>'+
+    '<div class="spread-slider"><span>10 m</span>'+
+    `<input id="spreadSlider" class="rng" type="range" min="10" max="600" step="5" value="${state.spreadRange}">`+
+    '<span>600 m</span></div>');
+  const spreadCap=lastTarget==="tank"?"Spread vs an M5A1 Stuart":"Spread vs a soldier";
+  let paneHTML='<div><div class="spread-cap">'+spreadCap+'</div><div id="silhouetteBox"></div></div>';
+  if(lastRecoil) paneHTML+='<div><div class="spread-cap">Recoil pattern (one mag)</div><div id="recoilBox"></div></div>';
+  const panes=el("div","spread-panes "+(lastRecoil?"spread-panes-2":"spread-panes-1"),paneHTML);
+  wrap.appendChild(head); wrap.appendChild(panes);
+  setTimeout(()=>{const sl=document.getElementById("spreadSlider"); if(sl)sl.oninput=()=>{state.spreadRange=+sl.value;updateSpread();};},0);
+  return wrap;
+}
+
+function updateSpread(){
+  const d=state.spreadRange, deg=lastCone, r=coneRadius(deg,d); // ± m
+  const dia=2*r;
+  const ro=document.getElementById("spreadReadout");
+  if(ro){
+    const ref = lastTarget==="tank"
+      ? `≈ ${Math.round(dia/2.26*100)}% of a Stuart's height`   // M5A1 side profile ≈ 2.26 m tall
+      : `≈ ${Math.round(dia/0.5*100)}% of a torso`;             // ~0.5 m torso width
+    ro.innerHTML =
+      `<b>${deg.toFixed(3)}°</b> cone &nbsp;·&nbsp; at <b>${d} m</b> → <b>±${r.toFixed(3)} m</b> `+
+      `<span class="dim">(${(dia*100).toFixed(1)} cm across, ${ref})</span>`;
+  }
+  const sb=document.getElementById("silhouetteBox"); if(sb) sb.innerHTML= lastTarget==="tank"?tankSVG(r):silhouetteSVG(r);
+  const rb=document.getElementById("recoilBox"); if(rb && lastStats) rb.innerHTML=recoilSVG(lastStats,lastStatsBase);
+}
+
+// M5A1 Stuart side profile (≈4.34 m long × 2.26 m tall) as the vehicle spread reference.
+function tankSVG(r){
+  const VBW=300,VBH=180, L=4.34, Ht=2.26;
+  const sceneW=Math.max(L*1.18, 2*r*1.3, 1.5), k=VBW/sceneW;
+  const tankPxW=L*k, x0=(VBW-tankPxW)/2, base=(VBH+Ht*k)/2;
+  const X=m=>x0+m*k, Y=m=>base-m*k;
+  let rings=""; for(let i=1;i<=4;i++)rings+=`<circle cx="${VBW/2}" cy="${Y(1.1)}" r="${(VBH/2)*i/4}" fill="none" stroke="#ffffff08"/>`;
+  const ground=`<line x1="8" y1="${base}" x2="${VBW-8}" y2="${base}" stroke="#ffffff12"/>`;
+  const col="#8a9a56", edge='stroke="#00000040" stroke-width="1"';
+  // tracks + road wheels
+  let wheels=""; for(let wx=0.65;wx<=3.7;wx+=0.72)wheels+=`<circle cx="${X(wx)}" cy="${Y(0.32)}" r="${0.26*k}" fill="#3a3f2a" ${edge}/>`;
+  const tracks=`<rect x="${X(0.15)}" y="${Y(0.72)}" width="${(4.05)*k}" height="${0.72*k}" rx="${0.3*k}" fill="#4a4f38" ${edge}/>`;
+  // hull with sloped glacis (front = left) and turret + barrel forward
+  const hull=`<polygon points="${X(0.2)},${Y(0.72)} ${X(0.2)},${Y(1.05)} ${X(1.0)},${Y(1.5)} ${X(4.15)},${Y(1.5)} ${X(4.15)},${Y(0.72)}" fill="${col}" ${edge}/>`;
+  const turret=`<polygon points="${X(1.95)},${Y(1.5)} ${X(2.15)},${Y(2.26)} ${X(3.05)},${Y(2.26)} ${X(3.2)},${Y(1.5)}" fill="#c9a24b" ${edge}/>`;
+  const barrel=`<rect x="${X(0.5)}" y="${Y(1.92)}" width="${1.7*k}" height="${0.14*k}" fill="#c9a24b" ${edge}/>`;
+  const rr=r*k, ax=X(L/2), ay=Y(1.1);
+  const disc=`<circle cx="${ax}" cy="${ay}" r="${rr}" fill="#f4efdc22" stroke="#f4efdc" stroke-width="1.5"/>
+    <line x1="${ax-rr}" y1="${ay}" x2="${ax+rr}" y2="${ay}" stroke="#f4efdc" stroke-dasharray="2 3" opacity=".7"/>
+    <circle cx="${ax}" cy="${ay}" r="2.5" fill="var(--danger)"/>`;
+  const sbLen=1*k;
+  const scale=`<line x1="14" y1="${VBH-10}" x2="${14+sbLen}" y2="${VBH-10}" stroke="var(--ink-faint)" stroke-width="2"/><text x="${14+sbLen/2}" y="${VBH-16}" fill="var(--ink-faint)" font-size="10" text-anchor="middle" font-family="JetBrains Mono">1 m</text>`;
+  return `<svg viewBox="0 0 ${VBW} ${VBH}" width="100%" preserveAspectRatio="xMidYMid meet">${rings}${ground}${tracks}${wheels}${hull}${turret}${barrel}${disc}${scale}</svg>`
+    + `<div class="hb-legend"><span class="on"><i style="background:#8a9a56"></i>M5A1 Stuart · 4.34 × 2.26 m</span></div>`;
+}
+
+// scene scales so the soldier (1.8 m) and the spread disc always both fit, keeping
+// their real proportions — so a disc bigger than the soldier reads as "you'll miss".
+// Body regions are tinted by their hit-damage multiplier; the selected hitbox is outlined.
+const HB_COLOR={head:"#d24b34",torso:"#c9a24b",legs:"#8a9a56",arms:"#5f6350"};
+function silhouetteSVG(r){
+  const VB=210, personH=1.8;
+  const sceneM=Math.max(personH*1.15, 2*r*1.25, 0.6), k=VB/sceneM;
+  const cx=VB/2, topY=(VB-personH*k)/2, chestY=topY+0.55*personH*k;
+  const sel=state.hitbox, out=p=>p===sel?'stroke="#f4efdc" stroke-width="2"':'stroke="#00000030" stroke-width="1"';
+  const M=(m)=>m*personH*k, T=(m)=>topY+m*personH*k; // helpers: metres of body → px
+  const shoulderW=0.52*k, headR=0.11*k;
+  // faint range rings behind (target feel)
+  let rings=""; for(let i=1;i<=4;i++)rings+=`<circle cx="${cx}" cy="${chestY}" r="${(VB/2)*i/4}" fill="none" stroke="#ffffff08"/>`;
+  const body=`
+    <ellipse cx="${cx}" cy="${T(0.13)}" rx="${headR}" ry="${headR*1.15}" fill="${HB_COLOR.head}" ${out('head')}/>
+    <rect x="${cx-shoulderW*0.62}" y="${T(0.30)}" width="${shoulderW*0.16}" height="${M(0.34)}" rx="4" fill="${HB_COLOR.arms}" ${out('arms')}/>
+    <rect x="${cx+shoulderW*0.46}" y="${T(0.30)}" width="${shoulderW*0.16}" height="${M(0.34)}" rx="4" fill="${HB_COLOR.arms}" ${out('arms')}/>
+    <path d="M ${cx-shoulderW/2} ${T(0.30)} Q ${cx} ${T(0.26)} ${cx+shoulderW/2} ${T(0.30)} L ${cx+shoulderW*0.4} ${T(0.62)} L ${cx-shoulderW*0.4} ${T(0.62)} Z" fill="${HB_COLOR.torso}" ${out('torso')}/>
+    <rect x="${cx-shoulderW*0.4}" y="${T(0.62)}" width="${shoulderW*0.36}" height="${M(0.38)}" rx="4" fill="${HB_COLOR.legs}" ${out('legs')}/>
+    <rect x="${cx+shoulderW*0.04}" y="${T(0.62)}" width="${shoulderW*0.36}" height="${M(0.38)}" rx="4" fill="${HB_COLOR.legs}" ${out('legs')}/>`;
+  const rr=r*k;
+  const disc=`<circle cx="${cx}" cy="${chestY}" r="${rr}" fill="#f4efdc22" stroke="#f4efdc" stroke-width="1.5"/>
+    <line x1="${cx-rr}" y1="${chestY}" x2="${cx+rr}" y2="${chestY}" stroke="#f4efdc" stroke-dasharray="2 3" opacity=".7"/>
+    <circle cx="${cx}" cy="${chestY}" r="2.5" fill="var(--danger)"/>`;
+  const sbLen=0.5*k;
+  const scale=`<line x1="14" y1="${VB-12}" x2="${14+sbLen}" y2="${VB-12}" stroke="var(--ink-faint)" stroke-width="2"/><text x="${14+sbLen/2}" y="${VB-18}" fill="var(--ink-faint)" font-size="10" text-anchor="middle" font-family="JetBrains Mono">0.5 m</text>`;
+  return `<svg viewBox="0 0 ${VB} ${VB}" width="100%" preserveAspectRatio="xMidYMid meet">${rings}${body}${disc}${scale}</svg>`
+    + `<div class="hb-legend">`+HITBOX.map(h=>`<span class="${h.id===sel?'on':''}"><i style="background:${HB_COLOR[h.id]}"></i>${h.label} ×${h.mult}</span>`).join("")+`</div>`;
+}
+
+function devCurveSVG(deg,dMark){
+  const W=360,H=210,pad={l:46,r:14,t:12,b:26}, iw=W-pad.l-pad.r, ih=H-pad.t-pad.b, maxD=300;
+  const rMax=Math.max(coneRadius(deg,maxD),0.01);
+  const X=d=>pad.l+(d/maxD)*iw, Y=r=>pad.t+ih-(r/rMax)*ih;
+  let grid="";
+  for(let i=0;i<=4;i++){const rv=rMax*i/4;grid+=`<line x1="${pad.l}" y1="${Y(rv)}" x2="${W-pad.r}" y2="${Y(rv)}" stroke="#ffffff10"/><text x="${pad.l-6}" y="${Y(rv)+3}" fill="#6c6a56" font-size="10" text-anchor="end" font-family="JetBrains Mono">±${rv.toFixed(2)}</text>`;}
+  for(let d=0;d<=maxD;d+=50){grid+=`<line x1="${X(d)}" y1="${pad.t}" x2="${X(d)}" y2="${pad.t+ih}" stroke="#ffffff08"/><text x="${X(d)}" y="${H-8}" fill="#6c6a56" font-size="10" text-anchor="middle" font-family="JetBrains Mono">${d}m</text>`;}
+  const p=`${X(0)},${Y(0)} ${X(maxD)},${Y(coneRadius(deg,maxD))}`;
+  const mx=X(dMark), my=Y(coneRadius(deg,dMark));
+  const mark=`<line x1="${mx}" y1="${pad.t}" x2="${mx}" y2="${pad.t+ih}" stroke="var(--brass)" stroke-dasharray="2 3" opacity=".6"/><circle cx="${mx}" cy="${my}" r="4" fill="var(--brass)"/>`;
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="xMidYMid meet">${grid}<polyline points="${p}" fill="none" stroke="var(--brass)" stroke-width="2"/>${mark}</svg>`;
+}
+
+// "nice" round step for an axis so ticks land on 10/20/50/100 etc.
+function niceStep(range,target){
+  const raw=range/target, mag=Math.pow(10,Math.floor(Math.log10(raw)));
+  const n=raw/mag; const s=n<1.5?1:n<3?2:n<7?5:10; return s*mag;
+}
+
+// generic small chart: plots metric(d) over distance, with hover readout.
+// opts: {title, yAt(d)->value, color, stepped, yFmt, kill100, maxD, hitMul}
+function metricChart(s,opts){
+  const W=340,H=168,pad={l:40,r:10,t:12,b:26}, iw=W-pad.l-pad.r, ih=H-pad.t-pad.b;
+  const rawMaxD=opts.maxD||Math.max(s.rFar*1.5,60);
+  const xStep=niceStep(rawMaxD,5), maxD=Math.ceil(rawMaxD/xStep)*xStep;
+  let peak=0; for(let d=0;d<=maxD;d+=maxD/60)peak=Math.max(peak,opts.yAt(d));
+  const yStep=niceStep(Math.max(peak,1),4), yMax=Math.max(yStep,Math.ceil(peak/yStep)*yStep);
+  const X=d=>pad.l+(d/maxD)*iw, Y=v=>pad.t+ih-(Math.min(v,yMax)/yMax)*ih;
+  let grid="";
+  for(let v=0;v<=yMax+.001;v+=yStep)grid+=`<line x1="${pad.l}" y1="${Y(v)}" x2="${W-pad.r}" y2="${Y(v)}" stroke="#ffffff0e"/><text x="${pad.l-5}" y="${Y(v)+4}" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">${opts.yFmt?opts.yFmt(v):v}</text>`;
+  for(let d=0;d<=maxD+.001;d+=xStep)grid+=`<text x="${X(d)}" y="${H-8}" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">${d}</text>`;
+  // build path (stepped for integer metrics)
+  let p=[],prev=null;
+  for(let d=0;d<=maxD;d+=maxD/200){const v=opts.yAt(d);
+    if(opts.stepped&&prev!==null&&v!==prev.v)p.push(`${X(d).toFixed(1)},${Y(prev.v).toFixed(1)}`);
+    p.push(`${X(d).toFixed(1)},${Y(v).toFixed(1)}`); prev={d,v};}
+  const kill=opts.kill100&&Y(100)>pad.t&&Y(100)<pad.t+ih?`<line x1="${pad.l}" y1="${Y(100)}" x2="${W-pad.r}" y2="${Y(100)}" stroke="#8a8770" stroke-dasharray="4 3" opacity=".8"/>`:'';
+  const svg=`<svg viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="xMidYMid meet">${grid}${kill}<polyline points="${p.join(' ')}" fill="none" stroke="${opts.color}" stroke-width="2.5"/><g class="mc-cross" style="opacity:0"><line class="mcl" y1="${pad.t}" y2="${pad.t+ih}" stroke="#f4efdc" stroke-width="1" opacity=".5"/><circle class="mcd" r="3.5" fill="${opts.color}"/></g></svg>`;
+  const box=el("div","mini-chart");
+  box.innerHTML=`<div class="mini-title">${opts.title}</div><div class="mc-plot">${svg}<div class="mc-tip"></div></div>`;
+  const svgEl=box.querySelector("svg"),tip=box.querySelector(".mc-tip"),cross=box.querySelector(".mc-cross"),cl=box.querySelector(".mcl"),cd=box.querySelector(".mcd");
+  const move=ev=>{const rect=svgEl.getBoundingClientRect();const px=(ev.touches?ev.touches[0].clientX:ev.clientX)-rect.left;let d=((px/rect.width*W)-pad.l)/iw*maxD;d=Math.max(0,Math.min(maxD,d));const v=opts.yAt(d),vx=X(d);cross.style.opacity=1;cl.setAttribute("x1",vx);cl.setAttribute("x2",vx);cd.setAttribute("cx",vx);cd.setAttribute("cy",Y(v));tip.style.opacity=1;tip.style.left=Math.min(rect.width-70,px+10)+"px";tip.innerHTML=`${Math.round(d)}m · <b>${opts.yFmt?opts.yFmt(v):Math.round(v)}</b>`;};
+  const leave=()=>{cross.style.opacity=0;tip.style.opacity=0;};
+  svgEl.addEventListener("mousemove",move);svgEl.addEventListener("mouseleave",leave);
+  svgEl.addEventListener("touchmove",move,{passive:true});svgEl.addEventListener("touchend",leave);
+  return box;
+}
+
+// the 2x2 combat curves (damage / dps / htk / ttk over distance, after hitbox+HS)
+function combatGraphs(s){
+  const hb=HITBOX.find(h=>h.id===state.hitbox).mult, hs=HEAVYSET.find(h=>h.id===state.heavyset).mult, mul=hb*hs;
+  const dmg=d=>dmgAtRange(s,d)*mul;
+  const htk=d=>Math.max(1,Math.ceil(TARGET_HP/(dmgAtRange(s,d)*mul)));
+  const ttk=d=>(htk(d)-1)*(60/s.rpm)*1000;
+  const grid=el("div","mini-grid");
+  grid.appendChild(metricChart(s,{title:"Damage",color:"var(--danger)",yAt:dmg,kill100:true}));
+  grid.appendChild(metricChart(s,{title:"Damage / s",color:"#e07a2f",yAt:d=>dmg(d)*s.rpm/60}));
+  grid.appendChild(metricChart(s,{title:"Hits to kill",color:"var(--good)",yAt:htk,stepped:true}));
+  grid.appendChild(metricChart(s,{title:"Time to kill (ms)",color:"var(--brass)",yAt:ttk,stepped:true}));
+  const wrap=el("div","chartwrap");
+  wrap.appendChild(el("div","chart-legend",`<span class="k" style="color:var(--ink-faint)">vs distance · after ${state.hitbox}${state.heavyset!=="none"?" · HS "+state.heavyset:""} · dashed = 100 hp</span>`));
+  wrap.appendChild(grid); return wrap;
+}
+
+// recoil spray pattern over a mag. Shot 1 sits at the aim point (shared origin);
+// each later shot kicks up (recoilUp) and drifts (recoilRight) with a cumulative
+// variance wander, so more variance = a visibly wider, more wandering spray.
+function recoilPattern(s,n){
+  const noise=i=>((Math.sin(i*127.1+31.7)*43758.5453)%1); // deterministic, in ~[-1,1]
+  const pts=[{x:0,y:0}]; let x=0,y=0;
+  for(let i=1;i<n;i++){ y+=s.recoilUp; x+= s.recoilRight + noise(i)*s.recoilVar*2.4; pts.push({x,y}); }
+  return pts;
+}
+// stock and current are drawn as separate panels on ONE shared scale, so a bigger
+// climb or wider variance actually reads as bigger/wider instead of just rescaling.
+function recoilSVG(s,base){
+  const W=300,H=238, botY=H-30, top=26;
+  const n=Math.min(s.mag||20,25);
+  const cur=recoilPattern(s,n);
+  const changed=base && (Math.abs(s.recoilUp-base.recoilUp)>1e-4||Math.abs(s.recoilRight-base.recoilRight)>1e-4||Math.abs(s.recoilVar-base.recoilVar)>1e-4);
+  const ref=changed?recoilPattern(base,n):null;
+  const all=ref?cur.concat(ref):cur;
+  const maxX=Math.max(0.04,...all.map(p=>Math.abs(p.x))), maxY=Math.max(0.04,...all.map(p=>p.y));
+  const panelHW=changed?60:108, availH=botY-top-4;
+  const scale=Math.min(panelHW/maxX, availH/maxY); // one scale, shared by both panels
+  const panel=(pts,cx,color,label)=>{
+    const PX=x=>cx+x*scale, PY=y=>botY-y*scale;
+    let rings=""; for(let i=1;i<=3;i++)rings+=`<line x1="${cx-panelHW}" y1="${(botY-availH*i/3).toFixed(1)}" x2="${cx+panelHW}" y2="${(botY-availH*i/3).toFixed(1)}" stroke="#ffffff08"/>`;
+    const cline=`<line x1="${cx}" y1="${top}" x2="${cx}" y2="${botY}" stroke="#ffffff12"/>`;
+    const poly=`<polyline points="${pts.map(p=>PX(p.x).toFixed(1)+','+PY(p.y).toFixed(1)).join(' ')}" fill="none" stroke="${color}" stroke-width="1.6" opacity=".85"/>`;
+    const dots=pts.map((p,i)=>`<circle cx="${PX(p.x).toFixed(1)}" cy="${PY(p.y).toFixed(1)}" r="${i===0?3.6:2.3}" fill="${i===0?'var(--danger)':color}"/>`).join("");
+    const lbl=label?`<text x="${cx}" y="${top-10}" fill="${color}" font-size="11" text-anchor="middle" font-family="Oswald" letter-spacing="1">${label}</text>`:'';
+    return rings+cline+poly+dots+lbl;
+  };
+  let body;
+  if(changed){
+    body=panel(ref,78,"var(--ink-faint)","STOCK")+panel(cur,222,"var(--brass)","THIS BUILD")
+      +`<line x1="150" y1="${top-6}" x2="150" y2="${botY+6}" stroke="#ffffff14"/>`;
+  } else {
+    body=panel(cur,150,"var(--brass)","");
+  }
+  const foot=`<text x="10" y="${botY+16}" fill="var(--ink-faint)" font-size="10" font-family="JetBrains Mono"><tspan fill="var(--danger)">●</tspan> shot 1 = aim point · spray climbs upward</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="xMidYMid meet">${body}${foot}</svg>`
+    + `<div class="rc-note">${n} shots · ↑${fmt(s.recoilUp,2)} ↔${fmt(s.recoilRight,2)} ±${fmt(s.recoilVar,2)}</div>`;
+}
+
+/* compare table */
+const TCOLS=[
+  {k:"name",label:"Weapon",num:false,get:(w,s)=>w.name},
+  {k:"rpm",label:"RPM",get:(w,s)=>s.rpm},{k:"dmgNear",label:"Dmg",get:(w,s)=>s.dmgNear},
+  {k:"dpsNear",label:"DPS",get:(w,s)=>s.dpsNear},{k:"htkNear",label:"HTK",get:(w,s)=>s.htkNear},
+  {k:"ttkNear",label:"TTK ms",get:(w,s)=>s.ttkNear},{k:"velocity",label:"m/s",get:(w,s)=>s.velocity},
+  {k:"rFar",label:"Far m",get:(w,s)=>s.rFar},{k:"recoilUp",label:"Recoil↑",get:(w,s)=>s.recoilUp},
+  {k:"cone",label:"Cone°",get:(w,s)=>s.cone},{k:"mag",label:"Mag",get:(w,s)=>s.mag},{k:"ep",label:"EP",get:(w,s)=>s.ep},
+];
+function renderTable(){
+  const rows=WEAPONS.map(w=>({w,s:compute(w,{ammoId:w.defaultAmmo.id,modIds:[],hitbox:"torso",heavyset:"none",stance:"aim"})}));
+  const {key,dir}=state.sort, col=TCOLS.find(c=>c.k===key);
+  rows.sort((a,b)=>{const av=col.get(a.w,a.s),bv=col.get(b.w,b.s);return (typeof av==="string"?av.localeCompare(bv):av-bv)*dir;});
+  const t=$("#cmpTable"); t.innerHTML="";
+  const tr=el("tr");
+  TCOLS.forEach(c=>{const th=el("th",null,c.label);if(c.k===key)th.setAttribute("aria-sort",dir>0?"ascending":"descending");
+    th.onclick=()=>{state.sort=state.sort.key===c.k?{key:c.k,dir:-dir}:{key:c.k,dir:c.num===false?1:-1};renderTable();};tr.appendChild(th);});
+  const thead=el("thead"); thead.appendChild(tr); t.appendChild(thead);
+  const tb=el("tbody");
+  rows.forEach(({w,s})=>{
+    const fac=FACTIONS[w.factiontemplateid]||{color:"#888"}, r=el("tr");
+    TCOLS.forEach(c=>{let v=c.get(w,s);
+      if(c.k==="name")v=`<span class="faction-dot" style="background:${fac.color}"></span>${v}`;
+      else v=fmt(v,(c.k==="dmgNear"||c.k==="rFar"||c.k==="cone")?(c.k==="cone"?3:1):0);
+      r.appendChild(el("td",null,v));});
+    r.onclick=()=>selectWeapon(w.id); tb.appendChild(r);
+  });
+  t.appendChild(tb);
+}
+
+/* ---- head-to-head ---- */
+const VS_PALETTE=["#c9a24b","#c85a3f","#7f95a3"];
+const stockOf=w=>compute(w,{ammoId:w.defaultAmmo.id,modIds:[],hitbox:"torso",heavyset:"none",stance:"aim"});
+
+function weaponPicker(idx,entry,allowNone){
+  const sel=el("select","vs-pick");
+  if(allowNone){const o=el("option",null,"— none —");o.value="";if(!entry)o.selected=true;sel.appendChild(o);}
+  const groups={};
+  WEAPONS.forEach(w=>{const fk=(FACTIONS[w.factiontemplateid]||{}).name||("Faction "+w.factiontemplateid);(groups[fk] ??= []).push(w);});
+  Object.keys(groups).sort().forEach(fk=>{
+    const og=el("optgroup"); og.label=fk;
+    groups[fk].sort((a,b)=>a.name.localeCompare(b.name)).forEach(w=>{
+      const o=el("option",null,w.name);o.value=w.id;if(entry&&w.id===entry.wid)o.selected=true;og.appendChild(o);});
+    sel.appendChild(og);
+  });
+  sel.onchange=()=>{
+    if(!sel.value){state.versus[idx]=null;}
+    else{const w=WEAPONS.find(x=>x.id===+sel.value);state.versus[idx]={wid:w.id,ammoId:w.defaultAmmo.id,modIds:[]};}
+    renderVersus();
+  };
+  return sel;
+}
+
+// per-column ammo + attachment controls
+function columnConfig(idx,w,entry){
+  const box=el("div","vs-config");
+  const asel=el("select","vs-pick2");
+  [w.defaultAmmo,...(w.ammunition||[])].forEach((a,i)=>{const o=el("option",null,a.name+(i===0?" (default)":""));o.value=a.id;if(a.id===entry.ammoId)o.selected=true;asel.appendChild(o);});
+  asel.onchange=()=>{entry.ammoId=+asel.value;renderVersus();};
+  box.appendChild(asel);
+  const cats={}; (w.modifiers||[]).forEach(m=>{(cats[m.weaponModCategoryId] ??= []).push(m);});
+  // same in-game order as the data sheet: Sight, Trigger, Bolt/Spring, Barrel (ammo is above)
+  const ordered=Object.keys(cats).map(Number).sort((a,b)=>{
+    const ia=MOD_ORDER.indexOf(a), ib=MOD_ORDER.indexOf(b);
+    return (ia<0?99:ia)-(ib<0?99:ib) || a-b;
+  });
+  ordered.forEach(cid=>{
+    const sel=el("select","vs-pick2");
+    const none=el("option",null,(MOD_CATEGORIES[cid]||("Mod "+cid))+": Stock");none.value="";sel.appendChild(none);
+    cats[cid].forEach(m=>{const o=el("option",null,m.name);o.value=m.id;if(entry.modIds.includes(m.id))o.selected=true;sel.appendChild(o);});
+    sel.onchange=()=>{const ids=cats[cid].map(m=>m.id);entry.modIds=entry.modIds.filter(id=>!ids.includes(id));if(sel.value)entry.modIds.push(+sel.value);renderVersus();};
+    box.appendChild(sel);
+  });
+  return box;
+}
+
+function cfgSummary(w,entry){
+  const ammo=[w.defaultAmmo,...(w.ammunition||[])].find(a=>a.id===entry.ammoId)||w.defaultAmmo;
+  const n=entry.modIds.length;
+  const isDef=ammo.id===w.defaultAmmo.id;
+  const parts=[]; if(!isDef)parts.push(ammo.name); if(n)parts.push(n+" mod"+(n>1?"s":""));
+  return parts.length?parts.join(" · "):"stock";
+}
+
+// grouped + bundled comparison rows (near → far pairs share one row)
+const VS_GROUPS=[
+  {title:"Weapon",rows:[
+    {label:"Faction",text:true,get:(w,s)=>(FACTIONS[w.factiontemplateid]||{}).name||w.factiontemplateid},
+    {label:"Class",text:true,get:(w,s)=>CATEGORIES[w.weaponcategoryid]||("cat "+w.weaponcategoryid)},
+    {label:"Fire mode",text:true,get:(w,s)=>w.fireModeAuto?(w.fireModeSingle?"Select fire":"Automatic"):"Semi-auto"},
+  ]},
+  {title:"Damage",rows:[
+    {label:"Rate of fire",unit:"rpm",better:"up",get:(w,s)=>s.rpm,dd:0},
+    {label:"Damage",unit:"hp",better:"up",get:(w,s)=>s.dmgNear,dd:0,disp:(w,s)=>fmt(s.dmgNear)+" → "+fmt(s.dmgFar)},
+    {label:"Damage / s",unit:"hp/s",better:"up",get:(w,s)=>s.dpsNear,dd:0,disp:(w,s)=>fmt(s.dpsNear)+" → "+fmt(s.dpsFar)},
+    {label:"Hits to kill",better:"down",get:(w,s)=>s.htkNear,dd:0,disp:(w,s)=>s.htkNear+" → "+s.htkFar},
+    {label:"Time to kill",unit:"ms",better:"down",get:(w,s)=>s.ttkNear,dd:0,disp:(w,s)=>fmt(s.ttkNear)+" → "+fmt(s.ttkFar)},
+    {label:"Magazine",unit:"rds",better:"up",get:(w,s)=>s.mag,dd:0},
+    {label:"Reload",unit:"s",better:"down",get:(w,s)=>s.reload,dd:2},
+  ]},
+  {title:"Armor",rows:[
+    {label:"Armor damage",unit:"hp",better:"up",get:(w,s)=>(s.armorMin+s.armorMax)/2,dd:0,disp:(w,s)=>fmt(s.armorMin)+"–"+fmt(s.armorMax)},
+    {label:"Armor DPS",unit:"hp/s",better:"up",get:(w,s)=>s.armorDPS,dd:0},
+    {label:"Armor pen",unit:"mm",better:"up",get:(w,s)=>(s.penMin+s.penMax)/2,dd:1,disp:(w,s)=>fmt(s.penMin,1)+"–"+fmt(s.penMax,1)},
+  ]},
+  {title:"Range & handling",rows:[
+    {label:"Range",unit:"m",better:"up",get:(w,s)=>s.rNear,dd:0,disp:(w,s)=>fmt(s.rNear,0)+" → "+fmt(s.rFar,0)},
+    {label:"Muzzle velocity",unit:"m/s",better:"up",get:(w,s)=>s.velocity,dd:0},
+    {label:"Cone of fire",unit:"°",better:"down",get:(w,s)=>s.cone,dd:3},
+    {label:"Recoil ↑ / ↔",better:"down",get:(w,s)=>s.recoilUp,dd:3,disp:(w,s)=>fmt(s.recoilUp,3)+" / "+fmt(s.recoilRight,3)},
+    {label:"Equip time",unit:"s",better:"down",get:(w,s)=>s.equiptime,dd:2},
+    {label:"Sway fatigue",better:"down",get:(w,s)=>s.swayFatigue,dd:2},
+    {label:"Turn penalty",better:"down",get:(w,s)=>s.turnPenalty,dd:2},
+  ]},
+  {title:"Economy",rows:[
+    {label:"Equip pts",better:"down",get:(w,s)=>s.ep,dd:0},
+    {label:"Cost / shot",unit:"cr",better:"down",get:(w,s)=>s.costPerShot,dd:2},
+    {label:"Cost to buy",unit:"cr",better:"down",get:(w,s)=>s.buy,dd:0},
+  ]},
+];
+
+function renderVersus(){
+  const host=$("#versusView"); host.innerHTML="";
+
+  // 1) shared scenario badges at the top
+  const bar=el("div","vs-presets");
+  const addSeg=(lbl,items,cur,set)=>{const b=el("div","vs-preset");b.appendChild(el("label",null,lbl));const sg=el("div","seg");b.appendChild(sg);seg(sg,items,cur,id=>{set(id);renderVersus();});bar.appendChild(b);};
+  addSeg("Hit location",HITBOX,state.vs.hitbox,id=>state.vs.hitbox=id);
+  addSeg("Enemy Heavy Set",HEAVYSET,state.vs.heavyset,id=>state.vs.heavyset=id);
+  addSeg("Fast Reload",FASTRELOAD,state.vs.fastReload,id=>state.vs.fastReload=id);
+  addSeg("Inf / Iron Fist",IRONFIST,state.vs.ironFist,id=>state.vs.ironFist=id);
+  addSeg("Grenadier",GRENADIER,state.vs.grenadier,id=>state.vs.grenadier=id);
+  addSeg("Stance",STANCES,state.vs.stance,id=>state.vs.stance=id);
+  host.appendChild(bar);
+
+  const cols=state.versus.map((entry,i)=>{
+    if(!entry)return null; const w=WEAPONS.find(x=>x.id===entry.wid); if(!w)return null;
+    return {w,entry,color:VS_PALETTE[i],s:compute(w,{ammoId:entry.ammoId,modIds:entry.modIds,hitbox:state.vs.hitbox,heavyset:state.vs.heavyset,fastReload:state.vs.fastReload,ironFist:state.vs.ironFist,grenadier:state.vs.grenadier,stance:state.vs.stance})};
+  }).filter(Boolean);
+
+  // 2) one table: loadout pickers live in the header so they align with their column
+  const t=el("table","vs-table");
+  const cg=el("colgroup");
+  cg.appendChild(el("col","vs-col-lbl"));
+  [0,1,2].forEach(()=>cg.appendChild(el("col","vs-col")));
+  t.appendChild(cg);
+
+  const thead=el("thead"), htr=el("tr");
+  htr.appendChild(el("th","vs-lbl",""));
+  [0,1,2].forEach(i=>{
+    const entry=state.versus[i], th=el("th","vs-head");
+    const top=el("div","vs-picktop");
+    const dot=el("span","vs-dot"); dot.style.background=VS_PALETTE[i]; top.appendChild(dot);
+    top.appendChild(weaponPicker(i,entry,i===2));
+    th.appendChild(top);
+    if(entry){const w=WEAPONS.find(x=>x.id===entry.wid); if(w)th.appendChild(columnConfig(i,w,entry));}
+    htr.appendChild(th);
+  });
+  thead.appendChild(htr); t.appendChild(thead);
+
+  if(cols.length<2){
+    t.appendChild(el("tbody"));
+    host.appendChild(t);
+    host.appendChild(el("div","hint",'Select at least two weapons to compare.'));
+    return;
+  }
+
+  // 3) grouped stat rows
+  const tb=el("tbody");
+  VS_GROUPS.forEach(g=>{
+    const gtr=el("tr","vs-grouprow");
+    const gtd=el("td","vs-grouplbl",g.title); gtd.colSpan=1+cols.length; gtr.appendChild(gtd); tb.appendChild(gtr);
+    g.rows.forEach(row=>{
+      const tr=el("tr"); tr.appendChild(el("td","vs-lbl",row.label));
+      let best=null;
+      if(!row.text){const vals=cols.map(c=>row.get(c.w,c.s));best=row.better==="up"?Math.max(...vals):Math.min(...vals);}
+      cols.forEach(c=>{
+        const v=row.get(c.w,c.s), td=el("td");
+        if(row.text){td.textContent=v;td.classList.add("vs-text");}
+        else{td.innerHTML=(row.disp?row.disp(c.w,c.s):fmt(v,row.dd))+(row.unit?` <small>${row.unit}</small>`:"");if(Math.abs(v-best)<1e-6)td.classList.add("vs-win");}
+        tr.appendChild(td);
+      });
+      // pad empty columns so widths stay put
+      for(let k=cols.length;k<3;k++)tr.appendChild(el("td","vs-empty",""));
+      tb.appendChild(tr);
+    });
+  });
+  t.appendChild(tb);
+  // table on the left, charts pinned to a sticky column on the right
+  const area=el("div","vs-area");
+  const tw=el("div","vs-tablewrap"); tw.appendChild(t); area.appendChild(tw);
+
+  const sers=cols.map(c=>({name:c.w.name,color:c.color,s:c.s}));
+  const charts=el("div","vs-charts");
+  charts.appendChild(el("div","curves-title","Combat curves"));
+  const box=el("div","chartwrap");
+  // one shared legend for both charts, like the Data Sheet's curves column
+  box.appendChild(el("div","chart-legend",
+    sers.map(x=>`<span class="k"><span class="sw" style="background:${x.color}"></span>${x.name}</span>`).join("")+
+    `<span class="k" style="color:var(--ink-faint)">vs distance · after ${state.vs.hitbox}${state.vs.heavyset!=="none"?" · HS "+state.vs.heavyset:""}</span>`));
+  const grid=el("div","mini-grid");
+  grid.appendChild(versusChart(sers,{mode:"damage",title:"Damage"}));
+  grid.appendChild(versusChart(sers,{mode:"ttk",title:"Time to kill (ms)"}));
+  box.appendChild(grid); charts.appendChild(box);
+  area.appendChild(charts);
+  host.appendChild(area);
+}
+
+function versusChart(series,opts={}){
+  const mode=opts.mode||"damage";
+  const hb=HITBOX.find(h=>h.id===state.vs.hitbox).mult, hs=HEAVYSET.find(h=>h.id===state.vs.heavyset).mult, mul=hb*hs;
+  // metric per series at distance d
+  const valAt=(s,d)=>{
+    if(mode==="damage")return dmgAtRange(s,d);
+    const per=dmgAtRange(s,d)*mul;
+    const htk=Math.max(1,Math.ceil(TARGET_HP/per));
+    return (htk-1)*(60/s.rpm)*1000; // ms
+  };
+  const W=396,H=214,pad={l:42,r:8,t:10,b:24}, iw=W-pad.l-pad.r, ih=H-pad.t-pad.b;
+  const rawMaxD=Math.max(...series.map(x=>x.s.rFar))*1.4;
+  const xStep=niceStep(Math.max(rawMaxD,60),6), maxD=Math.ceil(rawMaxD/xStep)*xStep;
+  // peak across all series over the plotted range
+  let peak=0; series.forEach(x=>{for(let d=0;d<=maxD;d+=maxD/60)peak=Math.max(peak,valAt(x.s,d));});
+  const yStep=mode==="damage"?Math.max(10,niceStep(Math.max(peak,10),5)):niceStep(Math.max(peak,1),5);
+  const yMax=Math.max(yStep,Math.ceil(peak/yStep)*yStep);
+  const X=d=>pad.l+(d/maxD)*iw, Y=v=>pad.t+ih-(Math.min(v,yMax)/yMax)*ih;
+  let grid="";
+  for(let v=0;v<=yMax+0.001;v+=yStep)grid+=`<line x1="${pad.l}" y1="${Y(v)}" x2="${W-pad.r}" y2="${Y(v)}" stroke="#ffffff10"/><text x="${pad.l-5}" y="${Y(v)+4}" fill="#8a8770" font-size="12" text-anchor="end" font-family="JetBrains Mono">${v}</text>`;
+  for(let d=0;d<=maxD+0.001;d+=xStep)grid+=`<line x1="${X(d)}" y1="${pad.t}" x2="${X(d)}" y2="${pad.t+ih}" stroke="#ffffff08"/><text x="${X(d)}" y="${H-7}" fill="#8a8770" font-size="12" text-anchor="middle" font-family="JetBrains Mono">${d}</text>`;
+  const kill=(mode==="damage"&&Y(100)>pad.t)?`<line x1="${pad.l}" y1="${Y(100)}" x2="${W-pad.r}" y2="${Y(100)}" stroke="#8a8770" stroke-dasharray="5 4"/>`:'';
+  // TTK is a step function (whole hits), damage is continuous
+  const lines=series.map(x=>{
+    let p=[],prev=null;
+    for(let d=0;d<=maxD;d+=maxD/220){const v=valAt(x.s,d);
+      if(mode==="ttk"&&prev!==null&&v!==prev)p.push(`${X(d).toFixed(1)},${Y(prev).toFixed(1)}`);
+      p.push(`${X(d).toFixed(1)},${Y(v).toFixed(1)}`); prev=v;}
+    return `<polyline points="${p.join(' ')}" fill="none" stroke="${x.color}" stroke-width="2"/>`;
+  }).join("");
+  const uid=mode==="damage"?"d":"t";
+  const dots=series.map((x,i)=>`<circle id="vc${uid}${i}" r="3.5" fill="${x.color}" style="opacity:0"/>`).join("");
+  const svg=`<svg viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="xMidYMid meet">${grid}${kill}${lines}<line id="vcl${uid}" y1="${pad.t}" y2="${pad.t+ih}" stroke="#f4efdc" stroke-width="1" opacity="0"/>${dots}</svg>`;
+
+  // rendered as a mini-chart panel so the Compare tab matches the Data Sheet's curves column
+  const wrap=el("div","mini-chart");
+  wrap.appendChild(el("div","mini-title",opts.title||(mode==="damage"?"Damage over distance":"Time to kill (ms)")));
+  const plot=el("div","dmg-plot"); plot.innerHTML=svg+`<div class="dmg-tip" id="vsTip${uid}"></div>`; wrap.appendChild(plot);
+
+  const svgEl=plot.querySelector("svg"), tip=plot.querySelector("#vsTip"+uid), cl=plot.querySelector("#vcl"+uid);
+  const move=ev=>{
+    const rect=svgEl.getBoundingClientRect();
+    const px=(ev.touches?ev.touches[0].clientX:ev.clientX)-rect.left, svgX=px/rect.width*W;
+    let d=(svgX-pad.l)/iw*maxD; d=Math.max(0,Math.min(maxD,d));
+    const vx=X(d); cl.setAttribute("x1",vx); cl.setAttribute("x2",vx); cl.setAttribute("opacity",".5");
+    let rows="";
+    series.forEach((x,i)=>{const v=valAt(x.s,d);const dot=plot.querySelector("#vc"+uid+i);dot.setAttribute("cx",vx);dot.setAttribute("cy",Y(v));dot.style.opacity=1;
+      rows+=`<div style="color:${x.color}">${mode==="damage"?v.toFixed(1):Math.round(v)+" ms"} — ${x.name}</div>`;});
+    tip.style.opacity=1; tip.style.left=Math.min(rect.width-150,px+12)+"px";
+    tip.innerHTML=`<b>${Math.round(d)} m</b>${rows}`;
+  };
+  const leave=()=>{cl.setAttribute("opacity","0");series.forEach((x,i)=>plot.querySelector("#vc"+uid+i).style.opacity=0);tip.style.opacity=0;};
+  svgEl.addEventListener("mousemove",move); svgEl.addEventListener("mouseleave",leave);
+  svgEl.addEventListener("touchmove",move,{passive:true}); svgEl.addEventListener("touchend",leave);
+  return wrap;
+}
+
+function syncTabs(){
+  document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute("aria-selected",b.dataset.view===state.view));
+  $("#detailView").classList.toggle("hidden",state.view!=="detail");
+  $("#tableView").classList.toggle("active",state.view==="table");
+  $("#versusView").classList.toggle("active",state.view==="versus");
+  if(state.view==="table")renderTable();
+  else if(state.view==="versus")renderVersus();
+  else renderDetail();
+}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{state.view=b.dataset.view;syncTabs();});
+$("#search").oninput=e=>buildSidebar(e.target.value);
+
+// contact & support popover
+(function(){
+  const btn=$("#contactBtn"), pop=$("#contactPop"), wrap=$("#contactWrap");
+  const setOpen=o=>{pop.hidden=!o;btn.setAttribute("aria-expanded",o?"true":"false");};
+  btn.onclick=e=>{e.stopPropagation();setOpen(pop.hidden);};
+  document.addEventListener("click",e=>{if(!wrap.contains(e.target))setOpen(false);});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")setOpen(false);});
+  $("#copyDc").onclick=e=>{
+    e.stopPropagation();
+    const t=$("#dcHandle").textContent, btnEl=e.currentTarget;
+    const done=()=>{btnEl.textContent="copied";setTimeout(()=>btnEl.textContent="copy",1200);};
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done).catch(done);
+    else done();
+  };
+})();
+
+// The static intro exists so crawlers (and no-JS visitors) see real content, since the
+// app builds everything client-side. Once the interactive UI is up, it's redundant.
+(function(){const s=document.getElementById("seoIntro"); if(s)s.style.display="none";})();
+
+ensureVisible(state.wid); buildSidebar(); renderDetail();
+</script>
+
+
+</body></html>

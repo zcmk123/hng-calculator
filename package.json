@@ -1,0 +1,37 @@
+{
+  "name": "hg-armory",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "H&G Armory — Heroes & Generals weapon stats & TTK calculator (Vue 3 + TS refactor with i18n)",
+  "author": "zewm (original) · DoubleBird (refactor + i18n)",
+  "contributors": [
+    { "name": "zewm", "url": "https://github.com/zewm" },
+    { "name": "DoubleBird", "comment": "Vue 3 + TS + Vite refactor, i18n (zh/en)" }
+  ],
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@10.33.2",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=10"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "pinia": "~2.1.7",
+    "vue": "~3.4.21",
+    "vue-i18n": "~9.13.1",
+    "vue-router": "~4.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "~5.0.4",
+    "sass": "~1.77.0",
+    "typescript": "~5.4.5",
+    "vite": "~5.2.10",
+    "vue-tsc": "~2.0.13"
+  }
+}
