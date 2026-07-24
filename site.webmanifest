@@ -1,0 +1,12 @@
+{
+  "name": "H&G Armory",
+  "short_name": "H&G Armory",
+  "description": "Heroes & Generals weapon stats database and comparison tool.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#15170f",
+  "theme_color": "#15170f",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
