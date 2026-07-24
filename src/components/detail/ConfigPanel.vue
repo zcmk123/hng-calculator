@@ -1,9 +1,9 @@
 <script setup lang="ts">
 /**
- * 配置面板：弹药 select + 配件 blocks + 6 个 SegButtons + Reset / Compare。
+ * 配置面板：弹药 select + 配件 blocks + 6 个 SegButtons + Reset / Compare + 武器图片/3D 模型。
  * 对应原 renderDetail() 中的 cfg 部分。
  */
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useConfigStore } from '@/stores/config'
 import { useWeaponsStore } from '@/stores/weapons'
@@ -11,6 +11,7 @@ import { FASTRELOAD, GRENADIER, HEAVYSET, HITBOX, IRONFIST, MOD_CATEGORIES, MOD_
 import { itemKind } from '@/lib/classify'
 import type { Modifier, Weapon } from '@/types/weapon'
 import SegButtons from '@/components/common/SegButtons.vue'
+import WeaponModel3D from '@/components/common/WeaponModel3D.vue'
 
 const props = defineProps<{ weapon: Weapon }>()
 const emit = defineEmits<{ (e: 'reset'): void; (e: 'compare'): void }>()
@@ -18,6 +19,26 @@ const emit = defineEmits<{ (e: 'reset'): void; (e: 'compare'): void }>()
 const { t } = useI18n()
 const config = useConfigStore()
 const weapons = useWeaponsStore()
+
+// 已知存在 3D 模型的武器 id 集合（public/3dWeapons/{id}.glb）
+// 仅当确认存在时才启用 3D 视图，避免每次切换都发 HEAD 请求
+const HAS_3D = new Set<number>([7]) // P08 Parabellum
+
+// 武器 3D 模型：public/3dWeapons/{id}.glb（Draco + KTX2 压缩）
+const model3dUrl = computed(() => {
+  if (!HAS_3D.has(props.weapon.id)) return ''
+  return `${import.meta.env.BASE_URL}3dWeapons/${props.weapon.id}.glb`
+})
+
+// 武器图片（回退）：public/weapons/{id}.png，切换武器时重置错误状态
+const imgOk = ref(true)
+const weaponImg = computed(() => {
+  if (model3dUrl.value) return '' // 有 3D 时不用图片
+  if (!imgOk.value) return ''
+  return `${import.meta.env.BASE_URL}weapons/${props.weapon.id}.png`
+})
+watch(() => props.weapon.id, () => { imgOk.value = true })
+function onImgError() { imgOk.value = false }
 
 // ammo options: default + alternatives
 const ammoOptions = computed(() => [props.weapon.defaultAmmo, ...(props.weapon.ammunition || [])])
@@ -56,6 +77,18 @@ function selectedModValue(catMods: Modifier[]): string {
 
 <template>
   <aside class="cfg-col">
+    <WeaponModel3D
+      v-if="model3dUrl"
+      :src="model3dUrl"
+    />
+    <img
+      v-else-if="weaponImg"
+      :src="weaponImg"
+      :alt="props.weapon.name"
+      class="weapon-thumb"
+      @error="onImgError"
+    />
+
     <!-- ammo -->
     <div class="cfg-sel">
       <label>{{ t('cfg.ammo') }}</label>

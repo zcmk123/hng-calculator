@@ -244,13 +244,12 @@
 .sheet-head .meta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
 .weapon-thumb {
   width: 100%;
-  max-width: 320px;
   height: auto;
   max-height: 140px;
   object-fit: contain;
-  margin-bottom: 8px;
   border-radius: var(--radius);
   background: var(--panel-2);
+  display: block;
 }
 .badge {
   font-family: "JetBrains Mono";
