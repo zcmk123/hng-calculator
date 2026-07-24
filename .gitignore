@@ -16,3 +16,7 @@ dist-ssr
 # vite / build cache
 .vite
 *.tsbuildinfo
+
+# scripts 临时产物
+scripts/preview.html
+scripts/download-report.json

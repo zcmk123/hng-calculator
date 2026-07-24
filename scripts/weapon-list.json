@@ -1,0 +1,494 @@
+[
+  {
+    "id": 5,
+    "name": "M3 Grease Gun",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 16
+  },
+  {
+    "id": 6,
+    "name": "Maschinenpistole 34",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 16
+  },
+  {
+    "id": 7,
+    "name": "P08 Parabellum",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 17
+  },
+  {
+    "id": 8,
+    "name": "M1917 Revolver",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 17
+  },
+  {
+    "id": 9,
+    "name": "Degtyarev DP 28",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 14
+  },
+  {
+    "id": 10,
+    "name": "Mk II Grenade",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 9
+  },
+  {
+    "id": 11,
+    "name": "Stielhandgranate M24",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 9
+  },
+  {
+    "id": 12,
+    "name": "Mosin-Nagant 1891-30",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 12
+  },
+  {
+    "id": 14,
+    "name": "Tokarev SVT-40",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 11
+  },
+  {
+    "id": 15,
+    "name": "RGD-33",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 9
+  },
+  {
+    "id": 16,
+    "name": "M1 Carbine",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 11
+  },
+  {
+    "id": 17,
+    "name": "PMK-40",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 5
+  },
+  {
+    "id": 18,
+    "name": "TM-35",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 6
+  },
+  {
+    "id": 19,
+    "name": "M24 Fragmentation sleeve",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 9
+  },
+  {
+    "id": 20,
+    "name": "1911 Pistol",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 17
+  },
+  {
+    "id": 21,
+    "name": "Pistol C96",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 17
+  },
+  {
+    "id": 22,
+    "name": "Tula Tokarev 33",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 17
+  },
+  {
+    "id": 24,
+    "name": "PPD-40",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 16
+  },
+  {
+    "id": 31,
+    "name": "Maschinenpistole 40",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 16
+  },
+  {
+    "id": 32,
+    "name": "Thompson M1A1",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 16
+  },
+  {
+    "id": 33,
+    "name": "PPSh-41",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 16
+  },
+  {
+    "id": 34,
+    "name": "PTRD 1941",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 12
+  },
+  {
+    "id": 36,
+    "name": "RPG-43",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 7
+  },
+  {
+    "id": 40,
+    "name": "M1 Garand",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 11
+  },
+  {
+    "id": 43,
+    "name": "Karabiner 98 Kurz",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 12
+  },
+  {
+    "id": 44,
+    "name": "Gewehr 43",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 11
+  },
+  {
+    "id": 45,
+    "name": "M1918 Automatic Rifle",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 14
+  },
+  {
+    "id": 46,
+    "name": "Rifle M1903",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 12
+  },
+  {
+    "id": 47,
+    "name": "Fallschirmjägergewehr 42",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 14
+  },
+  {
+    "id": 49,
+    "name": "Sturmgewehr 44",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 13
+  },
+  {
+    "id": 50,
+    "name": "M2 Carbine",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 13
+  },
+  {
+    "id": 51,
+    "name": "Panzerfaust 60",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 8
+  },
+  {
+    "id": 52,
+    "name": "Bazooka M1A1",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 8
+  },
+  {
+    "id": 53,
+    "name": "Panzerschreck RPzB 54",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 8
+  },
+  {
+    "id": 54,
+    "name": "AVS-36",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 13
+  },
+  {
+    "id": 56,
+    "name": "M1A1 Carbine",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 11
+  },
+  {
+    "id": 57,
+    "name": "PPS-43",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 16
+  },
+  {
+    "id": 58,
+    "name": "Nagant M1895",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 17
+  },
+  {
+    "id": 59,
+    "name": "Panzerwurfmine Lang",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 7
+  },
+  {
+    "id": 61,
+    "name": "Maschinengewehr 42",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 14
+  },
+  {
+    "id": 62,
+    "name": "M1919A6 MG",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 14
+  },
+  {
+    "id": 63,
+    "name": "Maschinengewehr 34",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 14
+  },
+  {
+    "id": 66,
+    "name": "Johnson M1941 LMG",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 14
+  },
+  {
+    "id": 67,
+    "name": "P38 Parabellum",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 17
+  },
+  {
+    "id": 73,
+    "name": "German First Aid Kit",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 4
+  },
+  {
+    "id": 74,
+    "name": "Soviet First Aid Kit",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 4
+  },
+  {
+    "id": 75,
+    "name": "U.S. First Aid Kit",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 4
+  },
+  {
+    "id": 76,
+    "name": "1903 Pocket Hammerless",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 17
+  },
+  {
+    "id": 77,
+    "name": "Model 1934",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 17
+  },
+  {
+    "id": 78,
+    "name": "U.S. Medic Pouch",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 4
+  },
+  {
+    "id": 79,
+    "name": "Soviet Medic Pouch",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 4
+  },
+  {
+    "id": 80,
+    "name": "S-Mine",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 5
+  },
+  {
+    "id": 81,
+    "name": "M2A3",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 5
+  },
+  {
+    "id": 82,
+    "name": "Tellermine 42",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 6
+  },
+  {
+    "id": 83,
+    "name": "M1A1",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 6
+  },
+  {
+    "id": 84,
+    "name": "Hafthohlladung H3",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 7
+  },
+  {
+    "id": 85,
+    "name": "S.T. Grenade No.74",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 7
+  },
+  {
+    "id": 89,
+    "name": "German Medic Pouch",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 4
+  },
+  {
+    "id": 90,
+    "name": "Korovin TK",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 17
+  },
+  {
+    "id": 102,
+    "name": "Adjustable Wrench",
+    "factiontemplateid": 0,
+    "weaponcategoryid": 4
+  },
+  {
+    "id": 134,
+    "name": "Bazooka M9A1",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 8
+  },
+  {
+    "id": 135,
+    "name": "Panzerbüchse-39",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 12
+  },
+  {
+    "id": 136,
+    "name": "Granatbüchse-39",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 8
+  },
+  {
+    "id": 137,
+    "name": "Ampulomet Model 1941",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 8
+  },
+  {
+    "id": 138,
+    "name": "PTRS 1941",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 12
+  },
+  {
+    "id": 139,
+    "name": "M18 Recoilless Rifle",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 8
+  },
+  {
+    "id": 144,
+    "name": "Degtyarev DT-29",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 14
+  },
+  {
+    "id": 145,
+    "name": "Maxim-Tokarev MT",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 14
+  },
+  {
+    "id": 148,
+    "name": "Maschinengewehr 13",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 14
+  },
+  {
+    "id": 152,
+    "name": "Snowball",
+    "factiontemplateid": 0,
+    "weaponcategoryid": 7
+  },
+  {
+    "id": 153,
+    "name": "Easter Egg",
+    "factiontemplateid": 0,
+    "weaponcategoryid": 7
+  },
+  {
+    "id": 154,
+    "name": "Mk IIIA1 Offensive Grenade",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 9
+  },
+  {
+    "id": 155,
+    "name": "RG-42",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 9
+  },
+  {
+    "id": 156,
+    "name": "Stielhandgranate M24 Bundle",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 9
+  },
+  {
+    "id": 157,
+    "name": "RGD-33 Bundle",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 9
+  },
+  {
+    "id": 158,
+    "name": "Infantry Demolition Kit M1",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 9
+  },
+  {
+    "id": 160,
+    "name": "Infantry Demolition Kit M1",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 9
+  },
+  {
+    "id": 161,
+    "name": "FP-45 Liberator",
+    "factiontemplateid": 0,
+    "weaponcategoryid": 17
+  },
+  {
+    "id": 900,
+    "name": "M2 Flamethrower",
+    "factiontemplateid": 1,
+    "weaponcategoryid": 13
+  },
+  {
+    "id": 901,
+    "name": "Flammenwerfer 41",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 13
+  },
+  {
+    "id": 902,
+    "name": "ROKS-3 Flamethrower",
+    "factiontemplateid": 3,
+    "weaponcategoryid": 13
+  },
+  {
+    "id": 903,
+    "name": "Einstossflammenwerfer 46",
+    "factiontemplateid": 2,
+    "weaponcategoryid": 13
+  }
+]
