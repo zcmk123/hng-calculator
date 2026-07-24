@@ -57,14 +57,6 @@ const stockCfg = computed(() => ({
 }))
 const stockStats = useCompute(w, stockCfg)
 
-// 武器图片：public/weapons/{id}.png，切换武器时重置错误状态
-const imgOk = ref(true)
-const weaponImg = computed(() => {
-  if (!imgOk.value) return ''
-  return `${import.meta.env.BASE_URL}weapons/${w.value.id}.png`
-})
-watch(() => w.value.id, () => { imgOk.value = true })
-function onImgError() { imgOk.value = false }
 
 function onCompare() {
   versus.setEntry(0, w.value.id)
@@ -78,13 +70,6 @@ function onCompare() {
   <div>
     <header class="sheet-head">
       <div>
-        <img
-          v-if="weaponImg"
-          :src="weaponImg"
-          :alt="w.name"
-          class="weapon-thumb"
-          @error="onImgError"
-        />
         <div class="name">{{ w.name }}</div>
         <div class="meta">
           <Badge :text="t(facMeta.name)" faction :color="facMeta.color" />
