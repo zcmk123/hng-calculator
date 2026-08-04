@@ -20,7 +20,7 @@ const ui = useUiStore()
 
 const mul = computed(() => {
   const hb = HITBOX.find((h) => h.id === config.hitbox)!.mult
-  const hs = HEAVYSET.find((h) => h.id === config.heavyset)!.mult
+  const hs = config.hitbox === 'head' ? 1 : HEAVYSET.find((h) => h.id === config.heavyset)!.mult
   return hb * hs
 })
 

@@ -82,6 +82,10 @@ const typeLabel = computed(() =>
     isMine.value ? t('explosiveType.placed') : a.value.speed > 40 ? t('explosiveType.launched') : t('explosiveType.thrown'),
 )
 
+// coloured currency helpers — match in-game silver credits / gold
+const cr = (n: number | string) => `<span class="cr">${n} cr</span>`
+const gd = (n: number | string) => `<span class="gd">${n} g</span>`
+
 const spread = useSpread(
     computed(() => cone.value),
     computed(() => ui.spreadRange),
@@ -137,10 +141,10 @@ const isEconomyClosed = computed(() => ui.isSectionClosed(t('group.economy')))
                 <SectionGroup :title="t('group.economy')" :closed="isEconomyClosed"
                     @toggle="ui.toggleSection(t('group.economy'))">
                     <div class="grid">
-                        <StatCell v-if="costUse > 0" :k="t('stat.costPerUse')" :v="fmt(costUse, 2)"
-                            :unit="`${t('unit.cr')} · ${fmt(costUseG, 4)} ${t('unit.g')}`" />
+                        <StatCell v-if="costUse > 0" :k="t('stat.costPerUse')"
+                            :v="`${cr(fmt(costUse, 2))} ${gd(fmt(costUseG, 4))}`" />
                         <StatCell v-if="weapon.purchaseCostCredits" :k="t('stat.costToBuy')"
-                            :v="fmt(weapon.purchaseCostCredits)" :unit="`${t('unit.cr')} · ${fmt(weapon.purchaseCostGold)} ${t('unit.g')}`" />
+                            :v="`${cr(fmt(weapon.purchaseCostCredits))} ${gd(fmt(weapon.purchaseCostGold))}`" />
                         <StatCell v-else :k="t('stat.costToBuy')" :v="t('stat.free')" />
                     </div>
                 </SectionGroup>

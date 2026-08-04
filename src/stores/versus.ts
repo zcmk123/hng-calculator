@@ -28,6 +28,10 @@ export const useVersusStore = defineStore('versus', () => {
     stance: 'stand',
   })
 
+  // collapsible UI state for the versus view
+  const vsBarClosed = ref(false)
+  const vsGroupClosed = ref<Record<string, boolean>>({})
+
   function setEntry(idx: number, wid: number) {
     const w = WEAPONS.find((x) => x.id === wid)
     if (!w) return
@@ -67,14 +71,29 @@ export const useVersusStore = defineStore('versus', () => {
     ;(vs as Record<string, string>)[key] = val
   }
 
+  function toggleVsBar() {
+    vsBarClosed.value = !vsBarClosed.value
+  }
+  function toggleVsGroup(title: string) {
+    vsGroupClosed.value = { ...vsGroupClosed.value, [title]: !vsGroupClosed.value[title] }
+  }
+  function isVsGroupClosed(title: string): boolean {
+    return !!vsGroupClosed.value[title]
+  }
+
   return {
     entries,
     vs,
+    vsBarClosed,
+    vsGroupClosed,
     setEntry,
     clearEntry,
     setEntryAmmo,
     setEntryMod,
     setEntryMods,
     setVs,
+    toggleVsBar,
+    toggleVsGroup,
+    isVsGroupClosed,
   }
 })

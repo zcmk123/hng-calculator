@@ -32,6 +32,10 @@ const costUseG = computed(
 
 const typeLabel = computed(() => t(CATEGORIES[props.weapon.weaponcategoryid] || 'cat.equipment'))
 
+// coloured currency helpers — match in-game silver credits / gold
+const cr = (n: number | string) => `<span class="cr">${n} cr</span>`
+const gd = (n: number | string) => `<span class="gd">${n} g</span>`
+
 const isItemClosed = computed(() => ui.isSectionClosed(t('group.weapon')))
 const isEconomyClosed = computed(() => ui.isSectionClosed(t('group.economy')))
 </script>
@@ -62,14 +66,12 @@ const isEconomyClosed = computed(() => ui.isSectionClosed(t('group.economy')))
             <StatCell
               v-if="costUse > 0"
               :k="t('stat.costPerUse')"
-              :v="fmt(costUse, 2)"
-              :unit="`${t('unit.cr')} · ${fmt(costUseG, 4)} ${t('unit.g')}`"
+              :v="`${cr(fmt(costUse, 2))} ${gd(fmt(costUseG, 4))}`"
             />
             <StatCell
               v-if="weapon.purchaseCostCredits"
               :k="t('stat.costToBuy')"
-              :v="fmt(weapon.purchaseCostCredits)"
-              :unit="`${t('unit.cr')} · ${fmt(weapon.purchaseCostGold)} ${t('unit.g')}`"
+              :v="`${cr(fmt(weapon.purchaseCostCredits))} ${gd(fmt(weapon.purchaseCostGold))}`"
             />
             <StatCell v-else :k="t('stat.costToBuy')" :v="t('stat.free')" />
           </div>

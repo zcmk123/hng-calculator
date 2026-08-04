@@ -16,6 +16,7 @@ const props = defineProps<{
   delta?: number
   betterWhenUp?: boolean
   dd?: number
+  w?: 'n' | 'w'
 }>()
 
 const deltaHtml = computed(() => {
@@ -28,7 +29,7 @@ const deltaHtml = computed(() => {
 </script>
 
 <template>
-  <div class="cell" :class="{ hot, kill }">
+  <div class="cell" :class="{ hot, kill, 'cell-n': w === 'n', 'cell-w': w === 'w' }">
     <div class="k">{{ k }}</div>
     <div class="v">
       <span v-html="v"></span>
@@ -47,6 +48,8 @@ const deltaHtml = computed(() => {
   flex: 1 1 118px;
   min-width: 118px;
 }
+.cell-n { flex: 1 1 92px; min-width: 92px; }
+.cell-w { flex: 2 1 150px; min-width: 150px; }
 .cell .k {
   font-size: 10px;
   letter-spacing: .05em;

@@ -343,6 +343,11 @@ tbody tr:hover { background: var(--panel); }
 
 .hint { font-size: 12px; color: var(--ink-faint); margin-top: 4px; line-height: 1.4; }
 
+/* coloured currency numbers — match in-game silver credits / gold */
+.cr { color: #c3ccd4; white-space: nowrap; }
+.gd { color: #e7c15a; white-space: nowrap; }
+.cr small, .gd small { color: inherit; }
+
 /* spread range slider — 细轨道 + 黄铜手柄，复刻原站风格 */
 .rng {
   -webkit-appearance: none;

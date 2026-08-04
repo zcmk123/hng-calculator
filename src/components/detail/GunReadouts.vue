@@ -28,6 +28,17 @@ const ui = useUiStore()
 
 const swayLabel = computed(() => t(`stat.sway`, { stance: t(`stance.${config.stance}`) }))
 
+// Effective dmg label includes current hitbox + Heavy Set context
+const effLabel = computed(() => {
+    const hb = t(`hitbox.${config.hitbox}`)
+    const hs = config.heavyset !== 'none' ? ` · HS ${t(`badge.${config.heavyset}`)}` : ''
+    return t('stat.effectiveDamage', { ctx: `${hb}${hs}` })
+})
+
+// coloured currency helpers — match in-game silver credits / gold
+const cr = (n: number | string) => `<span class="cr">${n} cr</span>`
+const gd = (n: number | string) => `<span class="gd">${n} g</span>`
+
 const spread = useSpread(
     computed(() => props.stats.cone),
     computed(() => ui.spreadRange),
@@ -47,22 +58,24 @@ const isEconomyClosed = computed(() => ui.isSectionClosed(t('group.economy')))
                     @toggle="ui.toggleSection(t('group.damage'))">
                     <div class="grid">
                         <StatCell :k="t('stat.rateOfFire')" :v="fmt(stats.rpm)" :unit="t('unit.rpm')" hot
-                            :delta="stats.rpm - base.rpm" :better-when-up="true" />
-                        <StatCell :k="t('stat.magazine')" :v="stats.mag" :unit="t('unit.rds')" />
+                            :delta="stats.rpm - base.rpm" :better-when-up="true" w="n" />
                         <StatCell :k="t('stat.reload')" :v="fmt(stats.reload, 2)" :unit="t('unit.s')"
-                            :delta="stats.reload - base.reload" :dd="2" :better-when-up="false" />
-                        <StatCell :k="t('stat.damage')" :v="`${fmt(stats.dmgNear)} → ${fmt(stats.dmgFar)}`"
-                            :unit="t('unit.hp')" hot :delta="stats.dmgNear - base.dmgNear" :better-when-up="true" />
+                            :delta="stats.reload - base.reload" :dd="2" :better-when-up="false" w="n" />
+                        <StatCell :k="t('stat.magazine')" :v="stats.mag" :unit="t('unit.rds')" w="n" />
+                        <StatCell :k="t('stat.mags')" :v="stats.mags" w="n" />
+                        <StatCell :k="effLabel"
+                            :v="`${fmt(stats.effNear, 0)} → ${fmt(stats.effFar, 0)}`"
+                            :unit="t('unit.hp')" hot :delta="stats.effNear - base.effNear" :dd="0"
+                            :better-when-up="true" w="w" />
                         <StatCell :k="t('stat.dps')" :v="`${fmt(stats.dpsNear)} → ${fmt(stats.dpsFar)}`"
-                            :unit="t('unit.hpPerS')" hot />
-                        <StatCell :k="t('stat.htk')" :v="`${stats.htkNear} → ${stats.htkFar}`" kill />
+                            :unit="t('unit.hpPerS')" hot w="w" />
+                        <StatCell :k="t('stat.htk')" :v="`${stats.htkNear} → ${stats.htkFar}`" kill w="n" />
                         <StatCell :k="t('stat.ttk')" :v="`${fmt(stats.ttkNear)} → ${fmt(stats.ttkFar)}`"
-                            :unit="t('unit.ms')" kill />
-                        <StatCell :k="t('stat.velocity')" :v="fmt(stats.velocity)" :unit="t('unit.mPerS')" />
-                        <StatCell :k="t('stat.range')" :v="`${fmt(stats.rNear)} → ${fmt(stats.rFar)}`"
-                            :unit="t('unit.m')" />
-                        <StatCell :k="t('stat.maxRange')" :v="fmt(stats.rMax)" :unit="t('unit.m')" />
-                        <StatCell :k="t('stat.mags')" :v="stats.mags" />
+                            :unit="t('unit.ms')" kill w="w" />
+                        <StatCell :k="t('stat.range')" :v="`${fmt(stats.rNear, 0)} → ${fmt(stats.rFar, 0)}`"
+                            :unit="t('unit.m')" w="w" />
+                        <StatCell :k="t('stat.maxRange')" :v="fmt(stats.rMax)" :unit="t('unit.m')" w="n" />
+                        <StatCell :k="t('stat.velocity')" :v="fmt(stats.velocity)" :unit="t('unit.mPerS')" w="n" />
                     </div>
                 </SectionGroup>
 
@@ -70,14 +83,14 @@ const isEconomyClosed = computed(() => ui.isSectionClosed(t('group.economy')))
                     @toggle="ui.toggleSection(t('group.armor'))">
                     <div class="grid">
                         <StatCell :k="t('stat.armorDmg')" :v="`${fmt(stats.armorMin)}–${fmt(stats.armorMax)}`"
-                            :unit="t('unit.hp')" />
-                        <StatCell :k="t('stat.armorDps')" :v="fmt(stats.armorDPS)" :unit="t('unit.hpPerS')" />
-                        <StatCell :k="t('stat.armorPen')" :v="`${fmt(stats.penMin, 1)}–${fmt(stats.penMax, 1)}`"
-                            :unit="t('unit.mm')" />
+                            :unit="t('unit.hp')" w="w" />
+                        <StatCell :k="t('stat.armorDps')" :v="fmt(stats.armorDPS)" :unit="t('unit.hpPerS')" w="n" />
+                        <StatCell :k="t('stat.armorPenNear')"
+                            :v="`${fmt(stats.penMin, 1)}–${fmt(stats.penMax, 1)}`" :unit="t('unit.mm')" w="w" />
                         <StatCell :k="t('stat.armorPenFar')"
-                            :v="`${fmt(stats.penFarMin, 1)}–${fmt(stats.penFarMax, 1)}`" :unit="t('unit.mm')" />
+                            :v="`${fmt(stats.penFarMin, 1)}–${fmt(stats.penFarMax, 1)}`" :unit="t('unit.mm')" w="w" />
                         <StatCell :k="t('stat.penRange')" :v="`${fmt(stats.penNearRange)}–${fmt(stats.penFarRange)}`"
-                            :unit="t('unit.m')" />
+                            :unit="t('unit.m')" w="n" />
                     </div>
                 </SectionGroup>
 
@@ -104,12 +117,9 @@ const isEconomyClosed = computed(() => ui.isSectionClosed(t('group.economy')))
                 <SectionGroup :title="t('group.economy')" :closed="isEconomyClosed"
                     @toggle="ui.toggleSection(t('group.economy'))">
                     <div class="grid">
-                        <StatCell :k="t('stat.costPerShot')" :v="`${fmt(stats.costPerShot, 2)}`"
-                            :unit="`${t('unit.cr')} · ${fmt(stats.costPerShotG, 4)} ${t('unit.g')}`" />
-                        <StatCell :k="t('stat.costPerMag')" :v="`${fmt(stats.costPerMag, 2)}`"
-                            :unit="`${t('unit.cr')} · ${fmt(stats.costPerMagG, 4)} ${t('unit.g')}`" />
-                        <StatCell :k="t('stat.costToBuy')" :v="`${fmt(stats.buy)}`"
-                            :unit="`${t('unit.cr')} · ${fmt(stats.buyG)} ${t('unit.g')}`" />
+                        <StatCell :k="t('stat.costPerShot')" :v="`${cr(fmt(stats.costPerShot, 2))} ${gd(fmt(stats.costPerShotG, 4))}`" />
+                        <StatCell :k="t('stat.costPerMag')" :v="`${cr(fmt(stats.costPerMag, 2))} ${gd(fmt(stats.costPerMagG, 4))}`" />
+                        <StatCell :k="t('stat.costToBuy')" :v="`${cr(fmt(stats.buy))} ${gd(fmt(stats.buyG))}`" />
                         <StatCell :k="t('stat.ep')" :v="stats.ep" />
                     </div>
                 </SectionGroup>

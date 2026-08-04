@@ -54,9 +54,13 @@ const validCols = computed(() => cols.value.filter((c): c is NonNullable<typeof 
 
 const hitMul = computed(() => {
   const hb = HITBOX.find((h) => h.id === versus.vs.hitbox)!.mult
-  const hs = HEAVYSET.find((h) => h.id === versus.vs.heavyset)!.mult
+  const hs = versus.vs.hitbox === 'head' ? 1 : HEAVYSET.find((h) => h.id === versus.vs.heavyset)!.mult
   return hb * hs
 })
+
+// coloured currency helpers — match in-game silver credits / gold
+const cr = (n: number | string) => `<span class="cr">${n} cr</span>`
+const gd = (n: number | string) => `<span class="gd">${n} g</span>`
 
 // VS_GROUPS — grouped stat rows; "better" picks the winner for highlighting
 type Row = {
@@ -97,12 +101,12 @@ const VS_GROUPS: Group[] = [
     rows: [
       { label: t('stat.rateOfFire'), unit: t('unit.rpm'), better: 'up', get: (_w, s) => s.rpm, dd: 0 },
       {
-        label: t('stat.damage'),
+        label: t('stat.effectiveDamage'),
         unit: t('unit.hp'),
         better: 'up',
-        get: (_w, s) => s.dmgNear,
+        get: (_w, s) => s.effNear,
         dd: 0,
-        disp: (_w, s) => `${fmt(s.dmgNear)} → ${fmt(s.dmgFar)}`,
+        disp: (_w, s) => `${fmt(s.effNear, 0)} → ${fmt(s.effFar, 0)}`,
       },
       {
         label: t('stat.dps'),
@@ -128,7 +132,18 @@ const VS_GROUPS: Group[] = [
         disp: (_w, s) => `${fmt(s.ttkNear)} → ${fmt(s.ttkFar)}`,
       },
       { label: t('stat.magazine'), unit: t('unit.rds'), better: 'up', get: (_w, s) => s.mag, dd: 0 },
+      { label: t('stat.mags'), better: 'up', get: (_w, s) => s.mags, dd: 0 },
       { label: t('stat.reload'), unit: t('unit.s'), better: 'down', get: (_w, s) => s.reload, dd: 2 },
+      {
+        label: t('stat.range'),
+        unit: t('unit.m'),
+        better: 'up',
+        get: (_w, s) => s.rNear,
+        dd: 0,
+        disp: (_w, s) => `${fmt(s.rNear, 0)} → ${fmt(s.rFar, 0)}`,
+      },
+      { label: t('stat.maxRange'), unit: t('unit.m'), better: 'up', get: (_w, s) => s.rMax, dd: 0 },
+      { label: t('stat.velocity'), unit: t('unit.mPerS'), better: 'up', get: (_w, s) => s.velocity, dd: 0 },
     ],
   },
   {
@@ -144,27 +159,34 @@ const VS_GROUPS: Group[] = [
       },
       { label: t('stat.armorDps'), unit: t('unit.hpPerS'), better: 'up', get: (_w, s) => s.armorDPS, dd: 0 },
       {
-        label: t('stat.armorPen'),
+        label: t('stat.armorPenNear'),
         unit: t('unit.mm'),
         better: 'up',
         get: (_w, s) => (s.penMin + s.penMax) / 2,
         dd: 1,
         disp: (_w, s) => `${fmt(s.penMin, 1)}–${fmt(s.penMax, 1)}`,
       },
+      {
+        label: t('stat.armorPenFar'),
+        unit: t('unit.mm'),
+        better: 'up',
+        get: (_w, s) => (s.penFarMin + s.penFarMax) / 2,
+        dd: 1,
+        disp: (_w, s) => `${fmt(s.penFarMin, 1)}–${fmt(s.penFarMax, 1)}`,
+      },
+      {
+        label: t('stat.penRange'),
+        unit: t('unit.m'),
+        better: 'up',
+        get: (_w, s) => s.penFarRange,
+        dd: 0,
+        disp: (_w, s) => `${fmt(s.penNearRange)}–${fmt(s.penFarRange)}`,
+      },
     ],
   },
   {
     title: t('group.handling'),
     rows: [
-      {
-        label: t('stat.range'),
-        unit: t('unit.m'),
-        better: 'up',
-        get: (_w, s) => s.rNear,
-        dd: 0,
-        disp: (_w, s) => `${fmt(s.rNear, 0)} → ${fmt(s.rFar, 0)}`,
-      },
-      { label: t('stat.velocity'), unit: t('unit.mPerS'), better: 'up', get: (_w, s) => s.velocity, dd: 0 },
       { label: t('stat.cone'), unit: t('unit.deg'), better: 'down', get: (_w, s) => s.cone, dd: 3 },
       {
         label: t('stat.recoilUp'),
@@ -173,17 +195,40 @@ const VS_GROUPS: Group[] = [
         dd: 3,
         disp: (_w, s) => `${fmt(s.recoilUp, 3)} / ${fmt(s.recoilRight, 3)}`,
       },
-      { label: t('stat.equipTime'), unit: t('unit.s'), better: 'down', get: (_w, s) => s.equiptime, dd: 2 },
+      { label: t('stat.recoilSpread'), better: 'down', get: (_w, s) => s.recoilVar, dd: 3 },
+      { label: t('stat.bloom'), better: 'down', get: (_w, s) => s.bloom, dd: 2 },
+      { label: t('stat.sway'), better: 'down', get: (_w, s) => s.sway, dd: 2 },
+      { label: t('stat.swaySpeed'), better: 'down', get: (_w, s) => s.swayspeed, dd: 2 },
       { label: t('stat.swayFatigue'), better: 'down', get: (_w, s) => s.swayFatigue, dd: 2 },
       { label: t('stat.turnPenalty'), better: 'down', get: (_w, s) => s.turnPenalty, dd: 2 },
+      { label: t('stat.equipTime'), unit: t('unit.s'), better: 'down', get: (_w, s) => s.equiptime, dd: 2 },
     ],
   },
   {
     title: t('group.economy'),
     rows: [
       { label: t('stat.ep'), better: 'down', get: (w) => w.equipmentPointsCost, dd: 0 },
-      { label: t('stat.costPerShot'), unit: t('unit.cr'), better: 'down', get: (_w, s) => s.costPerShot, dd: 2 },
-      { label: t('stat.costToBuy'), unit: t('unit.cr'), better: 'down', get: (_w, s) => s.buy, dd: 0 },
+      {
+        label: t('stat.costPerShot'),
+        better: 'down',
+        get: (_w, s) => s.costPerShot,
+        dd: 2,
+        disp: (_w, s) => `${cr(fmt(s.costPerShot, 2))} ${gd(fmt(s.costPerShotG, 4))}`,
+      },
+      {
+        label: t('stat.costPerMag'),
+        better: 'down',
+        get: (_w, s) => s.costPerMag,
+        dd: 2,
+        disp: (_w, s) => `${cr(fmt(s.costPerMag, 2))} ${gd(fmt(s.costPerMagG, 4))}`,
+      },
+      {
+        label: t('stat.costToBuy'),
+        better: 'down',
+        get: (_w, s) => s.buy,
+        dd: 0,
+        disp: (_w, s) => `${cr(fmt(s.buy))} ${gd(fmt(s.buyG))}`,
+      },
     ],
   },
 ]
@@ -230,31 +275,37 @@ const legend = computed(() => {
 
 <template>
   <div class="versusView">
-    <!-- shared scenario bar -->
-    <div class="vs-presets">
-      <div class="vs-preset">
-        <label>{{ t('versus.hitLocation') }}</label>
-        <SegButtons :items="HITBOX" :current="versus.vs.hitbox" @pick="versus.setVs('hitbox', $event)" />
+    <!-- shared scenario bar — always-visible header, collapsible body -->
+    <div class="vs-presetwrap" :class="{ closed: versus.vsBarClosed }">
+      <div class="vs-presethead" @click="versus.toggleVsBar()">
+        <span>{{ t('versus.scenarioBadges') }}</span>
+        <span class="cur">▾</span>
       </div>
-      <div class="vs-preset">
-        <label>{{ t('versus.heavySet') }}</label>
-        <SegButtons :items="HEAVYSET" :current="versus.vs.heavyset" @pick="versus.setVs('heavyset', $event)" />
-      </div>
-      <div class="vs-preset">
-        <label>{{ t('versus.fastReload') }}</label>
-        <SegButtons :items="FASTRELOAD" :current="versus.vs.fastReload" @pick="versus.setVs('fastReload', $event)" />
-      </div>
-      <div class="vs-preset">
-        <label>{{ t('versus.ironFist') }}</label>
-        <SegButtons :items="IRONFIST" :current="versus.vs.ironFist" @pick="versus.setVs('ironFist', $event)" />
-      </div>
-      <div class="vs-preset">
-        <label>{{ t('versus.grenadier') }}</label>
-        <SegButtons :items="GRENADIER" :current="versus.vs.grenadier" @pick="versus.setVs('grenadier', $event)" />
-      </div>
-      <div class="vs-preset">
-        <label>{{ t('versus.stance') }}</label>
-        <SegButtons :items="STANCES" :current="versus.vs.stance" @pick="versus.setVs('stance', $event)" />
+      <div class="vs-presets">
+        <div class="vs-preset">
+          <label>{{ t('versus.hitLocation') }}</label>
+          <SegButtons :items="HITBOX" :current="versus.vs.hitbox" @pick="versus.setVs('hitbox', $event)" />
+        </div>
+        <div class="vs-preset">
+          <label>{{ t('versus.heavySet') }}</label>
+          <SegButtons :items="HEAVYSET" :current="versus.vs.heavyset" @pick="versus.setVs('heavyset', $event)" />
+        </div>
+        <div class="vs-preset">
+          <label>{{ t('versus.fastReload') }}</label>
+          <SegButtons :items="FASTRELOAD" :current="versus.vs.fastReload" @pick="versus.setVs('fastReload', $event)" />
+        </div>
+        <div class="vs-preset">
+          <label>{{ t('versus.ironFist') }}</label>
+          <SegButtons :items="IRONFIST" :current="versus.vs.ironFist" @pick="versus.setVs('ironFist', $event)" />
+        </div>
+        <div class="vs-preset">
+          <label>{{ t('versus.grenadier') }}</label>
+          <SegButtons :items="GRENADIER" :current="versus.vs.grenadier" @pick="versus.setVs('grenadier', $event)" />
+        </div>
+        <div class="vs-preset">
+          <label>{{ t('versus.stance') }}</label>
+          <SegButtons :items="STANCES" :current="versus.vs.stance" @pick="versus.setVs('stance', $event)" />
+        </div>
       </div>
     </div>
 
@@ -292,23 +343,26 @@ const legend = computed(() => {
           </thead>
           <tbody v-if="validCols.length >= 2">
             <template v-for="(g, gi) in VS_GROUPS" :key="gi">
-              <tr class="vs-grouprow">
-                <td class="vs-grouplbl" :colspan="1 + validCols.length">{{ g.title }}</td>
-              </tr>
-              <tr v-for="(row, ri) in g.rows" :key="gi + '-' + ri">
-                <td class="vs-lbl">{{ row.label }}</td>
-                <td
-                  v-for="(c, ci) in validCols"
-                  :key="ci"
-                  :class="{ 'vs-win': isBest(row, ci), 'vs-text': row.text }"
-                >
-                  <span v-if="row.text">{{ cellText(row, c.w, c.s) }}</span>
-                  <span v-else>
-                    {{ cellText(row, c.w, c.s) }}<small v-if="row.unit"> {{ row.unit }}</small>
-                  </span>
+              <tr class="vs-grouprow" :class="{ closed: versus.isVsGroupClosed(g.title) }"
+                @click="versus.toggleVsGroup(g.title)">
+                <td class="vs-grouplbl" :colspan="1 + validCols.length">
+                  <span class="cur">▾</span> {{ g.title }}
                 </td>
-                <td v-for="k in 3 - validCols.length" :key="'pad-' + k" class="vs-empty"></td>
               </tr>
+              <template v-if="!versus.isVsGroupClosed(g.title)">
+                <tr v-for="(row, ri) in g.rows" :key="gi + '-' + ri">
+                  <td class="vs-lbl">{{ row.label }}</td>
+                  <td
+                    v-for="(c, ci) in validCols"
+                    :key="ci"
+                    :class="{ 'vs-win': isBest(row, ci), 'vs-text': row.text }"
+                  >
+                    <span v-if="row.text">{{ cellText(row, c.w, c.s) }}</span>
+                    <span v-else v-html="cellText(row, c.w, c.s) + (row.unit ? ` <small>${row.unit}</small>` : '')"></span>
+                  </td>
+                  <td v-for="k in 3 - validCols.length" :key="'pad-' + k" class="vs-empty"></td>
+                </tr>
+              </template>
             </template>
           </tbody>
         </table>
@@ -342,14 +396,34 @@ const legend = computed(() => {
 <style scoped lang="scss">
 .versusView { display: flex; flex-direction: column; gap: 16px; }
 
+.vs-presetwrap {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.vs-presethead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 14px;
+  cursor: pointer;
+  user-select: none;
+  font-family: "Oswald";
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 12px;
+  color: var(--brass);
+}
+.vs-presethead .cur { transition: transform .12s; font-size: 10px; }
+.vs-presetwrap.closed .cur { transform: rotate(-90deg); }
+.vs-presetwrap.closed .vs-presets { display: none; }
+
 .vs-presets {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 16px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 10px 12px;
+  padding: 4px 14px 14px;
 }
 .vs-preset { display: flex; flex-direction: column; gap: 4px; min-width: 180px; }
 .vs-preset label {
@@ -391,6 +465,10 @@ const legend = computed(() => {
 .vs-picktop { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
 .vs-dot { display: inline-block; width: 9px; height: 9px; border-radius: 2px; flex: 0 0 auto; }
 .vs-grouprow { background: var(--panel-2); }
+.vs-grouprow .vs-grouplbl { cursor: pointer; user-select: none; }
+.vs-grouprow .cur { display: inline-block; font-size: 9px; transition: transform .12s; color: var(--brass); margin-right: 4px; }
+.vs-grouprow.closed .cur { transform: rotate(-90deg); }
+.vs-grouprow:hover .vs-grouplbl { color: var(--ink); }
 .vs-grouplbl {
   font-family: "Oswald";
   text-transform: uppercase;

@@ -187,6 +187,10 @@ export interface Stats {
   swayspeed: number
   dpsNear: number
   dpsFar: number
+  effNear: number
+  effFar: number
+  effDpsNear: number
+  effDpsFar: number
   htkNear: number
   htkFar: number
   ttkNear: number

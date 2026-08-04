@@ -60,9 +60,13 @@ export function compute(w: Weapon, cfg: Cfg): Stats {
 
   // 非空断言改为兜底，避免脏数据导致 TypeError
   const hb = (HITBOX.find((h) => h.id === cfg.hitbox) || { mult: 1 }).mult
-  const hs = (HEAVYSET.find((h) => h.id === cfg.heavyset) || { mult: 1 }).mult
+  const hsRaw = (HEAVYSET.find((h) => h.id === cfg.heavyset) || { mult: 1 }).mult
+  // headshots bypass Heavy Set armor badge
+  const hs = cfg.hitbox === 'head' ? 1 : hsRaw
   const perNear = dmgNear * hb * hs
   const perFar = dmgFar * hb * hs
+  // effective per-hit damage & dps against the selected hit location + Heavy Set
+  const effNear = perNear, effFar = perFar, effDpsNear = perNear * rpm / 60, effDpsFar = perFar * rpm / 60
   // perNear=0 时 htkNear 会变 Infinity，这里上限为 999 让 UI 可读
   const htkNear = perNear > 0 ? Math.max(1, Math.ceil(TARGET_HP / perNear)) : 999
   const htkFar = perFar > 0 ? Math.max(1, Math.ceil(TARGET_HP / perFar)) : 999
@@ -132,6 +136,10 @@ export function compute(w: Weapon, cfg: Cfg): Stats {
     swayspeed: w.swayspeed,
     dpsNear,
     dpsFar,
+    effNear,
+    effFar,
+    effDpsNear,
+    effDpsFar,
     htkNear,
     htkFar,
     ttkNear,
