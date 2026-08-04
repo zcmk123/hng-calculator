@@ -90,7 +90,7 @@ function onMove(ev: MouseEvent | TouchEvent) {
   const rect = svg.getBoundingClientRect()
   const clientX = 'touches' in ev ? ev.touches[0]?.clientX ?? 0 : ev.clientX
   const px = clientX - rect.left
-  let d = ((px / rect.width) * W - pad.l) / iw
+  let d = (((px / rect.width) * W - pad.l) / iw) * geometry.value.maxD
   d = Math.max(0, Math.min(geometry.value.maxD, d))
   const v = props.yAt(d)
   const vx = geometry.value.X(d)
@@ -174,7 +174,7 @@ function onLeave() {
           stroke-width="2.5"
         />
         <!-- crosshair + dot -->
-        <g v-show="cross.show">
+        <g v-if="cross.show">
           <line
             :x1="cross.x"
             :x2="cross.x"

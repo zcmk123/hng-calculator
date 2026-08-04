@@ -112,7 +112,7 @@ function onMove(ev: MouseEvent | TouchEvent) {
   const clientX = 'touches' in ev ? ev.touches[0]?.clientX ?? 0 : ev.clientX
   const px = clientX - rect.left
   const svgX = (px / rect.width) * W
-  let d = (svgX - pad.l) / iw
+  let d = ((svgX - pad.l) / iw) * geom.value.maxD
   d = Math.max(0, Math.min(geom.value.maxD, d))
   const vx = geom.value.X(d)
   crossX.value = { x: vx, show: true }
@@ -211,7 +211,7 @@ function onLeave() {
         />
         <!-- crosshair -->
         <line
-          v-show="crossX.show"
+          v-if="crossX.show"
           :x1="crossX.x"
           :x2="crossX.x"
           :y1="pad.t"
@@ -221,15 +221,15 @@ function onLeave() {
           opacity=".5"
         />
         <!-- series dots -->
-        <circle
-          v-for="(d, i) in dots"
-          :key="'dot' + i"
-          v-show="d.show"
-          :cx="d.x"
-          :cy="d.y"
-          r="3.5"
-          :fill="d.color"
-        />
+        <template v-for="(d, i) in dots" :key="'dot' + i">
+          <circle
+            v-if="d.show"
+            :cx="d.x"
+            :cy="d.y"
+            r="3.5"
+            :fill="d.color"
+          />
+        </template>
       </svg>
       <div
         class="mc-tip"
